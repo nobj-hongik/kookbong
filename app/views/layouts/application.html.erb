@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>한국철봉</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header class="navbar navbar-toggleable-md  navbar-inverse bg-inverse sticky-top " >
+  <nav class="container">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" style="margin-top:5px">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/posts"><%= image_tag("templogo.png", :class => "navlogo") %></a>
+        <div id="navbarNavDropdown" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Menu1</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Menu1</a>
+                </li>                
+            </ul>
+            <ul class="navbar-nav">
+            <% if !user_signed_in? %>              
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/sign_in">Sign in</a>
+                </li>
+                <li>
+                    <%= link_to "페이스북 로그인","#", class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/sign_up">Sign up</a>
+                </li>
+            <% else %> 
+                <li class="nav-item">
+                    <a class="nav-link" href="#">My page</a>
+                </li>            
+                <li class="nav-item">
+                    <%= link_to 'Logout', destroy_user_session_path, method: 'delete', class: "nav-link" %>
+                </li>
+            <%end%>    
+            </ul>
+  </nav>
+</header>     
+    <%= yield %>
+    
+</body>
+</html>
+<style>
+  .navlogo{
+    width:115px;
+  }
+  .navbar-brand{
+    max-width:115px;
+  }
+  .nav-link{
+    margin-right:15px;
+    font-size:19px;
+  }
+  </style>
