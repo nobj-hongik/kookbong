@@ -1,2 +1,23 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="container">
+    <br><br>  
+        <%if current_user %>
+            <h1 class="text-center">Success bro!</h1>
+            <p class="text-center"><%=current_user.email%></p>
+            <h2 class="text-center">너의 이름은? <%=current_user.name%></h2>
+            <div class="text-center">
+                <%if current_user.image %>
+                <img src="<%=current_user.image%>" class="profileimage img-fluid">
+                <%else%>
+                <img src="<%=current_user.avatar%>" class="profileimage img-fluid">
+                <%end%>
+            </div>
+        <%else%>    
+            <h1 class="text-center">Not yet bro sorry..</h1>
+        <%end%>    
+</div>
+
+<style>
+    .profileimage{
+        width:150px;
+    }
+</style>

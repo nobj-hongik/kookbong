@@ -5,6 +5,11 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="한국철봉(국봉)">
+<meta property="og:url" content="https://facebookmaster-donsworkout.c9users.io/">
+<meta property="og:description" content="한국의 모든 철봉을 찾아라">
+<meta property="og:image" content="http://postfiles9.naver.net/MjAxNzA4MDdfMTk5/MDAxNTAyMDkwMDc0ODgy.Ib2J2z83QdPK0p1ktrFGw9Pm4SYeVA2qaLFquY2uGQMg.GfcqYhs8ns6GcwLWGy8vYqauMyCsu4H5y8_emrLIF6Ig.PNG.dickings/meta.png?type=w2">    
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -13,7 +18,7 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" style="margin-top:5px">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="/posts"><%= image_tag("templogo.png", :class => "navlogo") %></a>
+  <a class="navbar-brand" href="/posts"><%= image_tag("mainlogowhite.png", :class => "navlogo") %></a>
         <div id="navbarNavDropdown" class="navbar-collapse collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -29,20 +34,17 @@
             <ul class="navbar-nav">
             <% if !user_signed_in? %>              
                 <li class="nav-item">
-                    <a class="nav-link" href="/users/sign_in">Sign in</a>
-                </li>
-                <li>
-                    <%= link_to "페이스북 로그인","#", class: "nav-link" %>
+                    <a class="nav-link" href="/users/sign_in">로그인</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/users/sign_up">Sign up</a>
+                    <a class="nav-link" href="/users/sign_up">가입하기</a>
                 </li>
             <% else %> 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">My page</a>
+                    <a href="/posts/profile/<%=current_user.id %>/" class="nav-link">마이페이지</a></li>
                 </li>            
                 <li class="nav-item">
-                    <%= link_to 'Logout', destroy_user_session_path, method: 'delete', class: "nav-link" %>
+                    <%= link_to '로그아웃', destroy_user_session_path, method: 'delete', class: "nav-link"%>
                 </li>
             <%end%>    
             </ul>
@@ -64,3 +66,4 @@
     font-size:19px;
   }
   </style>
+  

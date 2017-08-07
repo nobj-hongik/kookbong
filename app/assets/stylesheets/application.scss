@@ -13,9 +13,10 @@
  *= require_tree .
  *= require_self
  */
+@import url(//cdn.rawgit.com/hiun/NanumSquare/master/nanumsquare.css);
 @import "bootstrap";
 html *{
-    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Nanum Square';
 }
 @include media-breakpoint-down(xs) {
     .container {

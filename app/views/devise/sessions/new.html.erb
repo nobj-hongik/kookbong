@@ -1,26 +1,115 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div class="wraper" id="wrapper2">
+      <div class="row">
+        <div class="col-12 col-md-3 col-lg-4"></div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <br><br>
+          <div class="container">
+                <div class="card opacity">
+                  <div class="card-block">
+                    <div class="top">
+                          <div class="center-btn">
+                            <%= image_tag("mainlogo.png", :class => "loger1") %>
+                          </div>
+                    </div>
+                            <h4 style="font-weight:bold; margin-bottom:12px">한국철봉 로그인</h4>
+                            <p class="font22">
+                            회원가입시 입력했던 정확한 이메일로 로그인 해 주세요.
+                            아직 가입을 안하셨다면, 가입해 주세요.
+                            </p>
+                            <br>
+                            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                              <div class="form-group">
+                                <%= f.label :email,"이메일" ,class: "control-label"%><br />
+                                <%= f.email_field :email, autofocus: true, class: "form-control" %>
+                              </div>
+                            
+                              <div class="form-group">
+                                <%= f.label :password,"비밀번호",class: "control-label" %><br />
+                                <%= f.password_field :password, autocomplete: "off" ,class: "form-control" %>
+                              </div>
+                            
+                              <% if devise_mapping.rememberable? -%>
+                                <div class="form-group">
+                                  <%= f.check_box :remember_me %>
+                                  <%= f.label :remember_me,"기억하기" %>
+                                </div>
+                              <% end -%>
+                              <div class="actions">
+                                <div class="center-btn">
+                                  <%= f.submit "로그인", class: "btn btn-primary" %>
+                                </div>
+                              </div>
+                            <% end %>
+                            <br>
+                        <%= link_to user_facebook_omniauth_authorize_path do %>
+                          <div class="center-btn">
+                            <%= image_tag("fbloginbt.png", :class => "bt1 img-fluid fbbt") %>
+                          </div>
+                        <%end%> 
+                        <br>
+                        <%= link_to user_kakao_omniauth_authorize_path do %>
+                          <div class="center-btn">
+                            <%= image_tag("ktloginbt.png", :class => "bt1 img-fluid fbbt") %>
+                          </div>
+                        <%end%>                          
+                        <br> <br>
+                            <%= render "devise/shared/links" %>
+                        </div>    
+                  </div>
+                  <br><br>
+                  <div class="col-12 col-md-3 col-lg-4"></div>
+              </div>    
+          </div>
+        </div>
+<div>
+  
+<style>
+.fbbt{
+  opacity:0.8;
+}
+.fbbt:hover{
+  opacity:1;
+}
+.bt1{
+  width:240px;
+}
+.wraper{
+background-image: url('/assets/back1.jpg')
+}
+#wrapper2{
+    height:960px;
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    -webkit-perspective: 770px;
+    -o-perspective: 770px;
+    perspective: 770px;
+}
+.opacity {
+  opacity: 0.85;
+}
+.top{
+  padding-top:20px;
+  padding-bottom:30px;  
+}
+.font22{
+  font-size:14px;
+}
+.loger1{
+  width:170px;
+}
+.btn-primary{
+    background-color:#585a5e;
+    border: 0.3px solid black;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+</style>

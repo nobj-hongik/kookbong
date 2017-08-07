@@ -24,13 +24,16 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'figaro'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-kakao', :git => 'git://github.com/hcn1519/omniauth-kakao'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'carrierwave'
+gem 'mini_magick' 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
