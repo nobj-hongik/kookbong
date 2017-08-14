@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'devise', git: 'https://github.com/plataformatec/devise.git' 
 # Use jquery as the JavaScript library
+gem 'cancancan' 
+gem 'rolify'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

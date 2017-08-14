@@ -162,7 +162,9 @@
                       <div class="col-3 col-md-2 col-lg-4"></div>
                       <div class="col-6 col-md-8 col-lg-4" style="padding-top:23px; padding-bottom:15px;">
                               <%= image_tag("gbtalk.png", :class => "gblogo img-fluid") %>
-                              <%= image_tag("gothere.png", :class => "gothere img-fluid") %>
+                              <%= link_to uposts_path , class: "" do%>
+                                  <%= image_tag("gothere.png", :class => "gothere img-fluid") %>
+                              <%end%>    
                        </div>  
                       <div class="col-5 col-md-2 col-lg-4"></div>                     
                     </div>    

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,8 +8,10 @@ class User < ActiveRecord::Base
    mount_uploader :avatar, AvatarUploader         
    has_many :eposts, :dependent => :delete_all
    has_many :tposts, :dependent => :delete_all
+   has_many :uposts, :dependent => :delete_all
    has_many :ecomments, :dependent => :delete_all
    has_many :tcomments, :dependent => :delete_all   
+   has_many :ucomments, :dependent => :delete_all    
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # user와 identity가 nil이 아니라면 받는다

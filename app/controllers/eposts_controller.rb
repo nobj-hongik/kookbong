@@ -13,7 +13,6 @@ before_action :check_ownership, only: [:edit, :update, :destroy]
       else
         redirect_to new_epost_path
       end    
-      
   end 
   
   def new

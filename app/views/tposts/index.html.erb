@@ -57,6 +57,7 @@
             </div>
                   <div class="col-xs-0 col-sm-0 col-md-8 py-10 clearfix">
                         <% @posts.each do |post| %>
+                            <% $ajaxpost=post %>
                             <%= render partial: "tposts/tpost", locals: { post: post}%>
                         <% end %>  
                         <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
