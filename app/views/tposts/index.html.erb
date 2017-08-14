@@ -1,0 +1,207 @@
+<div class="container">
+          <div class="row py-3 flex-items-sm-center">
+            <div class="col-xs-12 col-sm-12 col-md-4 py-2 clearfix">
+              <div class="card profile-card">
+                <figure>
+                        <div class="center-btn">
+                            <%if @user.image %>
+                            <img src="<%=@user.image%>" class="img-fluid rounded-circle tt" alt="Card image">
+                            <%elsif @user.avatar.url %>
+                            <img src="<%= @user.avatar.url %>" class="img-fluid rounded-circle tt" alt="Card image"> 
+                            <%else%>
+                            <%= image_tag("ph1.png", :class => "img-fluid rounded-circle tt") %>
+                            <%end%>
+                        </div>    
+                </figure>
+                <div class="card-block text-xs-center" style="padding-top:0px;">
+                  <p class="h4 card-title font-weight-bold text-center"><%=@user.name%>
+                      <%if @user.fbcheck==1 && @user.fb %>
+                          <a class="" href="<%=@user.fb%>">
+                              <%= image_tag("fbicon.png", :class => "snsbtn img-fluid") %>
+                          </a>
+                      <%end%> 
+                      <%if @user.instacheck==1 && @user.insta %>
+                          <a class="" href="https://www.instagram.com/<%=@user.insta%>">
+                                 <%= image_tag("instaicon.png", :class => "snsbtn img-fluid") %>
+                          </a>
+                      <%end%>       
+                      </p>
+                  <% if current_user== @user %>
+                        <div class="center-btn">
+                                 <%= image_tag("editorbtn.png", :class => "btsmall2") %>    
+                                 <%= link_to edit_user_registration_path, :class=>"topper" do %>
+                                     <%= image_tag("editprobt.png", :class => "btsmall2 hoverer1") %>
+                                 <% end %>                                   
+                        </div>  
+                 <%else%>
+                        <div class="center-btn">
+                                     <%= image_tag("editorbtn.png", :class => "btsmall2") %>
+                        </div>
+                 <%end%>        
+                  <p class="h6 card-subtitle text-muted" style="margin-top:18px">
+                            <%=@user.info%>
+                  </p>
+                  <br>
+                <% if current_user== @user %> 
+                      <div class="center-btn">
+                          <%= link_to "훈련 기록하기", new_tpost_path, :class=>"btn btn-primary" %>
+                      </div>
+                <%else%>
+                      <div class="center-btn">
+                          <%= link_to "팔로우", "#", :class=>"btn btn-primary" %>
+                      </div>                
+                <%end%>
+                  <br>
+                </div>
+              </div>
+            </div>
+                  <div class="col-xs-0 col-sm-0 col-md-8 py-10 clearfix">
+                        <% @posts.each do |post| %>
+                            <%= render partial: "tposts/tpost", locals: { post: post}%>
+                        <% end %>  
+                        <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+                  </div> 
+          </div>
+</div>
+<style>
+.snsbtn{
+    width:25px;
+    padding-bottom:3px;
+}
+.hoverer1{
+    opacity:0.7;
+}
+.hoverer1:hover{
+    opacity:1;
+}
+.card{
+	box-shadow: 0px 0px 20px #DFDFDF;
+	border: none;
+	border-radius: 0;
+}
+
+input.fab {
+	display: none
+}
+.wrapme{
+    margin-bottom:50px;
+}
+.img-profile:hover {
+    -webkit-clip-path: circle(100% at 60% 38%);
+    clip-path: circle(100% at 60% 38%);
+}
+
+.fab:checked+.toggle {
+	color: #fff;
+	background: #F44336;
+	transform: rotate(135deg);
+	box-shadow: 2px -2px 4px #333;
+	transition: all 0.3s ease-in-out 0s;
+}
+.tt{
+    margin-top:20px;
+    width:150px;
+}
+.btsmall{
+    width:80px;
+    padding-bottom:7px;
+}
+.btsmall2{
+    width:82px;
+    padding-bottom:8px;
+}
+.btn-primary{
+    background-color:#585a5e;
+    border: 0.3px solid black;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+    a:hover{
+      text-decoration:none;
+    }
+    .title2{
+         font-size:13px;
+          position:relative;
+          top:-11px;
+          padding-left:3px;
+    } 
+    .title3{
+         font-size:16px;
+         font-weight:bold;
+         color:#565759;
+          position:relative;
+          top:3px;
+          padding-left:12px;
+    }   
+    .comcont{
+       padding-left:13px;
+       font-size:14px; 
+       margin-bottom:10px;
+       padding-top:7px;       
+    }
+    .timeforman2{
+        font-size:10px;
+       position:relative;
+          top:-3px;
+          padding-left:3px;
+    }    
+    .timeforman1{
+        font-size:10px;
+       position:relative;
+          top:6px;
+    }   
+    .timeforman{
+        font-size:10px;
+       position:relative;
+          top:-0.5px;
+    }
+    .card-title2{
+        font-size:15px;
+          position:relative;
+          top:-0.5px;
+          padding-left:0px;
+    }
+    .blanker{
+        margin-right:10px;
+    }    
+    .smaller{
+        padding-left:0px;
+        padding-right:0px;
+    }    
+    .listlink{
+      font-size:14px;
+      margin-right:8px;
+    }
+    .subclass{
+      font-weight:bold;
+      font-size:15px;
+      padding-top:5px;
+      margin-bottom:6px;
+    }
+    .ct{
+      width:30px;
+    }
+    .tarea{
+        height:100px;
+    }
+    .thumb1{
+        width:32px;
+    }
+    .thumb2{
+        width:60px;
+    }    
+</style>
+
+<script>
+$(window).scroll(function() {
+  sessionStorage.scrollTop = $(this).scrollTop();
+});
+$(document).ready(function() {
+  if (sessionStorage.scrollTop != "undefined") {
+    $(window).scrollTop(sessionStorage.scrollTop);
+  }
+});    
+</script>

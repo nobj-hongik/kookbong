@@ -11,7 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170804093134) do
+ActiveRecord::Schema.define(version: 20170812063456) do
+
+  create_table "ecomments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "epost_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "epost_images", force: :cascade do |t|
+    t.string   "alt"
+    t.string   "hint"
+    t.string   "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "eposts", force: :cascade do |t|
+    t.string   "title"
+    t.string   "thumb"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -22,6 +47,22 @@ ActiveRecord::Schema.define(version: 20170804093134) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+
+  create_table "tcomments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "tpost_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tposts", force: :cascade do |t|
+    t.text     "content"
+    t.string   "image"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   default: "", null: false
@@ -40,6 +81,11 @@ ActiveRecord::Schema.define(version: 20170804093134) do
     t.datetime "updated_at",                          null: false
     t.string   "image"
     t.string   "avatar"
+    t.string   "bimage"
+    t.string   "fb"
+    t.string   "insta"
+    t.integer  "fbcheck"
+    t.integer  "instacheck"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

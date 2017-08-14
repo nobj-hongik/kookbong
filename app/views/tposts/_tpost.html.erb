@@ -1,0 +1,74 @@
+ <% $ajaxpost= post %>
+                    <div class="wrapme">    
+                                 <div class="card" style="margin-top:10px; background-color:#f9f9f9;" data-id="<%= post.id %>">
+                                     <div class="container">
+                                             <div class="card-block" style="border-bottom:1px solid #e0e0e0 ; padding-bottom:8px;padding-top:8px; padding-left:0px;">
+                                                  <%if post.user.avatar.thumb.url %>
+                                                          <%= link_to controller: "tposts", action: "index", :user_id => post.user_id,:class=>"bthover" do %>
+                                                              <img class="rounded-circle thumb1" src="<%= post.user.avatar.url %>" />
+                                                          <%end%>               
+                                                      <%elsif post.user.image %>
+                                                          <%= link_to controller: "tposts", action: "index", :user_id => post.user_id,:class=>"bthover" do %>
+                                                              <img class="rounded-circle thumb1" src="<%= post.user.image %>" />
+                                                          <%end%>   
+                                                      <%else%>
+                                                          <%= link_to controller: "tposts", action: "index", :user_id => post.user_id,:class=>"bthover" do %>
+                                                              <%= image_tag("ph1.png", :class => "rounded-circle thumb1") %>
+                                                          <%end%>                                                       
+                                                  <%end%>
+                                                  
+                                                  <span class="card-title2"><%= post.user.name %></span>
+                                                  <span class="timeforman"><%= distance_of_time_in_words Time.now, post.created_at%></span>
+                                          <% if !user_signed_in? %> 
+                                          <%else%>
+                                              <% if current_user.id == post.user.id %>
+                                                  <%= link_to image_tag("deleteiconsm.png"), tpost_path(post), method: "delete", class: "float-right",:data => {:confirm => '진짜 지워요?'} %>
+                                                  <%= link_to image_tag("editiconsm.png"), edit_tpost_path(post), class: "float-right blanker"%>
+                                              <%end%>
+                                          <% end %>                                            
+                                            </div>
+                                            <div class="card-img-top">
+                                              <% if post.image.url %>
+                                              <img src="<%= post.image.url %>" class="img-fluid">
+                                              <%end%>
+                                            </div>      
+                                            <br>                                    
+                                            <div class="card-block" >
+                                                      <p><%= simple_format(post.content) %></p>
+                                            </div>
+                                          <br>
+                                                <%= form_tag tpost_tcomments_path(post) , remote: true do %>
+                                                    <% if !user_signed_in? %> 
+                                                    <div class="form-group">
+                                                    <fieldset disabled>
+                                                      <div class="input-field smaller">
+                                                        <%= text_area_tag :content, nil, class: "form-control", placeholder: "회원만 댓글을 쓸 수 있습니다.", required: true %>
+                                                      </div>
+                                                      <br>
+                                                      <div class="input-field center-btn">
+                                                        <%= button_tag "댓글 쓰기", class: "btn btn-secondary" %>
+                                                      </div>
+                                                      </fieldset>
+                                                      </div>
+                                                      <hr>                                                    
+                                                    <%else%>
+                                                    <div class="form-group" style="padding-bottom:10px;">
+                                                      <div class="input-field smaller">
+                                                        <%= text_area_tag :content, nil, class: "form-control tarea", placeholder: "댓글을 작성해 주세요", required: true %>
+                                                      </div>
+                                                      <br>
+                                                      <div class="input-field center-btn">
+                                                        <%= button_tag "댓글 쓰기", class: "btn btn-primary" %>
+                                                      </div>
+                                                      </div> 
+                                                      <hr>
+                                                    <%end%>  
+                                                <% end %>         
+                                           <div id="tcomments">
+                                                    <% post.tcomments.reverse.each do |comment| %>
+                                                            <%= render partial: "tcomments/item", locals: { comment: comment, post: post}%>
+                                                     <%end%>
+                                          </div>  
+                                    </div>
+                                  </div>
+</div>

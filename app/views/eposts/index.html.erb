@@ -1,0 +1,170 @@
+<section>
+    <div class="ban2" id="ban2">
+        <div class="center-btn"> 
+              <%= image_tag("gstitle.png", :class => "img-fluid imgsizer2") %>
+        </div> 
+            <div class="center-btn">
+                 <%= link_to new_epost_path, :class=>"" do %>
+                     <%= image_tag("btnobo.png", :class => "button1") %>
+                 <% end %>
+            </div> 
+    </div> 
+    
+<div class="container">
+    <br>        
+    <div class="row rowup">
+        <div class="card-deck">
+            <% @posts.each do |post| %>
+                        <div class="res col-12 col-md-4 d-flex justify-content-center" style="margin-bottom:20px">
+                            <%= link_to epost_path(post.id), :class=>"hoverer" do %> 
+                                    <div class="card card-inverse">
+                                                 <img class="card-img img-fluid" src="<%= post.thumb.url %>" alt="Card image">
+                                        <div class="card-footer">
+                                          <span class="text-muted" style="margin-bottom:0px; margin-top:5px;"><%=post.title%></span>
+                                         <p class="text-muted" style="font-size:12px; margin-top:5px; margin-bottom:0px">Written by <%=post.user.name%></p>
+                                        </div>
+                                    </div>
+                            <%end%>              
+                        </div> 
+            <% end %>
+        </div>    
+    </div> 
+    
+    <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+    <br>
+</div>
+</section>
+<style>
+section{
+        background-color:#e5e5e5;
+        min-height:1200px;
+}
+    .card{
+        margin-bottom:14px;
+    }
+    .bng{
+        max-height:140px;
+    }
+    .card-title1{
+        font-size:16px;
+        color:#424242;
+        margin-bottom:4px;
+    }
+    .whoer{
+        padding-top:3px;
+        font-size:13px;
+        margin-bottom:0px;
+    }
+    .cardfoot{
+        border-top:1px solid #e0e0e0;
+    }
+    .colorer{
+        color:#ff1744;
+    }
+    .colorized1{
+        background-color:#464540;
+    }
+    .alignimg{
+        margin-bottom:12px;
+    }
+    .sizer{
+        width:55px;
+    }
+    .blankerbt{
+        margin-bottom:20px;
+    }
+    .sizer2{
+        padding-left:5px;
+        padding-top:3px;
+        width:78px;
+        opacity:0.7;
+    }
+    .sizer2:hover{
+        opacity:1.0;
+    }
+        .imgsizer{
+        width:320px;
+        padding-bottom:0px;
+    }
+    .imgsizer2{
+        padding-top:60px;
+        width:190px;
+    }
+   
+
+.ban2{
+background-image: url('/assets/backgr3.png')
+}
+#ban2{
+    height:180px;
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-perspective: 400px;
+    -o-perspective: 400px;
+    perspective: 400px;
+    margin-bottom:20px;
+}
+    .button1{
+        width:90px;
+        opacity:0.8;
+    }
+    .button2{
+        width:110px;
+        opacity:0.8;
+    }    
+    .button1:hover{
+        opacity:1.0;
+    }  
+    .button2:hover{
+        opacity:1.0;
+    }   
+    .hoverer{
+        opacity:0.82;
+    }
+    .hoverer:hover{
+        opacity:1.0;
+        text-decoration:none;
+    }    
+    #textarea1:focus {
+  border-bottom: 1px solid black;
+  box-shadow: 0 1px 0 0 #616161;
+}
+.tt{
+    margin:4px;
+}
+.card-img{
+    width:550px;
+}
+
+.card {
+	background: #fff;
+	box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	img {
+		width: 100%;
+	}
+}
+
+.rowup{
+	margin-bottom: 1em;
+  justify-content: center;
+}
+
+ .res{
+	background: #efefef;
+	border: 1px solid #ddd;
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+	width: 100%;
+}
+.thumb1{
+    height:52px;
+    width:52px;
+    padding-right:10px;
+}
+</style>

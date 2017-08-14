@@ -1,9 +1,7 @@
 class PostsController < ApplicationController
   def index
+      @posts = Epost.order('created_at DESC').limit(3)
   end
   
-  def profile
-      @user = User.find(params[:user_id])
-  end  
   
 end

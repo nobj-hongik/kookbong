@@ -27,3 +27,30 @@ html *{
 .center-btn{
     text-align: center; 
 }
+
+.pagination {
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.page-item.active .page-link {
+    z-index: 2;
+    color: #fff;
+    background-color: #6b6e72;
+    border-color: #4a4b4c;
+}
+.page-link{
+    color:black;
+}
+.page-link:hover{
+    color:#545759;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+iframe[src*=youtube]
+{
+  max-width:100%;
+  min-height:100%;
+}

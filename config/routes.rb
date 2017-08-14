@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  get 'eposts/index'
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" , :registrations=>'registrations'  }
   root 'posts#index'
   resources :posts
-  get 'posts/profile/:user_id' => "posts#profile"   
+  resources :tposts , except: [:show] do
+    resources :tcomments, only: [:create, :destroy] 
+  end 
+  
+  resources :eposts do
+     resources :ecomments, only: [:create, :destroy] 
+  end
+  get 'tposts/index/:user_id' => "tposts#index"   
+  post '/tinymce_assets' => 'tinymce_assets#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

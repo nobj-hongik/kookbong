@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook,:kakao]
    mount_uploader :avatar, AvatarUploader         
+   has_many :eposts, :dependent => :delete_all
+   has_many :tposts, :dependent => :delete_all
+   has_many :ecomments, :dependent => :delete_all
+   has_many :tcomments, :dependent => :delete_all   
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # user와 identity가 nil이 아니라면 받는다
@@ -20,16 +24,28 @@ class User < ActiveRecord::Base
       unless self.where(email: auth.info.email).exists?
         
         # 없다면 새로운 데이터를 생성한다.
-        if user.nil?
+        if user.nil? && auth.provider=="kakao"
           user = User.new(
-            image: auth.info.image,
+            image:  auth.info.image,
+            bimage: auth.extra.properties.profile_image,
             name: auth.info.name,
-            email: auth.info.email || auth.extra.properties.kaccount_email ||"#{auth.uid}@kookbbong.com",
+            email: auth.info.email || "#{auth.uid}@kookbbong.com",
             password: Devise.friendly_token[0,20]
           )            
           
           user.save!
         end
+        
+        if user.nil? && auth.provider=="facebook"
+          user = User.new(
+            image:  auth.info.image,
+            name: auth.info.name,
+            email: auth.info.email || "#{auth.uid}@kookbbong.com",
+            password: Devise.friendly_token[0,20]
+          )            
+          
+          user.save!
+        end  
         
       end
     

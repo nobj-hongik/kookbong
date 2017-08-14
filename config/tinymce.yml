@@ -1,0 +1,9 @@
+
+toolbar:
+  - undo redo | bold italic | alignleft aligncenter alignright | uploadimage media link
+plugins:
+  - uploadimage
+  - link
+  - media
+branding: false 
+height: 300px

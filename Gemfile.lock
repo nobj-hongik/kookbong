@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/PerfectlyNormal/tinymce-rails-imageupload.git
+  revision: 34a105e77f1746913b8989ad67b75c6f9bc4e8c8
+  specs:
+    tinymce-rails-imageupload (4.0.17.beta.3)
+      railties (>= 3.2, < 6)
+      tinymce-rails (~> 4.0)
+
+GIT
   remote: git://github.com/hcn1519/omniauth-kakao
   revision: d9d1fae71b51e198df62e82e878fd417f6fe3cdb
   specs:
@@ -227,9 +235,8 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    turbolinks (5.0.1)
-      turbolinks-source (~> 5)
-    turbolinks-source (5.0.3)
+    tinymce-rails (4.6.5)
+      railties (>= 3.1.1)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
@@ -242,6 +249,9 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    will_paginate (3.1.6)
+    will_paginate-bootstrap4 (0.1.2)
+      will_paginate (~> 3.0, >= 3.0.9)
 
 PLATFORMS
   ruby
@@ -266,9 +276,12 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   spring
   sqlite3
-  turbolinks
+  tinymce-rails
+  tinymce-rails-imageupload!
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  will_paginate
+  will_paginate-bootstrap4
 
 BUNDLED WITH
    1.15.3

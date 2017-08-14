@@ -1,0 +1,84 @@
+<%= tinymce_assets %>
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-0 col-md-2"></div>
+    <div class="card col-12 col-md-8">
+      <div class="card-block">
+        <br>
+        <div class="text-center card-title"><h3>Editor 수정</h3></div><br>
+        <%= form_tag epost_path(@post), method: "patch", multipart: true do %>
+          <div class="input-field">
+            <%= label_tag :thumb, "썸네일 이미지" ,class: "control-label"%><br><br>
+            <img src="<%= @post.thumb.url %>" id="img_prev" class="prev-img img-fluid centerer sizer1"/> <br/> 
+                  <br>
+            <%= file_field_tag :thumb, "id" => "image-upload" , class: "form-control" %>
+            <input type="hidden" name="image_cache">
+          </div>
+          <br>        
+          <br>
+          <div class="input-field">
+             <%= label_tag :title ,'제목', class: "control-label" %><br>
+            <%= text_field_tag :title,@post.title, class: "form-control"%>
+          </div>        
+          <br><br>
+          <div class="input-field">
+            <%= label_tag '내용' %><br>
+            <%= text_area_tag :content,@post.content, :class => "tinymce", :rows => 40, :cols => 120 %>
+            <%= tinymce %>
+          </div>
+          
+          <br>
+          <div class="input-field">
+              <div class="center-btn">
+            <%= button_tag "수정하기", class: "btn btn-primary" %>
+            </div>
+          </div>
+          <br>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-0 col-md-2"></div>
+  </div>
+  <br><br>
+</div>
+
+<style>
+.btn-primary{
+    background-color:#585a5e;
+    border: 0.3px solid black;
+}
+.centerer{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+.sizer1{
+  width:200px;
+}
+</style>
+
+<script>
+  $(function() {
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#img_prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#image-upload").change(function(){
+    $('#img_prev').removeClass('invisible');
+    readURL(this);
+  });
+});
+</script>

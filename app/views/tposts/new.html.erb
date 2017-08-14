@@ -1,0 +1,82 @@
+<div class="container">
+  <br>
+  <div class="row">
+      <div class="col-0 col-md-2 "></div>
+              <div class="card col-12 col-md-8">  
+                  <div class="card-block">
+                      <br>
+                    <div class="center-btn">    
+                     <%= image_tag("pagetitle.png", :class => "titlecs") %>    
+                    </div> 
+                    <div class="text-center card-title"><h3>훈련일지 작성</h3></div><br><br>
+                    <%= form_tag tposts_path, multipart: true do %>
+                      <div class="form-group">
+                        <%= label_tag :image, "첨부 이미지" ,class: "control-label"%>
+                        <img src="#" id="img_prev" class="invisible prev-img img-fluid centerer sizer1"/> <br/> 
+                              <br>
+                        <%= file_field_tag :image, "id" => "image-upload" , class: "form-control" %>
+                        <input type="hidden" name="image_cache">
+                      </div>        
+                      <br><br>
+                      <div class="form-group">
+                        <%= text_area_tag :content, nil, :class =>'form-control', :rows => 7, :cols => 120, placeholder: "오늘의 훈련이나 식단을 올려보세요!" %>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                          <div class="center-btn">
+                        <%= button_tag "작성하기", class: "btn btn-primary" %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+              </div>
+      <div class="col-0 col-md-2"></div> 
+      
+  </div>
+  <br><br>
+</div>
+<style>
+
+.btn-primary{
+    background-color:#585a5e;
+    border: 0.3px solid black;
+}
+.centerer{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+.sizer1{
+  width:250px;
+}
+.titlecs{
+  width:170px;
+  margin-bottom:15px;
+}
+</style>
+
+<script>
+  $(function() {
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#img_prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#image-upload").change(function(){
+    $('#img_prev').removeClass('invisible');
+    readURL(this);
+  });
+});
+    $('select').material_select();
+</script>

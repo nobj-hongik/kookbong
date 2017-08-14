@@ -1,0 +1,12 @@
+(function($){
+    var html = "<%= escape_javascript(render(partial: 'tcomments/item', locals: {comment: @new_comment})) %>";
+    $("#tcomments").prepend(html);
+})(jQuery)
+
+
+
+
+
+
+
+

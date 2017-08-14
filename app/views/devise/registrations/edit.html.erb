@@ -1,43 +1,195 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <div class="ban1" id="ban1">
+        <br><br>
+            <div class="center-btn">
+              <%= image_tag("mainlogowhite.png", :class => "img-fluid imgsizer3") %>
+            </div>
+   <h3 class="ll text-center">프로필 수정</h3>
+    </div>
+<div class="container">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= devise_error_messages! %>
+              <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-4">   
+                       <div class="card botmar">
+                          <div class="card-block">
+                            <div class="form-group">
+                              <p class="h4 card-title font-weight-bold text-center">프로필 사진</p><br>
+                              <div class="center-btn">
+                                 <% if current_user.avatar.url %>
+                                    <img src="<%= current_user.avatar.url %>" id="img_prev" class="img-fluid centerer" alt="your image"/> <br/>              
+                                 <%elsif current_user.image %>
+                                   <img src="<%= current_user.image %>" id="img_prev" class="img-fluid centerer" alt="your image"/> <br/>
+                                 <% else %>
+                                     <%= image_tag("ph1.png", :class => "img-fluid centerer") %><br/> 
+                                 <%end%>  
+                              </div>
+                              <br>
+                              <% if current_user.image %>
+                                  <p class="text-center" style="font-size:14px;">SNS를 통해 변경해 주세요 :)</p>
+                              <% else %>
+                                  <%= f.file_field :avatar, "id" => "avatar-upload",:class=>"form-control"%>
+                                  <input type="hidden" name="avatar_cache">    
+                              <%end%>    
+                            </div>
+                          </div>
+                      </div> 
+                    </div>
+                    <div class="col-xs-0 col-sm-0 col-md-8"> 
+                        <div class="card">
+                            <div class="card-block">
+                                 <p class="h4 card-title font-weight-bold text-center">상세정보 수정</p><br>
+                             <h4 style="margin-bottom:25px;">기본정보</h4>                                 
+                                <%if current_user.avatar.url==nil %>
+                                  <div class="form-group">
+                                    <%= f.label :email, "이메일 (올바른 이메일로 수정 해 주세요) ", :class=>"control-label"%>
+                                    <%= f.email_field :email,:class=>"form-control"%>
+                                  </div>
+                                <%else%>
+                                  <div class="form-group">
+                                    <label for="disabledTextInput">Disabled input</label>
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                  </div>                        
+                                <%end%>    
+                                  <div class="form-group">
+                                    <%= f.label :name, "이름", :class=>"control-label"%>
+                                    <%= f.text_field :name,:class=>"form-control", autofocus: true,:maxlength => 8%>
+                                  </div>
+                                  <br>
+                                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                                  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                                <% end %>
+                              <% if current_user.image==nil %>                         
+                                <div class="form-group ">
+                                  <%= f.label :password,"변경할 비밀번호" %><br />
+                                  <%= f.password_field :password, autocomplete: "off",:class=>"form-control",placeholder: "변경을 원하지 않으면 비워두세요!(최소 6자이상)"  %>
+                                  <% if @minimum_password_length %>
+                                    <br />
+                                  <% end %>
+                                </div>
+                              
+                                <div class="form-group ">
+                                  <%= f.label :password_confirmation,"비밀번호 확인" %><br />
+                                  <%= f.password_field :password_confirmation, autocomplete: "off",:class=>"form-control" %>
+                                </div>
+                             <%end%>  
+                             <br>
+                             <h4 style="margin-bottom:25px;">SNS</h4>
+                                  <div class="form-group">
+                                  <%= f.label :insta,"인스타그램 ID"%>
+                                  <%= f.text_field :insta, autofocus: true,:class=>"form-control"%>
+                                  </div>                                
+                                    <div class="form-group">
+                                        <%= f.label "공개여부",:class=>"cbox" %>  &nbsp;
+                                        <%= f.check_box :instacheck,:class=>"cboxd" %> <br />
+                                    </div>                                
+                                  <div class="form-group">
+                                  <%= f.label :fb,"페이스북 주소"%>
+                                  <%= f.text_field :fb, autofocus: true,:class=>"form-control" %>
+                                  </div>
+                                    <div class="form-group">
+                                        <%= f.label "공개여부",:class=>"cbox" %> &nbsp;
+                                        <%= f.check_box :fbcheck,:class=>"cboxd" %> <br />
+                                    </div>                                     
+                                <br>  
+                                  <div class="form-group">
+                                  <%= f.label :info,"간단한 소개(운동 경력 등)", :class=>'active' %>
+                                  <%= f.text_area :info, autofocus: true,:maxlength => 100,:class=>"form-control",:rows=>4 %>
+                                  </div>
+                                
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+                                <br>
+                                <div class="form-group ">
+                                  <div class="center-btn">
+                                    <%= f.submit "수정하기",class: "btn btn-primary" %>
+                                  </div>
+                                </div>
+                            <br>
+                                </div>    
+                        </div>  
+                    </div>  
+              </div>
+                <% end %>
+                <br><br>
+                  <p class="aligner">계정을 삭제합니다</p>
+                  <%= link_to "계정삭제", registration_path(resource_name), data: { confirm: "확실합니까?" }, method: :delete,:class =>'btn btn-danger float-right'%>
+<br>
+<br><br><br>
+</div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+<style>
+  .aligner{
+    text-align:right;
+  }
+.ll{
+    font-size:18px;
+    font-weight:bold;
+    color:white;
+    padding-top:10px;
+}
+.btn-primary{
+    background-color:#585a5e;
+    border: 0.3px solid black;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+.imgsizer3{
+  padding-top:0px;
+    width:180px;
+}
+.ban1{
+background-image: url('/assets/backgr3.png')
+}
+#ban1{
+    height:220px;
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-perspective: 400px;
+    -o-perspective: 400px;
+    perspective: 400px;
+    margin-bottom:30px;
+}   
+.card{
+	box-shadow: 0px 0px 20px #DFDFDF;
+	border: none;
+	border-radius: 0;
+}  
+.botmar{
+  margin-bottom:30px;
+}
+.card-title{
+  margin-top:10px;
+}
+.cbox{
+  font-size:16px;
+}
+</style>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+<script>
+  $(function() {
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+      reader.onload = function (e) {
+        $('#img_prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  $("#avatar-upload").change(function(){
+    $('#img_prev').removeClass('invisible');
+    readURL(this);
+  });
+});
+</script>
