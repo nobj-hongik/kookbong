@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
    has_many :eposts, :dependent => :delete_all
    has_many :tposts, :dependent => :delete_all
    has_many :uposts, :dependent => :delete_all
+   has_many :bars, :dependent => :delete_all
+   has_many :barimages, :dependent => :delete_all
    has_many :ecomments, :dependent => :delete_all
    has_many :tcomments, :dependent => :delete_all   
    has_many :ucomments, :dependent => :delete_all    

@@ -11,7 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170814065704) do
+ActiveRecord::Schema.define(version: 20170815065602) do
+
+  create_table "barimages", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "bar_id"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bars", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "grip"
+    t.string   "location"
+    t.string   "height"
+    t.string   "review"
+    t.integer  "score"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "image1"
+    t.string   "image2"
+    t.string   "image3"
+    t.string   "image4"
+    t.string   "image5"
+    t.string   "image6"
+    t.string   "image7"
+    t.string   "equip"
+    t.string   "simplelocation"
+  end
 
   create_table "ecomments", force: :cascade do |t|
     t.integer  "user_id"

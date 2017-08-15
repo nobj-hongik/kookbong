@@ -1,0 +1,165 @@
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-0 col-md-2"></div>
+    <div class="card col-12 col-md-8">
+      <div class="card-block">
+        <br>
+        <div class="text-center card-title"><h3>철봉정보 업로드</h3></div><br>
+        <%= form_tag bars_path, multipart: true do %>
+          <div class="input-field">
+            <%= label_tag :image1, "이미지1" ,class: "control-label"%><br><br>
+            <img src="#" id="img_prev" class="invisible prev-img img-fluid centerer sizer1"/> <br/> 
+                  <br>
+            <%= file_field_tag :image1, "id" => "image-upload" , class: "form-control" %>
+            <input type="hidden" name="image_cache">
+          </div>        
+          <br>        
+          <br>
+          <div class="input-field">
+            <%= label_tag :image2, "이미지2" ,class: "control-label"%><br><br>
+            <img src="#" id="img_prev" class="invisible prev-img img-fluid centerer sizer1"/> <br/> 
+                  <br>
+            <%= file_field_tag :image2, "id" => "image-upload" , class: "form-control" %>
+            <input type="hidden" name="image_cache">
+          </div>        
+          <br>        
+          <br>
+          <div class="input-field">
+            <%= label_tag :image3, "이미지3" ,class: "control-label"%><br><br>
+            <img src="#" id="img_prev" class="invisible prev-img img-fluid centerer sizer1"/> <br/> 
+                  <br>
+            <%= file_field_tag :image3, "id" => "image-upload" , class: "form-control" %>
+            <input type="hidden" name="image_cache">
+          </div>        
+          <br>        
+          <br>
+          <div class="input-field">
+            <%= label_tag :image4, "이미지4" ,class: "control-label"%><br><br>
+            <img src="#" id="img_prev" class="invisible prev-img img-fluid centerer sizer1"/> <br/> 
+                  <br>
+            <%= file_field_tag :image4, "id" => "image-upload" , class: "form-control" %>
+            <input type="hidden" name="image_cache">
+          </div>        
+          <br>        
+          <br>
+          <div class="input-field">
+            <%= label_tag :image5, "이미지5" ,class: "control-label"%><br><br>
+            <img src="#" id="img_prev" class="invisible prev-img img-fluid centerer sizer1"/> <br/> 
+                  <br>
+            <%= file_field_tag :image5, "id" => "image-upload" , class: "form-control" %>
+            <input type="hidden" name="image_cache">
+          </div>        
+          <br>        
+          <br>
+          <div class="input-field">
+            <%= label_tag :image6, "이미지6" ,class: "control-label"%><br><br>
+            <img src="#" id="img_prev" class="invisible prev-img img-fluid centerer sizer1"/> <br/> 
+                  <br>
+            <%= file_field_tag :image6, "id" => "image-upload" , class: "form-control" %>
+            <input type="hidden" name="image_cache">
+          </div>        
+          <br>        
+          <br>
+          <div class="input-field">
+            <%= label_tag :image7, "이미지7" ,class: "control-label"%><br><br>
+            <img src="#" id="img_prev" class="invisible prev-img img-fluid centerer sizer1"/> <br/> 
+                  <br>
+            <%= file_field_tag :image7, "id" => "image-upload" , class: "form-control" %>
+            <input type="hidden" name="image_cache">
+          </div>        
+          <br>        
+          <br>          
+          <div class="input-field">
+             <%= label_tag :title ,'제목', class: "control-label" %><br>
+            <%= text_field_tag :title, nil, class: "form-control"%>
+          </div>        
+          <br><br>
+          <div class="input-field">
+             <%= label_tag :simplelocation ,'시/구', class: "control-label" %><br>
+            <%= text_field_tag :simplelocation, nil, class: "form-control"%>
+          </div>   
+          <br>    
+          <div class="input-field">
+             <%= label_tag :location ,'상세주소', class: "control-label" %><br>
+            <%= text_field_tag :location, nil, class: "form-control"%>
+          </div>   
+          <br>         
+          <div class="input-field">
+                <%= text_area_tag :review, nil, :class =>'form-control', :rows => 6, :cols => 120, placeholder: "에디터 리뷰" %>
+          </div>
+          <br>
+          <div class="input-field">
+             <%= label_tag :height ,'높이', class: "control-label" %><br>
+            <%= text_field_tag :heigth, nil, class: "form-control"%>
+          </div>   
+          <br>
+          <div class="input-field">
+             <%= label_tag :grip ,'그립', class: "control-label" %><br>
+            <%= text_field_tag :grip, nil, class: "form-control"%>
+          </div>   
+          <br>
+          <div class="input-field">
+             <%= label_tag :equip ,'장비', class: "control-label" %><br>
+            <%= text_field_tag :equip, nil, class: "form-control"%>
+          </div>   
+          <br>            
+          <div class="input-field">
+             <%= label_tag :score ,'점수', class: "control-label" %><br>
+            <%= number_field_tag :score, nil, class: "form-control"%>
+          </div>   
+          <br>          
+          <div class="input-field">
+              <div class="center-btn">
+            <%= button_tag "저장", class: "btn btn-primary" %>
+            </div>
+          </div>
+          <br>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-0 col-md-2"></div>
+  </div>
+  <br><br>
+</div>
+
+<style>
+.btn-primary{
+    background-color:#585a5e;
+    border: 0.3px solid black;
+}
+.centerer{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+.sizer1{
+  width:200px;
+}
+</style>
+
+<script>
+  $(function() {
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#img_prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#image-upload").change(function(){
+    $('#img_prev').removeClass('invisible');
+    readURL(this);
+  });
+});
+    $('select').material_select();
+</script>

@@ -1,0 +1,241 @@
+ <div class="container-fluid">   
+<div class="backg">
+    <div class="row" style="margin-top:10px; margin-bottom:30px;">
+                        <div class="col-6 col-md-3 d-flex justify-content-center responsivepdl" id="responsivepd" style="margin-bottom:10px">
+                            <% if @post.image1.url%>
+                                    <div class="card">
+                                        <img class="card-img img-fluid imsizer" src="<%= @post.image1.url %>" alt="Card image">
+                                    </div>
+                            <%end%>        
+                        </div> 
+                        <div class="col-6 col-md-3 d-flex justify-content-center responsivepdr" id="responsivepd" style="margin-bottom:10px">
+                            <% if @post.image2.url%>
+                                    <div class="card">
+                                        <img class="card-img img-fluid imsizer" src="<%= @post.image2.url %>" alt="Card image">
+                                    </div>
+                            <%end%> 
+                        </div> 
+                        <div class="col-6 col-md-3 d-flex justify-content-center responsivepdl" id="responsivepd" style="margin-bottom:10px">
+                            <% if @post.image3.url%>
+                                    <div class="card">
+                                        <img class="card-img img-fluid imsizer" src="<%= @post.image3.url %>" alt="Card image">
+                                    </div>
+                            <%end%> 
+                        </div>  
+                        <div class="col-6 col-md-3 d-flex justify-content-center responsivepdr" id="responsivepd" style="margin-bottom:10px;">
+                            <% if @post.image4.url%>
+                                    <div class="card">
+                                        <img class="card-img img-fluid imsizer" src="<%= @post.image4.url %>" alt="Card image">
+                                    </div>
+                            <%end%> 
+                        </div>                          
+    </div>  
+</div>
+
+<div class="container">
+        <section class="information">
+                            <div class="row">
+                                    <div class="col-12 col-md-8">
+                                        <h4 class="titler"><%= @post.title %></h4>
+                                        <h6 class="simplelocation"><%= @post.simplelocation %></h6>   
+                                        <hr>
+                                      <p class="explain">주소: <%=@post.location%></p>                                 
+                                      <p class="explain">장비: <%=@post.equip%></p>    
+                                      <p class="explain">그립: <%=@post.grip%></p>  
+                                      <p class="explain">높이: <%=@post.height%></p>                               
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        
+                                    </div>
+                            </div>
+        </section>  
+        
+        <section="review">
+            <h4 class="titler">에디터 리뷰</h4>
+            <h6 class="simplelocation">Editor <%=@post.user.name %></h6>            
+            <hr>
+            <p class="editorreview">
+                    <%= simple_format(@post.review) %>
+            </p>
+        </section>
+</div>
+
+<div class="container">
+      <div class="row">
+            <div class="col-0 col-lg-1"></div>
+                    <div class="col-12 col-lg-10">
+                      <br>
+                                      <%= link_to "목록으로", bars_path,:class=>"listlink left"%>
+                                          <% if !user_signed_in? %> 
+                                          <%else%>
+                                          <% if current_user.id == @post.user.id %>
+                                          <%= link_to image_tag("deleteiconsm.png"), bar_path(@post), method: "delete", class: "float-right",:data => {:confirm => 'Are you sure bro?'} %>
+                                          <%= link_to image_tag("editiconsm.png"), edit_bar_path(@post), class: "float-right blanker"%>
+                                          <br>
+                                          <%end%>
+                                      <% end %> 
+                          <div class="card" style="margin-top:10px; background-color:#f9f9f9;">
+                                      <div class="card-block" style="border-bottom:1px solid #e0e0e0 ; padding-bottom:8px;padding-top:8px;">
+                                          <p class="subclass"><%= @post.title %></p>
+                                          <%if @post.user.avatar.url %>
+                                              <%= link_to controller: "tposts", action: "index", :user_id => @post.user_id,:class=>"bthover" do %>
+                                                  <img class="rounded-circle thumb1" src="<%= @post.user.avatar.url %>" />
+                                              <%end%>               
+                                          <%elsif @post.user.image %>
+                                              <%= link_to controller: "tposts", action: "index", :user_id => @post.user_id,:class=>"bthover" do %>
+                                                  <img class="rounded-circle thumb1" src="<%= @post.user.image %>" />
+                                              <%end%> 
+                                          <%else%>
+                                              <%= link_to controller: "tposts", action: "index", :user_id => @post.user_id,:class=>"bthover" do %>
+                                                  <%= image_tag("ph1.png", :class => "rounded-circle thumb1") %>
+                                              <%end%>                                          
+                                          <%end%>
+                                          <span class="card-title2"><%= @post.user.name %></span>
+                                          <span class="timeforman"><%= distance_of_time_in_words Time.now, @post.created_at%></span>
+                                          </div>
+                                          <div class="card-block" >
+                                              
+                                          </div>
+                                          </div>
+                                          <br>
+                                                     
+                           </div>         
+                   <br>
+          </div>
+          <div class="col-0 col-lg-1"></div>
+      </div>    
+</div>
+</div>
+
+<style>
+@media screen and (min-width: 880px) {
+.container-fluid {padding-left:20px; padding-right:20px; max-width:100%;}
+#responsivepd {padding-right:5px;padding-left:5px;}
+}
+.responsivepdl {
+  padding-right:5px;
+  padding-left:10px;
+}
+.responsivepdr {
+  padding-right:10px;
+  padding-left:5px;
+}
+        .navbutton{
+           width:20px; 
+        }
+.information{
+    margin-bottom:50px;
+}
+.titler{
+    font-weight:bold;
+    color:#555759;
+}
+.simplelocation{
+    color:#5d5e60;
+}
+.explain{
+    color:#67686b;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+.editorreview{
+     color:#67686b;
+}
+    .comcont{
+       padding-left:13px;
+       font-size:14px; 
+       margin-bottom:10px;
+       padding-top:7px;       
+    }
+    .timeforman2{
+        font-size:10px;
+       position:relative;
+          top:-3px;
+          padding-left:3px;
+    }    
+    .timeforman1{
+        font-size:10px;
+       position:relative;
+          top:6px;
+    }   
+    .timeforman{
+        font-size:10px;
+       position:relative;
+          top:-0.5px;
+    }
+    .card-title2{
+        font-size:14px;
+          position:relative;
+          top:-0.5px;
+          padding-left:0px;
+    }
+    .blanker{
+        margin-right:10px;
+    }    
+    .smaller{
+        padding-left:0px;
+        padding-right:0px;
+    }    
+    .listlink{
+      font-size:14px;
+      margin-right:8px;
+    }
+    .subclass{
+      font-weight:bold;
+      font-size:15px;
+      padding-top:5px;
+      margin-bottom:6px;
+    }
+    .ct{
+      width:30px;
+    }
+    .tarea{
+        height:100px;
+    }
+    .thumb1{
+        width:32px;
+    }
+    .thumb2{
+        width:60px;
+    }    
+    a:hover{
+      text-decoration:none;
+    }
+.btn-primary{
+    background-color:#585a5e;
+    border: 0.3px solid black;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}    
+.card-img{
+    width:550px;
+}
+
+.card {
+	background: #fff;
+	box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	img {
+		width: 100%;
+	}
+}
+
+.rowup{
+	margin-bottom: 1em;
+  justify-content: center;
+}
+
+ .res{
+	background: #efefef;
+	border: 1px solid #ddd;
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+	width: 100%;
+}
+</style>
+
+<script>
+   
+</script>

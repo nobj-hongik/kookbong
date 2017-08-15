@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
   resources :supports 
   resources :bars   
+  resources :intros, only: [:index]
   get 'tposts/index/:user_id' => "tposts#index"   
   post '/tinymce_assets' => 'tinymce_assets#create'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -32,9 +32,15 @@
                                           <span class="card-title2"><%= @post.user.name %></span>
                                           <span class="timeforman"><%= distance_of_time_in_words Time.now, @post.created_at%></span>
                                           </div>
-                                          <div class="card-block" >
-                                              <%= @post.content.html_safe %>
-                                          </div>
+                                            <div class="card-img-top">
+                                              <% if post.image.url %>
+                                              <img src="<%= @post.image.url %>" class="img-fluid">
+                                              <%end%>
+                                            </div>      
+                                            <br>                                    
+                                            <div class="card-block" >
+                                                      <p><%= simple_format(@post.content) %></p>
+                                            </div>
                                           </div>
                                           <br>
                                                 <%= form_tag upost_ucomments_path(@post) , remote: true do %>
