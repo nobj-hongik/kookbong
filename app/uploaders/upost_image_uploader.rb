@@ -2,10 +2,10 @@ class UpostImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  storage :fog
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -21,7 +21,7 @@ class UpostImageUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
-  process :resize_to_limit => [1024,768] 
+  process :resize_to_fill => [1024,768] 
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #

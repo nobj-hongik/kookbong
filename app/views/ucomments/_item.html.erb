@@ -1,11 +1,11 @@
 <div id="comment-<%=comment.id%>">
         <div class="row">
                 <div class="col-2 col-md-1" style="padding-right:0px">
-                                          <%if @post.user.avatar.url %>
+                                          <%if comment.user.avatar.url %>
                                               <%= link_to controller: "tposts", action: "index", :user_id => comment.user_id,:class=>"bthover" do %>
                                                   <img class="rounded-circle thumb2" src="<%= comment.user.avatar.url %>" />
                                               <%end%>               
-                                          <%elsif @post.user.image %>
+                                          <%elsif comment.user.image %>
                                               <%= link_to controller: "tposts", action: "index", :user_id => comment.user_id,:class=>"bthover" do %>
                                                   <img class="rounded-circle thumb2" src="<%= comment.user.image %>" />
                                               <%end%>      

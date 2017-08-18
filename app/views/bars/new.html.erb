@@ -81,9 +81,18 @@
           </div>   
           <br>    
           <div class="input-field">
+             <%= label_tag :point1 ,'좌표 left', class: "control-label" %><br>
+            <%= text_field_tag :point1, nil, class: "form-control"%>
+          </div>  
+          <div class="input-field">
+             <%= label_tag :point2 ,'좌표 right', class: "control-label" %><br>
+            <%= text_field_tag :point2, nil, class: "form-control"%>
+          </div> 
+          <br>
+          <div class="input-field">
              <%= label_tag :location ,'상세주소', class: "control-label" %><br>
             <%= text_field_tag :location, nil, class: "form-control"%>
-          </div>   
+          </div>            
           <br>         
           <div class="input-field">
                 <%= text_area_tag :review, nil, :class =>'form-control', :rows => 6, :cols => 120, placeholder: "에디터 리뷰" %>
@@ -91,7 +100,7 @@
           <br>
           <div class="input-field">
              <%= label_tag :height ,'높이', class: "control-label" %><br>
-            <%= text_field_tag :heigth, nil, class: "form-control"%>
+            <%= text_field_tag :height, nil, class: "form-control"%>
           </div>   
           <br>
           <div class="input-field">

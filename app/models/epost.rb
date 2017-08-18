@@ -1,4 +1,5 @@
 class Epost < ActiveRecord::Base
+    resourcify
     mount_uploader :thumb, EpostthumbUploader
     belongs_to :user
     has_many :ecomments

@@ -1,51 +1,57 @@
 <section>
-    <div class="ban2" id="ban2">
-        <div class="center-btn"> 
-              <%= image_tag("gbtalk2.png", :class => "img-fluid imgsizer2") %>
-        </div> 
-            <div class="center-btn">
-                 <%= link_to new_bar_path, :class=>"" do %>
-                     <%= image_tag("btnobo.png", :class => "button1") %>
-                 <% end %>
-            </div> 
-    </div> 
-    
+<br><br>
 <div class="container">
-    <br>        
-    <div class="row rowup">
-        <div class="card-deck">
+    <div class="searchres">
+            <span class="keysub">총 </span><span class="keyword"><%=@postcount%></span> <span class="keysub">개의 철봉이 등록되어 있습니다.</span>
+            <%if user_signed_in? && current_user.id == 1%>
+                 <%= link_to new_bar_path, :class=>"hoverer2" do %>
+                     <%= image_tag("barupload.png", :class => "button3 float-right")%>
+                 <% end %>    
+            <%end%>     
+    </div>   
+    <div class="row">
             <% @posts.each do |post| %>
-                        <div class="res col-12 col-md-6 d-flex justify-content-center" style="margin-bottom:20px">
+                        <div class="col-12 col-md-4 d-flex justify-content-center" style="margin-bottom:16px">
                             <%= link_to bar_path(post.id), :class=>"hoverer" do %> 
-                                    <div class="card card-inverse">
-                                        <div class="card-block">
-                                          <div class="row">
-                                              <div class="col-3">
-                                                  <%if post.user.avatar.url %>
-                                                          <img class="rounded-circle img-fluid" style="max-width:72px;" src="<%= post.user.avatar.url %>" />
-                                                  <%elsif post.user.image %>
-                                                          <img class="rounded-circle img-fluid" style="max-width:72px;"  src="<%= post.user.image %>" />
-                                                  <%else%>
-                                                          <%= image_tag("ph1.png", :class => "rounded-circle img-fluid",size: "72") %>
-                                                  <%end%>    
-                                               </div>
-                                               <div class="col-9 verticala">
-                                                  <span class="text-muted" style="margin-bottom:0px; margin-top:5px;"><%=post.title%></span>
-                                                 <p class="text-muted" style="font-size:12px; margin-top:5px; margin-bottom:0px">Written by <%=post.user.name%></p>
-                                               </div>
-                                         </div>         
-                                        </div>
+                                    <div class="card">
+                                         <img class="card-img img-fluid" src="<%= post.image1.url %>" alt="Card image">
+                                         <p class="titletext text-left" id="titletext"><%=post.title%></p>
+                                         <p class="subtext text-left" id="subtext"><%=post.simplelocation%></p>
                                     </div>
                             <%end%>              
                         </div> 
             <% end %>
-        </div>    
     </div> 
-    
+   
     <br>
 </div>
 </section>
 <style>
+.card {
+    border:0px solid black;
+    background-color: transparent;
+       margin-bottom:14px;    
+}
+.button3{
+    padding-top:10px;
+    width:110px;
+    opacity:0.9;
+}
+.button3:hover{
+    opacity:1.0;
+}
+.titletext{
+    margin-top:10px;
+    font-size:20px;
+    color:#424344;
+    margin-bottom:5px;
+}
+
+.subtext{
+    margin-top:0px;
+    font-size:15px;
+    color:#6c6e70;
+}
 section{
         background-color:#e5e5e5;
         min-height:1200px;
@@ -53,9 +59,10 @@ section{
 .verticala{
     margin:auto;
 }
-    .card{
-        margin-bottom:14px;
-    }
+.upbutton{
+    font-size:16px;
+    color:black;
+}
     .bng{
         max-height:140px;
     }
@@ -106,27 +113,10 @@ section{
     }
    
 
-.ban2{
-background-image: url('/assets/backgr3.png')
-}
-#ban2{
-    height:180px;
-    background-size: cover;
-    background-repeat: none;
-    background-position: center;
-    min-height: 100%;
-    position: relative;
-    width: 100%;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    -webkit-perspective: 400px;
-    -o-perspective: 400px;
-    perspective: 400px;
-    margin-bottom:20px;
-}
     .button1{
         width:90px;
         opacity:0.8;
+        margin-bottom:20px;
     }
     .button2{
         width:110px;
@@ -139,12 +129,17 @@ background-image: url('/assets/backgr3.png')
         opacity:1.0;
     }   
     .hoverer{
-        opacity:0.82;
     }
     .hoverer:hover{
-        opacity:1.0;
         text-decoration:none;
     }    
+    .hoverer2{
+        opacity:0.8;
+    }
+    .hoverer2:hover{
+        text-decoration:none;
+        opacity:1;
+    }       
     #textarea1:focus {
   border-bottom: 1px solid black;
   box-shadow: 0 1px 0 0 #616161;
@@ -156,13 +151,6 @@ background-image: url('/assets/backgr3.png')
     width:550px;
 }
 
-.card {
-	background: #fff;
-	box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-	img {
-		width: 100%;
-	}
-}
 
 .rowup{
 	margin-bottom: 1em;
@@ -183,5 +171,17 @@ background-image: url('/assets/backgr3.png')
 }
 .thumbu{
     max-width:80px;    
+}
+.keyword{
+      font-size:24px;  
+      color:#44bdff;
+      font-weight:bold;
+}
+.keysub{
+      font-size:24px;
+      color:#454647;
+}
+.searchres{
+    margin-bottom:30px;
 }
 </style>

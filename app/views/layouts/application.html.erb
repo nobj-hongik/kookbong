@@ -4,6 +4,7 @@
   <title>한국철봉</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+<script src="https://use.fontawesome.com/acfa4e259c.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="한국철봉(국봉)">
@@ -11,6 +12,9 @@
 <meta property="og:description" content="한국의 모든 철봉을 찾아라">
 <meta property="og:image" content="http://postfiles9.naver.net/MjAxNzA4MDdfMTk5/MDAxNTAyMDkwMDc0ODgy.Ib2J2z83QdPK0p1ktrFGw9Pm4SYeVA2qaLFquY2uGQMg.GfcqYhs8ns6GcwLWGy8vYqauMyCsu4H5y8_emrLIF6Ig.PNG.dickings/meta.png?type=w2">    
   <%= csrf_meta_tags %>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=OaH6VrQqq_bjqgl2bort&submodules=geocoder"></script>  
+
+
 </head>
 <body>
 <header>
@@ -25,17 +29,17 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item px-lg-3">
-              <a class="nav-link" href="#" lang="en">Home <span class="sr-only">(현재 페이지)</span></a>
+              <a class="nav-link" href="/" lang="en">Home <span class="sr-only">(현재 페이지)</span></a>
             </li>
             <li class="nav-item px-lg-3">
               <a class="nav-link" href="/intros" lang="ko">서비스소개</a>
             </li>
             <li class="nav-item px-lg-3">
-              <a class="nav-link" href="#" lang="ko">철봉찾기</a>
-            </li>  
-            <li class="nav-item px-lg-3">
               <a class="nav-link" href="/eposts" lang="ko">국봉칼럼</a>
-            </li>              
+            </li>     
+            <li class="nav-item px-lg-3">
+              <a class="nav-link" href="/uposts" lang="ko">국봉토크</a>
+            </li>             
             <% if !user_signed_in? %>
                     <li class="nav-item px-lg-3">
                       <a class="nav-link" href="/users/sign_in" lang="ko">로그인</a>
@@ -62,49 +66,79 @@
 <div class="marginer"></div>
     <%= yield %>
     
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <br>
-                <%= image_tag("colabo.png", :class => "footlogo") %>
-                <div class="row">
-                    <div class="col-6">
-                        <ul class="list-unstyled">
-                            <li><a href="" class="luxury">모든철봉</a></li>
-                            <li><a href="" class="luxury">국봉칼럼</a></li>
-                            <li><a href="" class="luxury">국봉TALK</a></li>
-                            <li><a href="" class="luxury">운동일지</a></li>                            
-                        </ul>
+    
+    
+<footer class="footer2">
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <nav class="col-md-6 col-sm-6 col-12">
+                  <br>
+                  <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                    <div class="center-btn">
+                    <%= image_tag("colabo.png", :class => "footlogo") %>
                     </div>
-                    <div class="col-6">
-                        <ul class="list-unstyled">
-                            <li><a href="" class="luxury">서비스소개</a></li>
-                            <li><a href="" class="luxury">서포터즈</a></li>
-                            <li><a href="" class="luxury">개발자들</a></li>
-                            <li><a href="" class="luxury">About</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <br>
-            </div>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-5 marginadd">
-                 <%= image_tag("contactus.png", :class => "footlogo2") %>
-                  <a href="" class="nav-link" style="margin-bottom:7px; padding-left:0px;">Facebookpage</a>
-                 <a href="" class="nav-link" style="margin-bottom:7px; padding-left:0px;">Instagram</a>
-                 <p class="nav-link" style="padding-left:0px;">kookbbong@likelion.org</p>
-                 <h6 style="margin-top:5px;">&copy; 2017 한국철봉 All Rights Reserved.</h6> 
+                      <div class="row">
+                      
+                      <div class="col-6">
+                          <ul class="list-unstyled">
+                              <li><a href="" class="luxury text-center">서비스소개</a></li>
+                              <li><a href="" class="luxury text-center">개발자들</a></li>
+                              <li><a href="" class="luxury text-center">서포터즈</a></li>
+                                                       
+                          </ul>
+                      </div>
+                      <div class="col-6">
+                          <ul class="list-unstyled">
+                              <li><a href="" class="luxury text-center">국봉칼럼</a></li>
+                              <li><a href="" class="luxury text-center">국봉TALK</a></li>
+                              <li><a href="" class="luxury text-center">운동일지</a></li>  
+                          </ul>
+                      </div>
+                      </div>
+                      <div class="col-1"></div>
+                   </div>
+                </nav>
+                
+               
+
+                <nav class="col-md-6 col-sm-6 col-12">
+                    <%= image_tag("centerslogan.png", :class => "footlogo2") %>
+                    <ul class="social" style="padding-left:0px;">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    
+                    </ul>
+                </nav>
+
+            </div> <!--/.row--> 
+        </div> <!--/.container--> 
+    </div> <!--/.footer-->
+    
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="push-center"> &copy; 2017 한국철봉 All Rights Reserved. </div>
+            <div class="pull-right">
             </div>
         </div>
-    </div>
+    </div> <!--/.footer-bottom--> 
 </footer>
+
+
+
+    
+      
+                  
+                  
+                  
+            
           
 </body>
 </html>
 <style>
-
 .nav-link,
 .dropdown-item,
 .navbar-toggler {
@@ -113,6 +147,9 @@
   font-weight: 700;
   letter-spacing: 0.27em;
   text-transform: uppercase;
+}
+.footlogo2{
+  margin-top:10px;
 }
 .marginer{
   height:62px;
@@ -124,12 +161,15 @@
     width:115px;
   }
 .dropdown-menu {
-  border: none;
+  min-width: 0;
 }
   .navbar-brand{
     max-width:115px;
   }
-
+.footlogo{
+  width:360px;
+  margin-bottom:20px;
+}
 /* Sticky footer position and size
 -------------------------------------------------- */
 
@@ -138,42 +178,140 @@
 
 /* Sticky footer style and color
 -------------------------------------------------- */
-footer {
-  background-color: #292c2f;
-  color: #bbb;
-}
-.footlogo{
-  width:300px;
-  margin-bottom:40px;
-}
-.footlogo2{
-  margin-top:30px;
-  width:136px;
-  margin-bottom:38px;
-}
-.marginadd{
-  padding-bottom:50px;
-}
-footer a {
-  color: #999;
-  text-decoration:none;
+/*FOOTER 2*/
+.footer2 a {
+    color: #DDD;
 }
 
-
-footer .form-control {
-    background-color: #1f2022;
-    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
-    border: none;
-    resize: none;
-    color: #d1d2d2;
-    padding: 0.7em 1em;
+.footer2 a:hover,
+.footer2 a:focus,
+.footer2 a:active {
+    color: #FFF;
 }
-.luxury{
-  font-size: 0.84rem;
-  line-height: 1.93;
-  font-weight: 700;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;  
-}
-  </style>
 
+.footer2 .footer {
+    background-color: #2E3436;
+    padding: 35px 0;
+}
+
+.footer2 .footer nav h3 {
+    font-size: 18px;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 0 1em 0;
+}
+
+.footer2 .footer nav h3 span {
+    font-weight: 300;
+    text-transform: capitalize;
+}
+
+.footer2 .footer nav ul li a {
+    text-decoration: none;
+    display: block;
+    padding: 4px 0;
+    font-size: 13px;
+}
+
+.footer2 .footer .input-group {
+    margin: 15px auto;
+    max-width: 400px;
+}
+
+.footer2 .footer .form-control {
+    border-radius: 2px 0 0 2px;
+    background-color: #585C5D;
+    border-color: #585C5D;
+    color: #DDD;
+}
+
+.footer2 .footer .form-control:hover,
+.footer2 .footer .form-control:focus {
+    border: 1px solid #222728;
+    background-color: #222728;
+}
+
+.footer2 .footer .input-group-addon {
+    border-radius: 0 2px 2px 0;
+    background-color: #F7931D;
+    color: #FFF;
+    border-color: #F7931D;
+}
+
+.footer2 .footer .social {
+    margin: 0 auto;
+    display: table;
+}
+
+.footer2 .footer .social li {
+    float: left;
+}
+
+.footer2 .footer .social li a {
+    display: block;
+    font-size: 1em;
+    color: #DDD;
+    width: 30px;
+    height: 30px;
+    line-height: 32px;
+    padding: 0;
+    text-align: center;
+    background-color: #222728;
+    border-radius: 2px;
+    margin: 5px 4px
+}
+
+.footer2 .footer .social li a:hover {
+    background-color: #3A4144;
+}
+
+.footer2 .footer-bottom {
+    background-color: #222728;
+    padding: 15px 0;
+    color: #DDD;
+    font-size: 13px;
+}
+
+.footer2 .footer-bottom ul li {
+    display: inline-block;
+}
+
+.footer2 .footer-bottom ul li a {
+    display: block;
+    padding-left: 8px;
+}
+
+.footer2 .footer-bottom ul li a:after {
+    content: "-";
+    padding-left: 8px;
+}
+
+.footer2 .footer-bottom ul li:last-child a:after {
+    content: "";
+}
+
+.pull-left {
+	   float: none;
+	   
+@media (max-width: 550px) {
+    .footer2 .footer-bottom .pull-left,
+	.footer2 .footer-bottom .pull-right {
+		float: none !important;
+		width: 100%;
+		padding: 10px;
+		text-align: center;
+	}
+}
+@media (max-width: 767px) {
+    .footer2 .footer {
+        text-align: center;
+    }
+}
+@media (max-width: 991px) {
+    .footer2 .footer ul {
+        margin-bottom: 30px;
+    }
+}
+
+</style>

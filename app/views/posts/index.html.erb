@@ -9,24 +9,24 @@
           </h2>
         <div class="center-btn">
             <div class="cover__form">
-          <form action="#" class="form-group">
+           <%= form_tag search_bars_path, method: :get, role: "search" do %>
             <div class="container">
               <div class="row">
                   <div class="col-md-6 offset-md-3">
                       <div id="custom-search-input">
                           <div class="input-group col-md-12">
-                              <input type="text" class="form-control input-lg" placeholder="뚝섬유원지 철봉" />
+                              <%= text_field_tag :search, params[:search], class: "form-control input-lg" ,placeholder:"뚝섬유원지"%>
                               <span class="input-group-btn">
-                                  <button class="btn btn-info btn-lg" type="button" style="padding:6px 20px 6px 20px">
-                                      <%= image_tag("searchgl.png", :class => "sbt1") %>
-                                  </button>
+                                    <button type="submit" class="btn btn-info btn-lg" style="padding:6px 20px 6px 20px">
+                                        <%= image_tag("searchgl.png", :class => "sbt1") %> 
+                                    </button>                                
                               </span>
                           </div>
                       </div>
                   </div>
               </div>
             </div>
-          </form>
+          <%end%>
         </div>
         </div>
       </div>
@@ -43,34 +43,19 @@
       <%= image_tag("showbtn.png", :class => "showbtn float-right") %>
     <%end%>
     <div class="row">
+        <% @bars.each do |post| %>
                         <div class="col-6 col-md-3 d-flex justify-content-center responsivepdl" id="responsivepd" style="margin-bottom:20px">
                                     <div class="card">
-                                        <%= image_tag("bar1.png", :class => "card-img img-fluid imsizer") %>
-                                         <p class="titletext text-left" id="titletext">반포 한강공원</span>
-                                         <p class="subtext text-left" id="subtext">서울시 서초구</p>                                   
+                                            <%= link_to bar_path(post.id), :class=>"hoverer2" do %> 
+                                                    <div class="card">
+                                                         <img class="card-img img-fluid" src="<%= post.image1.url %>" alt="Card image">
+                                                         <p class="titletext text-left" id="titletext"><%=post.title%></p>
+                                                         <p class="subtext text-left" id="subtext"><%=post.simplelocation%></p>
+                                                    </div>
+                                            <%end%>                                         
                                     </div>    
                         </div> 
-                        <div class="col-6 col-md-3 d-flex justify-content-center responsivepdr" id="responsivepd" style="margin-bottom:20px">
-                                    <div class="card">
-                                        <%= image_tag("bar2.png", :class => "card-img img-fluid imsizer") %>
-                                         <p class="titletext text-left" id="titletext">이촌인라인스케이트장</p>
-                                         <p class="subtext text-left" id="subtext">서울시 용산구</p>                                        
-                                    </div>
-                        </div> 
-                        <div class="col-6 col-md-3 d-flex justify-content-center responsivepdl" id="responsivepd" style="margin-bottom:20px">
-                                    <div class="card">
-                                        <%= image_tag("bar3.png", :class => "card-img img-fluid") %>
-                                         <p class="titletext text-left" id="titletext">뚝섬 한강공원</p>
-                                         <p class="subtext text-left" id="subtext">서울시 광진구</p>
-                                    </div>
-                        </div>  
-                        <div class="col-6 col-md-3 d-flex justify-content-center responsivepdr" id="responsivepd" style="margin-bottom:20px">
-                                    <div class="card">
-                                        <%= image_tag("bar4.png", :class => "card-img img-fluid") %>
-                                         <p class="titletext text-left" id="titletext">상암 나들목 아래</p>
-                                         <p class="subtext text-left" id="subtext">서울시 상암동</p>
-                                    </div>
-                        </div>                          
+        <%end%>                
     </div> 
     </div>
   </section>
@@ -84,14 +69,14 @@
             <%end%>              
               <div class="row">
                               <div class="card-deck">
-                                  <% @posts.each do |post| %>
+                                  <% @eposts.each do |post| %>
                                               <div class="col-12 col-md-4 d-flex justify-content-center" style="margin-bottom:20px">
                                                   <%= link_to epost_path(post.id), :class=>"hoverer" do %> 
                                                           <div class="card card-inverse">
                                                                        <img class="card-img img-fluid" src="<%= post.thumb.url %>" alt="Card image">
                                                               <div class="card-footer">
-                                                                <span class="text-muted" style="font-size:18px; margin-bottom:0px; margin-top:5px;"><%=post.title%></span>
-                                                               <p class="text-muted" style="font-size:12px; margin-top:5px; margin-bottom:0px">Written by <%=post.user.name%></p>
+                                                                <span class="text-muted" style="font-size:18px; margin-bottom:0px; margin-top:5px; color#424344;"><%=post.title%></span>
+                                                               <p class="text-muted" style="font-size:12px; margin-top:5px; margin-bottom:0px; color:#6c6e70;">Written by <%=post.user.name%></p>
                                                               </div>
                                                           </div>
                                                   <%end%>              
@@ -111,9 +96,9 @@
                     <div class="row">
                         <div class="col-0 col-md-3"></div>
                           <div class="col-12 col-md-9" style="padding-top:103px;">
-                                <h2 class="text-md-left text-center" style="font-weight:bold; color:black;">한국철봉의 서포터가 되어주세요</h2>
-                                <h6 class="text-md-left text-center" style="font-weight:bold; margin-bottom:6px; margin-top:20px; color:#545456;">한국철봉을 사랑해 주시는 누구나,</h6>
-                                <h6 class="text-md-left text-center" style="font-weight:bold; color:#545456;">철봉을 같이 조사 할 서포터를 구합니다.</h6>
+                                <h2 class="text-md-left text-center" style="font-weight:bold; color:white;">국봉의 서포터가 되어주세요</h2>
+                                <h6 class="text-md-left text-center" style="font-weight:bold; margin-bottom:6px; margin-top:20px; color:#d2d4d8;">무심코 길을 걷다가,</h6>
+                                <h6 class="text-md-left text-center" style="font-weight:bold; color:#d2d4d8;">좋은 철봉을 발견했다면 제보해주세요</h6>
                           </div>
                     </div>
                     <div class="row">
@@ -124,7 +109,7 @@
                                   <div class="col-6 col-md-12">
                                     <div class="hover11">
                                       <div class="center-btn">
-                                        <%= link_to "#", class: "supbtnlink" do%> 
+                                        <%= link_to "/supports/new", class: "supbtnlink" do%> 
                                           <figure><%= image_tag("supbtn.png", :class => "supbtn img-fluid") %></figure>
                                         <%end%> 
                                       </div>
@@ -156,11 +141,10 @@
           <div class="card supcard">
             <div class="card-block" style="padding-top:80px; padding-bottom:80px;">
                 <div class="row">
-                    
-                  <div class="col-12 col-md-5">
+                  <div class="col-12 col-md-6">
                     <div class="row">
                       <div class="col-3 col-md-2 col-lg-4"></div>
-                      <div class="col-6 col-md-8 col-lg-4" style="padding-top:23px; padding-bottom:15px;">
+                      <div class="col-6 col-md-8 col-lg-4" style="padding-top:27px; padding-bottom:15px; ">
                               <%= image_tag("gbtalk.png", :class => "gblogo img-fluid") %>
                               <%= link_to uposts_path , class: "" do%>
                                   <%= image_tag("gothere.png", :class => "gothere img-fluid") %>
@@ -170,7 +154,7 @@
                     </div>    
                   </div>
 
-                  <div class="col-12 col-md-7">
+                  <div class="col-12 col-md-6">
                     <div class="row">
                         <div class="col-0 col-md-3"></div>
                           <div class="col-12 col-md-9">
@@ -247,6 +231,12 @@ background-color:#f7f7f7;
         opacity:1.0;
         text-decoration:none;
     } 
+    .hoverer2{
+    }
+    .hoverer2:hover{
+        opacity:1.0;
+        text-decoration:none;
+    }     
 button {
   cursor: pointer;
 }
@@ -408,6 +398,9 @@ background-image: url('/assets/secbanner2.png')
 .supbtnlink:hover{
   color:#498de5 
 }
+
+
+
 /* 운동게시판 for editor */
 #foreditor {
   background-color: #f7f7f7;
@@ -461,4 +454,5 @@ p.copyright {
     background-color: #f7f7f7;
 }    
 </style>      
+      
       

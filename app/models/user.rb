@@ -10,10 +10,13 @@ class User < ActiveRecord::Base
    has_many :tposts, :dependent => :delete_all
    has_many :uposts, :dependent => :delete_all
    has_many :bars, :dependent => :delete_all
-   has_many :barimages, :dependent => :delete_all
+   has_many :supports, :dependent => :delete_all   
    has_many :ecomments, :dependent => :delete_all
    has_many :tcomments, :dependent => :delete_all   
-   has_many :ucomments, :dependent => :delete_all    
+   has_many :ucomments, :dependent => :delete_all   
+   has_many :bcomments, :dependent => :delete_all
+   has_many :scomments, :dependent => :delete_all 
+   
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # user와 identity가 nil이 아니라면 받는다

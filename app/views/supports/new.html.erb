@@ -1,0 +1,157 @@
+<div class="wraper" id="wrapper2">
+      <div class="row">
+        <div class="col-12 col-md-3 col-lg-4"></div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <br><br>
+          <div class="container">
+                <div class="card opacity">
+                  <div class="card-block">  
+                    <div class="center-btn">
+                          <%= image_tag("mainlogo.png", :class => "img-fluid imgsizer3") %>
+                          <h4 class="text-center" style="font-weight:bold;">철봉 제보하기</h4>    
+                          <p class="text-center" style="font-size:13px;">(현재는 서울의 철봉 제보를 받고 있습니다)</p> 
+                             <%= link_to supports_path, :class=>"hoverer2" do %>
+                                 <%= image_tag("mysupbtn.png", :class => "button1 float-center")%>
+                             <% end %>                              
+                          <br>
+                    </div>      
+                        <%= form_tag supports_path, multipart: true do %>
+                          <div class="input-field">
+                            <%= label_tag :image, "첨부할 이미지 1장" ,class: "control-label"%><br><br>
+                            <img src="#" id="img_prev" class="invisible prev-img img-fluid centerer sizer1"/> <br/> 
+                                  <br>
+                            <%= file_field_tag :image, "id" => "image-upload" , class: "form-control" %>
+                            <input type="hidden" name="image_cache">
+                          </div>
+                          <br>        
+                          <div class="input-field">
+                             <%= label_tag :title ,'제목', class: "control-label" %><br>
+                            <%= text_field_tag :title, nil, class: "form-control"%>
+                          </div>        
+                          <br>
+                          <div class="input-field">
+                                  <%= label_tag :location ,'철봉 주소', class: "control-label" %><br>
+                                <%= text_field_tag :location, nil, :class =>'form-control', placeholder: "최대한 상세히 써주시면 더더 감사합니다 :)" %>
+                          </div>
+                          <br>
+                          <div class="input-field">
+                                  <%= label_tag :content ,'참고 사항', class: "control-label" %><br>
+                                <%= text_area_tag :content, nil, :class =>'form-control', :rows => 10, :cols => 120, placeholder: "ex: 청결도, 시설 평가, 특이사항 등" %>
+                          </div>
+                          
+                          <br>
+                          <div class="input-field">
+                              <div class="center-btn">
+                            <%= button_tag "제출하기", class: "btn btn-primary" %>
+                            </div>
+                          </div>
+                          <br>
+                        <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                
+      </div>
+</div>
+<style>
+.wraper{
+background-image: url('/assets/back3.png')
+}
+#wrapper2{
+    height:1300px;
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    -webkit-perspective: 770px;
+    -o-perspective: 770px;
+    perspective: 770px;
+}
+.opacity {
+  opacity: 0.85;
+}
+.sizer1{
+  width:180px;
+}
+.ll{
+    font-size:18px;
+    font-weight:bold;
+    color:white;
+    margin-top:0px;
+}
+.imgsizer3{
+  padding-top:20px;
+    width:160px;
+    padding-bottom:5px;
+}
+
+.btn-primary{
+    background-color:#585a5e;
+    border: 0.3px solid black;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+.centerer{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+    .button1{
+        width:100px;
+        opacity:0.9;
+        margin-top:0px;        
+        margin-bottom:20px;
+    }
+    .button2{
+        width:110px;
+        margin-top:0px;         
+        opacity:0.9;
+    }    
+    .button1:hover{
+        opacity:1.0;
+    }  
+    .button2:hover{
+        opacity:1.0;
+    }   
+    .hoverer{
+    }
+    .hoverer:hover{
+        text-decoration:none;
+    }    
+    .hoverer2{
+        opacity:0.8;
+    }
+    .hoverer2:hover{
+        text-decoration:none;
+        opacity:1;
+    }  
+</style>
+
+<script>
+  $(function() {
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#img_prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#image-upload").change(function(){
+    $('#img_prev').removeClass('invisible');
+    readURL(this);
+  });
+});
+</script>

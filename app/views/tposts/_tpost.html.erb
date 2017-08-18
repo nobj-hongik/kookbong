@@ -1,4 +1,4 @@
-
+<% $ajaxpost=post %>
                     <div class="wrapme">    
                                  <div class="card" style="margin-top:10px; background-color:#f9f9f9;" data-id="<%= post.id %>">
                                      <div class="container">
@@ -64,11 +64,11 @@
                                                       <hr>
                                                     <%end%>  
                                                 <% end %>         
-                                           <div id="tcomments">
+                                           <div id="tcomments-<%=post.id%>">
                                                     <% post.tcomments.reverse.each do |comment| %>
                                                             <%= render partial: "tcomments/item", locals: { comment: comment, post: post}%>
                                                      <%end%>
-                                          </div>  
+                                           </div> 
                                     </div>
                                   </div>
 </div>

@@ -14,10 +14,18 @@ Rails.application.routes.draw do
   resources :eposts do
      resources :ecomments, only: [:create, :destroy] 
   end
-  resources :supports 
-  resources :bars   
+  resources :supports do
+     resources :scomments, only: [:create, :destroy] 
+  end 
+  resources :bars do
+     collection do
+      get 'search'
+     end
+     resources :bcomments, only: [:create, :destroy] 
+  end   
   resources :intros, only: [:index]
   get 'tposts/index/:user_id' => "tposts#index"   
+  get 'supports/admin/masterindex' => "supports#masterindex"     
   post '/tinymce_assets' => 'tinymce_assets#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

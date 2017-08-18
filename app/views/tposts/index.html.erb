@@ -1,4 +1,5 @@
 <div class="container">
+    <div class="lengther">
           <div class="row py-3 flex-items-sm-center">
             <div class="col-xs-12 col-sm-12 col-md-4 py-2 clearfix">
               <div class="card profile-card">
@@ -47,9 +48,6 @@
                           <%= link_to "훈련 기록하기", new_tpost_path, :class=>"btn btn-primary" %>
                       </div>
                 <%else%>
-                      <div class="center-btn">
-                          <%= link_to "팔로우", "#", :class=>"btn btn-primary" %>
-                      </div>                
                 <%end%>
                   <br>
                 </div>
@@ -57,14 +55,17 @@
             </div>
                   <div class="col-xs-0 col-sm-0 col-md-8 py-10 clearfix">
                         <% @posts.each do |post| %>
-                            <% $ajaxpost=post %>
                             <%= render partial: "tposts/tpost", locals: { post: post}%>
                         <% end %>  
                         <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
                   </div> 
           </div>
+    </div>      
 </div>
 <style>
+.lengther{
+    min-height:1200px;
+}
 .snsbtn{
     width:25px;
     padding-bottom:3px;
@@ -196,13 +197,3 @@ input.fab {
     }    
 </style>
 
-<script>
-$(window).scroll(function() {
-  sessionStorage.scrollTop = $(this).scrollTop();
-});
-$(document).ready(function() {
-  if (sessionStorage.scrollTop != "undefined") {
-    $(window).scrollTop(sessionStorage.scrollTop);
-  }
-});    
-</script>

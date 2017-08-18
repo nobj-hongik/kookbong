@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815065602) do
+ActiveRecord::Schema.define(version: 20170817114757) do
 
   create_table "barimages", force: :cascade do |t|
     t.integer  "user_id"
@@ -40,6 +40,18 @@ ActiveRecord::Schema.define(version: 20170815065602) do
     t.string   "image7"
     t.string   "equip"
     t.string   "simplelocation"
+    t.string   "point1"
+    t.string   "point2"
+  end
+
+  create_table "bcomments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "bar_id"
+    t.text     "content"
+    t.integer  "satisscore"
+    t.integer  "equipscore"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ecomments", force: :cascade do |t|
@@ -87,6 +99,24 @@ ActiveRecord::Schema.define(version: 20170815065602) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "scomments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "support_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "supports", force: :cascade do |t|
+    t.string   "image"
+    t.string   "title"
+    t.text     "location"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tcomments", force: :cascade do |t|
     t.integer  "user_id"

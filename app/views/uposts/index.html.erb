@@ -3,44 +3,38 @@
         <div class="center-btn"> 
               <%= image_tag("gbtalk2.png", :class => "img-fluid imgsizer2") %>
         </div> 
-            <div class="center-btn">
+        <div class="center-btn">        
                  <%= link_to new_upost_path, :class=>"" do %>
                      <%= image_tag("btnobo.png", :class => "button1") %>
-                 <% end %>
-            </div> 
+                 <% end %>     
+        </div>         
     </div> 
     
 <div class="container">
-    <br>        
-    <div class="row rowup">
-        <div class="card-deck">
+            <br>
+    <div class="row">
             <% @posts.each do |post| %>
-                        <div class="res col-12 col-md-6 d-flex justify-content-center" style="margin-bottom:20px">
+                        <div class="col-12 col-md-4 d-flex justify-content-center" style="margin-bottom:16px">
                             <%= link_to upost_path(post.id), :class=>"hoverer" do %> 
-                                    <div class="card card-inverse">
-                                        <div class="card-block">
-                                          <div class="row">
-                                              <div class="col-3">
-                                                  <%if post.user.avatar.url %>
-                                                          <img class="rounded-circle img-fluid" style="max-width:72px;" src="<%= post.user.avatar.url %>" />
-                                                  <%elsif post.user.image %>
-                                                          <img class="rounded-circle img-fluid" style="max-width:72px;"  src="<%= post.user.image %>" />
-                                                  <%else%>
-                                                          <%= image_tag("ph1.png", :class => "rounded-circle img-fluid",size: "72") %>
-                                                  <%end%>    
-                                               </div>
-                                               <div class="col-9 verticala">
-                                                  <span class="text-muted" style="margin-bottom:0px; margin-top:5px;"><%=post.title%></span>
-                                                 <p class="text-muted" style="font-size:12px; margin-top:5px; margin-bottom:0px">Written by <%=post.user.name%></p>
-                                               </div>
-                                         </div>         
+                                    <div class="card">
+                                        <%if post.image.url %>
+                                             <img class="card-img img-fluid croper" src="<%= post.image.url %>" alt="Card image">
+                                         <%elsif post.user.id%3==0%>
+                                              <%= image_tag("gbtalkph.png", :class => "img-fluid card-img") %>  
+                                         <%elsif post.user.id%3==1%>
+                                              <%= image_tag("gbtalkph2.png", :class => "img-fluid card-img") %>  
+                                         <%elsif post.user.id%3==2%>
+                                              <%= image_tag("gbtalkph3.png", :class => "img-fluid card-img") %>                                                
+                                         <%end%>
+                                         <div class="card-block">
+                                         <p class="titletext text-left" id="titletext"><%=post.title.truncate(22)%></p>
+                                         <p class="subtext text-left" id="subtext">Written by <%=post.user.name%></p>
                                         </div>
                                     </div>
                             <%end%>              
                         </div> 
             <% end %>
-        </div>    
-    </div> 
+    </div>             
     
     <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
     <br>
@@ -51,10 +45,16 @@ section{
         background-color:#e5e5e5;
         min-height:1200px;
 }
+.croper{
+    max-height:195.75px;
+  object-fit: none; /* Do not scale the image */
+  object-position: center;    
+}
 .verticala{
     margin:auto;
 }
     .card{
+        width:100%;
         margin-bottom:14px;
     }
     .bng{
@@ -102,16 +102,16 @@ section{
         padding-bottom:0px;
     }
     .imgsizer2{
-        padding-top:40px;
+        padding-top:70px;
         width:190px;
     }
    
 
 .ban2{
-background-image: url('/assets/backgr3.png')
+background-image: url('/assets/gbtalkban.png')
 }
 #ban2{
-    height:180px;
+    height:250px;
     background-size: cover;
     background-repeat: none;
     background-position: center;
@@ -126,7 +126,7 @@ background-image: url('/assets/backgr3.png')
     margin-bottom:20px;
 }
     .button1{
-        width:90px;
+        width:110px;
         opacity:0.8;
     }
     .button2{
@@ -149,6 +149,9 @@ background-image: url('/assets/backgr3.png')
     #textarea1:focus {
   border-bottom: 1px solid black;
   box-shadow: 0 1px 0 0 #616161;
+}
+.phcss{
+    max-width:72px;
 }
 .tt{
     margin:4px;
@@ -184,5 +187,17 @@ background-image: url('/assets/backgr3.png')
 }
 .thumbu{
     max-width:80px;    
+}
+.titletext{
+    margin-top:10px;
+    font-size:20px;
+    color:#424344;
+    margin-bottom:5px;
+}
+
+.subtext{
+    margin-top:0px;
+    font-size:15px;
+    color:#6c6e70;
 }
 </style>

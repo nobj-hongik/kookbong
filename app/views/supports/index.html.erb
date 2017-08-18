@@ -1,0 +1,184 @@
+<section>
+<br><br>
+<div class="container">
+    <div class="searchres">
+            <span class="keysub">제보 감사합니다</span><br>
+            <span class="keyword"><%=current_user.name%> </span> <span class="keysub"> 님이 제보하신 철봉 입니다.</span>
+            <br>
+                 <%= link_to new_support_path, :class=>"hoverer2" do %>
+                     <%= image_tag("newsupbtn.png", :class => "button1 float-left")%>
+                 <% end %>               
+    </div>   
+    <br><br>
+    <div class="row">
+            <% @posts.each do |post| %>
+                        <div class="col-12 col-md-4 d-flex justify-content-center" style="margin-bottom:16px">
+                            <%= link_to support_path(post.id), :class=>"hoverer" do %> 
+                                    <div class="card">
+                                        <%if post.image.url %>
+                                             <img class="card-img img-fluid" src="<%= post.image.url %>" alt="Card image">
+                                         <%else%>
+                                              <%= image_tag("supph.png", :class => "img-fluid card-img") %>                                         
+                                         <%end%>
+                                         <p class="titletext text-left" id="titletext"><%=post.title%></p>
+                                         <p class="subtext text-left" id="subtext"><%=post.location.truncate(20)%></p>
+                                    </div>
+                            <%end%>              
+                        </div> 
+            <% end %>
+    </div> 
+    <br>
+</div>
+</section>
+<style>
+.card {
+    border:0px solid black;
+    background-color: transparent;
+       margin-bottom:14px;    
+}
+.titletext{
+    margin-top:10px;
+    font-size:20px;
+    color:#424344;
+    margin-bottom:5px;
+}
+
+.subtext{
+    margin-top:0px;
+    font-size:15px;
+    color:#6c6e70;
+}
+section{
+        background-color:#e5e5e5;
+        min-height:1200px;
+}
+.verticala{
+    margin:auto;
+}
+.upbutton{
+    font-size:16px;
+    color:black;
+}
+    .bng{
+        max-height:140px;
+    }
+    .card-title1{
+        font-size:16px;
+        color:#424242;
+        margin-bottom:4px;
+    }
+    .whoer{
+        padding-top:3px;
+        font-size:13px;
+        margin-bottom:0px;
+    }
+    .cardfoot{
+        border-top:1px solid #e0e0e0;
+    }
+    .colorer{
+        color:#ff1744;
+    }
+    .colorized1{
+        background-color:#464540;
+    }
+    .alignimg{
+        margin-bottom:12px;
+    }
+    .sizer{
+        width:55px;
+    }
+    .blankerbt{
+        margin-bottom:20px;
+    }
+    .sizer2{
+        padding-left:5px;
+        padding-top:3px;
+        width:78px;
+        opacity:0.7;
+    }
+    .sizer2:hover{
+        opacity:1.0;
+    }
+        .imgsizer{
+        width:320px;
+        padding-bottom:0px;
+    }
+    .imgsizer2{
+        padding-top:40px;
+        width:190px;
+    }
+   
+
+    .button1{
+        width:100px;
+        opacity:0.8;
+        margin-top:20px;        
+        margin-bottom:20px;
+    }
+    .button2{
+        width:110px;
+        opacity:0.8;
+    }    
+    .button1:hover{
+        opacity:1.0;
+    }  
+    .button2:hover{
+        opacity:1.0;
+    }   
+    .hoverer{
+    }
+    .hoverer:hover{
+        text-decoration:none;
+    }    
+    .hoverer2{
+        opacity:0.8;
+    }
+    .hoverer2:hover{
+        text-decoration:none;
+        opacity:1;
+    }       
+    #textarea1:focus {
+  border-bottom: 1px solid black;
+  box-shadow: 0 1px 0 0 #616161;
+}
+.tt{
+    margin:4px;
+}
+.card-img{
+    width:550px;
+}
+
+
+.rowup{
+	margin-bottom: 1em;
+  justify-content: center;
+}
+
+ .res{
+	background: #efefef;
+	border: 1px solid #ddd;
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+	width: 100%;
+}
+.thumb1{
+    height:52px;
+    width:52px;
+    padding-right:10px;
+}
+.thumbu{
+    max-width:80px;    
+}
+.keyword{
+      font-size:23px;  
+      color:#44bdff;
+      font-weight:bold;
+}
+.keysub{
+      font-size:23px;
+      color:#454647;
+}
+.searchres{
+    margin-bottom:30px;
+}
+</style>

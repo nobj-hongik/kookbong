@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-      @posts = Epost.order('created_at DESC').limit(3)
+      @eposts = Epost.order('created_at DESC').limit(3)
+      @bars = Bar.order('created_at DESC').limit(4)      
   end
   
   

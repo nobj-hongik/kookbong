@@ -1,19 +1,20 @@
 <div class="fonter">
-  <section id="about" class="section">
+  <div class="ban2 section2" id="ban2">
     <div class="container">
-      <header class="section__header">
+      <header class="section__heade">
         <h2 class="section__title mb-3">
-          <span class="section__category mb-2" lang="en">About</span>
+          <br>
+          <span class="section__category mb-2" lang="en" style="margin-top:30px;">About</span>
           한국철봉
         </h2>
       </header>
       <div class="about__data d-flex justify-content-center mb-3">
 
         <p class="about__datum px-4 px-sm-5">
-          <strong class="about__number text-primary">한국철봉은 철봉운동을 하고자 하는 모든 사람들에게 운동 정보를 제공하면서 <br> 사용자 간 정보공유와 소통을 도와주는 종합 운동 플랫폼입니다.
+          <strong class="about__number text-primary" id="about__number">한국철봉은 철봉운동을 하고자 하는 모든 사람들에게 운동 정보를 제공하면서 <br> 사용자 간 정보공유와 소통을 도와주는 종합 운동 플랫폼입니다.
 </strong>
         </p>
-
+<br>
       </div>
       <div class="row">
         <div class="col-12 col-md-10 col-lg-8 push-md-1 push-lg-2">
@@ -22,66 +23,88 @@
         </div>
       </div>
     </div>
-  </section>
+    </div>
   <!-- // About -->
 
   <!-- Main -->
   <main class="main">
   	<div class="container">
   		<section class="posts">
-  			<h2 class="sr-only">시팔이의 시</h2>
+  			<h2 class="sr-only">소개페이지</h2>
   			<ul class="post__list">
-  				<li class="post__item mb-5">
-  					<div class="row">
-  						<a href="#" class="d-block col-12 col-md-10 col-lg-6 push-md-1 push-lg-2 py-4">
-  							<h1 class="post__title mb-4">
-                  “내 근처에 철봉이 어디있을까?”
-                </h1>
-                <p class="post__title_2 mb-4">
-                  한국철봉은 <em>‘철봉찾기’</em>로 한국의 철봉 위치와 그에 대한 상세한 정보를 제공합니다.
-                  <br>한강을 시작으로 모든 철봉들을 에디터들이 직접 사용하고 후기를 작성합니다.
-                </p>
-
-  						</a>
-  					</div>
-  				</li>
-  				<li class="post__item mb-5">
-  					<div class="row">
-  						<a href="#" class="d-block col-12 col-md-10 col-lg-6 push-md-1 push-lg-4 py-4">
-                <h1 class="post__title mb-4">
-                  “운동, 어떻게 해야하지?”
-                </h1>
-                <p class="post__title_2 mb-4">
-                  철봉 운동 초보자부터 전문가까지 모두를 위한 한국철봉은 <em>‘국봉칼럼’</em>으로 <br>다양한 철봉 운동 영상과 양질의 운동 정보를 전달하고, 동기부여 또한 심어드립니다.
-
-                </p>
-  						</a>
-  					</div>
-  				</li><li class="post__item mb-5">
-  					<div class="row">
-  						<a href="#" class="d-block col-12 col-md-10 col-lg-6 push-md-1 push-lg-2 py-4">
-                <h1 class="post__title mb-4">
+  			  <div class="row " style="margin-bottom:60px;">
+    	    <div class="col-12 col-md-4 push-md-8 arrangement">
+    	      <%= image_tag("introwhere.png", :class => "img-fluid introimage") %>
+    	    </div>
+  			    <div class="col-12 col-md-8 pull-md-4">
+    				<li class="post__item">
+    						<a class="">
+    						  <h1 class="post__title" style="padding-top:50px; text-align: center;">
+                    “내 근처에 철봉이 어디있을까?”
+                  </h1>
+                  <p class="post__title_2" style="text-align: center;">
+                    한국철봉은 <em>‘철봉찾기’</em>로 한국의 철봉 위치와 그에 대한 상세한 정보를 제공합니다.
+                    <br>한강을 시작으로 모든 철봉들을 에디터들이 직접 사용하고 후기를 작성합니다.
+                  </p>
+    						</a>
+    				</li>
+    				</div>    	    
+  				</div>
+  				
+  			  <div class="row" style="margin-bottom:60px;">
+    	    <div class="col-12 col-md-4 arrangement">
+    	      <%= image_tag("introexerhow2.png", :class => "img-fluid introimage") %>
+    	    </div>  			    
+  			    <div class="col-12 col-md-8">
+    				<li class="post__item">
+    						<a class="">
+        						  <h1 class="post__title" style="padding-top:50px; text-align: center;">
+                         “운동, 어떻게 해야하지?”
+                      </h1>
+                    <p class="post__title_2" style="text-align: center;">
+                      철봉 운동 초보자부터 전문가까지 모두를 위한 한국철봉은 <em>‘국봉칼럼’</em>으로 <br>다양한 철봉 운동 영상과 양질의 운동 정보를 전달하고, 동기부여 또한 심어드립니다.
+                    </p>
+    						</a>
+    				</li>
+    				</div>
+  				</div>
+  				
+  			  <div class="row" style="margin-bottom:60px;">
+    	    <div class="col-12 col-md-4 push-md-8 arrangement">
+    	      <%= image_tag("introexerhow.png", :class => "img-fluid introimage") %>
+    	    </div>  	  			    
+  			    <div class="col-12 col-md-8 pull-md-4">
+    				<li class="post__item">
+    						<a class="">
+                <h1 class="post__title" style="padding-top:50px; text-align: center;">
                 “좋은 운동법이 있다면?”
               </h1>
-                <p class="post__title_2 mb-4">
-                  <em>‘국봉톡’</em>에서는 한국철봉의 회원들과 운동정보도 공유하고, 운동 파트너도 구할 수 있습니다. 모르는 것이 있다면 물어보고, 자랑하고 싶은 것이 있다면 자랑해도 좋습니다. <br>국봉톡 게시판에서 한 걸음 더 성장하세요.
-
+                <p class="post__title_2" style="text-align: center;">
+                  <em>‘국봉톡’</em>에서는 한국철봉의 회원들과 운동정보도 공유하고, 운동 파트너도 구할 수 있습니다. <br>모르는 것이 있다면 물어보고, 자랑하고 싶은 것이 있다면 자랑해도 좋습니다. <br>국봉톡 게시판에서 한 걸음 더 성장하세요.
                 </p>
-  						</a>
-  					</div>
-  				</li>
-  				<li class="post__item">
-  					<div class="row">
-  						<a href="#" class="d-block col-12 col-md-10 col-lg-6 push-md-1 push-lg-4 py-4">
-                <h1 class="post__title mb-4">
+    						</a>
+    				</li>
+    				</div>  			    
+  				</div>
+  				
+  			  <div class="row" style="margin-bottom:60px;">
+  			    
+    	    <div class="col-12 col-md-4 arrangement">
+    	      <%= image_tag("introtommo.png", :class => "img-fluid introimage") %>
+    	    </div>
+  			    <div class="col-12 col-md-8">
+    				<li class="post__item">
+    						<a class="">
+                <h1 class="post__title" style="padding-top:50px; text-align: center">
                   “오늘보다 더 나은 내일의 나!”
                 </h1>
-                <p class="post__title_2 mb-4">
+                <p class="post__title_2" style="text-align: center;">
                   모든 한국철봉의 유저들은 자신만의 <em>‘운동일지’</em>를 가지고 있습니다. <br> 오늘 한 운동을 기록하며 자신의 운동일지를 꾸며보세요.
                 </p>
-  						</a>
-  					</div>
-  				</li>
+    						</a>
+    				</li>
+    				</div>    	    
+  				</div>
   			</ul>
   		</section>
   	</div>
@@ -89,15 +112,58 @@
   
   
  <style>
-/* Common Settings */
 
+.conetainer1{
+  max-width:700px;
+}
+.arrangement{
+  display: flex;
+  justify-content: center;
+}
+
+.ban2{
+background-image: url('/assets/introban.png')
+}
+#ban2{
+    height:430px;
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    -webkit-perspective: 400px;
+    -o-perspective: 400px;
+    perspective: 400px;
+    margin-bottom:60px;
+} 
+
+@media screen and (min-width: 880px) {
+#about__number{
+  display: block;
+  font-family: 'NanumSquare', sans-serif;
+  font-size: 1.333rem;
+  line-height: 1.37;
+  
+}
+}
+.about__number{
+  display: block;
+  font-family: 'NanumSquare', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.37;
+}
 .fonter{
   font-family: 'NanumSquare', sans-serif;
   letter-spacing: -0.02em;
   color: #333;
 }
 
-
+.introimage{
+  height:220px;
+}
 button {
   cursor: pointer;
 }
@@ -116,7 +182,7 @@ a:hover {
 }
 
 .text-primary {
-  color: #0275d8 !important;
+  color: #cccccc !important;
 }
 
 .bg-primary {
@@ -142,13 +208,15 @@ ul, ol {
   padding: 120px 0;
   text-align: center;
 }
-
+.section2{
+  text-align:center;
+}
 .section__title {
   font-size: 3.33333333rem;
   font-weight: 700;
   line-height: 1.44;
   letter-spacing: -0.02em;
-
+  color:white;
 }
 
 .section__category {
@@ -172,12 +240,7 @@ ul, ol {
   border-right: none;
 }*/
 
-.about__number {
-  display: block;
-  font-family: 'NanumSquare', sans-serif;
-  font-size: 1.333rem;
-  line-height: 1.37;
-}
+
 
 
 /* Main / Post */

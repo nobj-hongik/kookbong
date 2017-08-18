@@ -4,7 +4,7 @@
             <div class="col-0 col-lg-1"></div>
                     <div class="col-12 col-lg-10">
                       <br>
-                                      <%= link_to "목록으로", uposts_path,:class=>"listlink left"%>
+                                      <%= link_to "목록으로", uposts_path,:class=> "btn btn-primary"%>
                                           <% if !user_signed_in? %> 
                                           <%else%>
                                           <% if current_user.id == @post.user.id %>
@@ -33,7 +33,7 @@
                                           <span class="timeforman"><%= distance_of_time_in_words Time.now, @post.created_at%></span>
                                           </div>
                                             <div class="card-img-top">
-                                              <% if post.image.url %>
+                                              <% if @post.image.url %>
                                               <img src="<%= @post.image.url %>" class="img-fluid">
                                               <%end%>
                                             </div>      

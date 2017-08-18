@@ -1,117 +1,270 @@
  <div class="container-fluid">   
-<div class="backg">
-    <div class="row" style="margin-top:10px; margin-bottom:30px;">
-                        <div class="col-6 col-md-3 d-flex justify-content-center responsivepdl" id="responsivepd" style="margin-bottom:10px">
-                            <% if @post.image1.url%>
-                                    <div class="card">
-                                        <img class="card-img img-fluid imsizer" src="<%= @post.image1.url %>" alt="Card image">
-                                    </div>
-                            <%end%>        
-                        </div> 
-                        <div class="col-6 col-md-3 d-flex justify-content-center responsivepdr" id="responsivepd" style="margin-bottom:10px">
-                            <% if @post.image2.url%>
-                                    <div class="card">
-                                        <img class="card-img img-fluid imsizer" src="<%= @post.image2.url %>" alt="Card image">
-                                    </div>
-                            <%end%> 
-                        </div> 
-                        <div class="col-6 col-md-3 d-flex justify-content-center responsivepdl" id="responsivepd" style="margin-bottom:10px">
-                            <% if @post.image3.url%>
-                                    <div class="card">
-                                        <img class="card-img img-fluid imsizer" src="<%= @post.image3.url %>" alt="Card image">
-                                    </div>
-                            <%end%> 
-                        </div>  
-                        <div class="col-6 col-md-3 d-flex justify-content-center responsivepdr" id="responsivepd" style="margin-bottom:10px;">
-                            <% if @post.image4.url%>
-                                    <div class="card">
-                                        <img class="card-img img-fluid imsizer" src="<%= @post.image4.url %>" alt="Card image">
-                                    </div>
-                            <%end%> 
-                        </div>                          
-    </div>  
+        <div class="backg">
+            <div class="row" style="margin-top:10px; margin-bottom:10px;">
+                                <div class="col-6 col-md-3 d-flex justify-content-center responsivepdl" id="responsivepd" style="margin-bottom:10px">
+                                            <a href="#" data-toggle="modal" data-target="#myModal2">  
+                                                <% if @post.image1.url%>
+                                                        <div class="card">
+                                                            <img class="card-img img-fluid imsizer" src="<%= @post.image1.url %>" alt="Card image">
+                                                        </div>
+                                                <%end%>        
+                                            </a>    
+                                                            <div id="myModal2" class="modal fade" role="dialog">
+                                                              <div class="modal-dialog modal-lg">
+                                                                  
+                                                                <div class="modal-content">
+                                                                  <div class="modal-header">
+                                                                    <h6 class="modal-title"><%=@post.title %></h6>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                      <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                  </div>       
+                                                                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                                      <ol class="carousel-indicators">
+                                                                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                                                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                                                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                                                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                                                                        <% if @post.image5.url%>
+                                                                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                                                                        <% end %>
+                                                                        <% if @post.image6.url%>
+                                                                        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                                                                        <%end%>
+                                                                        <% if @post.image7.url%>
+                                                                        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                                                                        <%end%>
+                                                                      </ol>
+                                                                      <div class="carousel-inner" role="listbox">
+                                                                          <% if @post.image1.url%>
+                                                                                <div class="carousel-item active">
+                                                                                  <img class="d-block img-fluid" src="<%= @post.image1.url %>" alt="First slide">
+                                                                                </div>
+                                                                          <% end %>     
+                                                                          <% if @post.image2.url%>
+                                                                                <div class="carousel-item">
+                                                                                  <img class="d-block img-fluid" src="<%= @post.image2.url %>" alt="First slide">
+                                                                                </div>
+                                                                          <% end %>   
+                                                                          <% if @post.image3.url%>
+                                                                                <div class="carousel-item">
+                                                                                  <img class="d-block img-fluid" src="<%= @post.image3.url %>" alt="First slide">
+                                                                                </div>
+                                                                          <% end %>   
+                                                                          <% if @post.image4.url%>
+                                                                                <div class="carousel-item">
+                                                                                  <img class="d-block img-fluid" src="<%= @post.image4.url %>" alt="First slide">
+                                                                                </div>
+                                                                          <% end %>   
+                                                                          <% if @post.image5.url%>
+                                                                                <div class="carousel-item">
+                                                                                  <img class="d-block img-fluid" src="<%= @post.image5.url %>" alt="First slide">
+                                                                                </div>
+                                                                          <% end %>   
+                                                                          <% if @post.image6.url%>
+                                                                                <div class="carousel-item">
+                                                                                  <img class="d-block img-fluid" src="<%= @post.image6.url %>" alt="First slide">
+                                                                                </div>
+                                                                          <% end %>   
+                                                                          <% if @post.image7.url%>
+                                                                                <div class="carousel-item">
+                                                                                  <img class="d-block img-fluid" src="<%= @post.image7.url %>" alt="First slide">
+                                                                                </div>
+                                                                          <% end %>         
+                                                                      </div>
+                                                                      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                                        <span class="sr-only">Previous</span>
+                                                                      </a>
+                                                                      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                                        <span class="sr-only">Next</span>
+                                                                      </a>
+                                                                      </div>
+                                                                    </div>      
+                                                              </div>
+                                                            </div>                                            
+                                </div> 
+                                <div class="col-6 col-md-3 d-flex justify-content-center responsivepdr" id="responsivepd" style="margin-bottom:10px">
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">  
+                                    <% if @post.image2.url%>
+                                            <div class="card">
+                                                <img class="card-img img-fluid imsizer" src="<%= @post.image2.url %>" alt="Card image">
+                                            </div>
+                                    <%end%>
+                                    </a>
+                                </div> 
+                                <div class="col-6 col-md-3 d-flex justify-content-center responsivepdl" id="responsivepd" style="margin-bottom:10px">
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">  
+                                    <% if @post.image3.url%>
+                                            <div class="card">
+                                                <img class="card-img img-fluid imsizer" src="<%= @post.image3.url %>" alt="Card image">
+                                            </div>
+                                    <%end%> 
+                                    </a>
+                                </div>  
+                                <div class="col-6 col-md-3 d-flex justify-content-center responsivepdr" id="responsivepd" style="margin-bottom:10px;">
+                                   <a href="#" data-toggle="modal" data-target="#myModal2">  
+                                    <% if @post.image4.url%>
+                                            <div class="card">
+                                                <img class="card-img img-fluid imsizer" src="<%= @post.image4.url %>" alt="Card image">
+                                            </div>
+                                    <%end%> 
+                                    </a>
+                                </div>                          
+            </div>  
 </div>
-
-<div class="container">
-        <section class="information">
-                            <div class="row">
-                                    <div class="col-12 col-md-8">
-                                        <h4 class="titler"><%= @post.title %></h4>
-                                        <h6 class="simplelocation"><%= @post.simplelocation %></h6>   
-                                        <hr>
-                                      <p class="explain">주소: <%=@post.location%></p>                                 
-                                      <p class="explain">장비: <%=@post.equip%></p>    
-                                      <p class="explain">그립: <%=@post.grip%></p>  
-                                      <p class="explain">높이: <%=@post.height%></p>                               
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        
-                                    </div>
-                            </div>
-        </section>  
-        
-        <section="review">
-            <h4 class="titler">에디터 리뷰</h4>
-            <h6 class="simplelocation">Editor <%=@post.user.name %></h6>            
-            <hr>
-            <p class="editorreview">
-                    <%= simple_format(@post.review) %>
-            </p>
-        </section>
 </div>
-
 <div class="container">
-      <div class="row">
-            <div class="col-0 col-lg-1"></div>
-                    <div class="col-12 col-lg-10">
-                      <br>
-                                      <%= link_to "목록으로", bars_path,:class=>"listlink left"%>
                                           <% if !user_signed_in? %> 
                                           <%else%>
                                           <% if current_user.id == @post.user.id %>
                                           <%= link_to image_tag("deleteiconsm.png"), bar_path(@post), method: "delete", class: "float-right",:data => {:confirm => 'Are you sure bro?'} %>
                                           <%= link_to image_tag("editiconsm.png"), edit_bar_path(@post), class: "float-right blanker"%>
                                           <br>
-                                          <%end%>
-                                      <% end %> 
-                          <div class="card" style="margin-top:10px; background-color:#f9f9f9;">
-                                      <div class="card-block" style="border-bottom:1px solid #e0e0e0 ; padding-bottom:8px;padding-top:8px;">
-                                          <p class="subclass"><%= @post.title %></p>
-                                          <%if @post.user.avatar.url %>
-                                              <%= link_to controller: "tposts", action: "index", :user_id => @post.user_id,:class=>"bthover" do %>
-                                                  <img class="rounded-circle thumb1" src="<%= @post.user.avatar.url %>" />
-                                              <%end%>               
-                                          <%elsif @post.user.image %>
-                                              <%= link_to controller: "tposts", action: "index", :user_id => @post.user_id,:class=>"bthover" do %>
-                                                  <img class="rounded-circle thumb1" src="<%= @post.user.image %>" />
-                                              <%end%> 
-                                          <%else%>
-                                              <%= link_to controller: "tposts", action: "index", :user_id => @post.user_id,:class=>"bthover" do %>
-                                                  <%= image_tag("ph1.png", :class => "rounded-circle thumb1") %>
-                                              <%end%>                                          
-                                          <%end%>
-                                          <span class="card-title2"><%= @post.user.name %></span>
-                                          <span class="timeforman"><%= distance_of_time_in_words Time.now, @post.created_at%></span>
-                                          </div>
-                                          <div class="card-block" >
-                                              
-                                          </div>
-                                          </div>
+                                          <%end%> 
+                                          <%end%>    
+        <section class="information">
+                            <div class="row">
+                                    <div class="col-12 col-md-8" style="margin-top:20px; margin-bottom:20px;">
+                                        <span class="titler2"><%= @post.title %></span>
+                                        <span class="mainscore"><%= @superscore.round(1)%></span>
+                                        <h6 class="simplelocation2"><%= @post.simplelocation %></h6>  
+                                        
+                                        <hr>
+                                              <p class="explain">주소: <%=@post.location%></p>                                 
+                                              <p class="explain">장비: <%=@post.equip%></p>    
+                                              <p class="explain">그립: <%=@post.grip%></p>  
+                                              <p class="explain">높이: <%=@post.height%></p> 
+                                    </div>
+                                    <div class="col-12 col-md-4" id="map"></div>
+                            </div>
+        </section>  
+        
+        <section class="review">
+            <h4 class="titler">에디터 리뷰</h4>
+                    <h6 class="simplelocation">Editor <%=@post.user.name %></h6>            
+                    <hr>            
+            <div class="row">
+                <div class="col-12 col-md-10">
+                    <p class="editorreview">
+                            <%= simple_format(@post.review) %>
+                    </p>
+                </div>
+                <div class="col-12 col-md-2 centerscore">
+                    <h5 class="text-center" style="color:#545656;">에디터 평점</h5>
+                    <h1 class="text-center" style="color:#5bc9e5; font-weight:bold;"><%=@post.score%>.0</h1>
+                </div>    
+            </div>
+        </section>
+        <section class="review">
+            <h4 class="titler">사용자 리뷰</h4>    
+            <% if user_signed_in? %> 
+            <a href="#" data-toggle="modal" data-target="#myModal"> 
+                <%= image_tag("reviewbt.png", :class => "showbtn") %>
+            </a>
+            <%end%>
+            <hr>
+                                           <div id="comments">
+                                                    <% @comments.reverse.each do |comment| %>
+                                                            <%= render partial: "bcomments/item", locals: { comment: comment } %>
+                                                     <%end%>
+                                          </div>   
                                           <br>
-                                                     
-                           </div>         
-                   <br>
-          </div>
-          <div class="col-0 col-lg-1"></div>
-      </div>    
+                                            <%= will_paginate @comments, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>                                                
+        </section> 
 </div>
-</div>
+<div class="marginer2"></div>
+<div class="container">
+        <section class="editorpost">  
+          <div class="container-fluid">
+              <%= image_tag("lecbtn.png", :class => "section__title") %>  
+            <%= link_to eposts_path , class: "" do%> 
+              <%= image_tag("showbtn.png", :class => "showbtn2 float-right") %>
+            <%end%>              
+              <div class="row">
+                              <div class="card-deck">
+                                  <% @posts.each do |post| %>
+                                              <div class="col-12 col-md-4 d-flex justify-content-center" style="margin-bottom:20px">
+                                                  <%= link_to epost_path(post.id), :class=>"hoverer" do %> 
+                                                          <div class="card card-inverse">
+                                                                       <img class="card-img img-fluid" src="<%= post.thumb.url %>" alt="Card image">
+                                                              <div class="card-footer">
+                                                                <span class="text-muted" style="font-size:18px; margin-bottom:0px; margin-top:5px;"><%=post.title%></span>
+                                                               <p class="text-muted" style="font-size:12px; margin-top:5px; margin-bottom:0px">Written by <%=post.user.name%></p>
+                                                              </div>
+                                                          </div>
+                                                  <%end%>              
+                                              </div> 
+                                  <% end %>
+                              </div>    
+              </div> 
+          <br>
+          </div>        
+        </section>
+</div>        
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                          <span class="sr-only">Close</span>
+                                        </button>
+                                        <h4 class="modal-title" id="myModalLabel">리뷰 작성하기</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                                <%= form_tag bar_bcomments_path(@post) , remote: true do %>
+                                                    <% if !user_signed_in? %> 
+                                                        <div class="form-group">
+                                                        <fieldset disabled>
+                                                          <div class="input-field smaller">
+                                                            <%= text_area_tag :content, nil, class: "form-control", placeholder: "회원만 리뷰를 쓸 수 있습니다.", required: true %>
+                                                          </div>
+                                                          <br>
+                                                          <div class="input-field center-btn">
+                                                            <%= button_tag "리뷰 작성", class: "btn btn-secondary" %>
+                                                          </div>
+                                                         </fieldset>
+                                                         </div>
+                                                      <hr>                                                    
+                                                    <%else%>
+                                                    <div class="form-group" style="padding-bottom:10px;">
+                                                      <div class="input-field smaller">
+                                                           <p>리뷰 내용</p>
+                                                        <%= text_area_tag :content, nil, class: "form-control tarea", placeholder: "리뷰를 작성해 주세요 :)", required: true %>
+                                                      </div>
+                                                      <br>
+                                                      <div class="input-field smaller">
+                                                         <p>운동 만족도</p>
+                                                        <%= number_field_tag :satisscore, nil, class: "form-control", placeholder: "1 ~ 5점", required: true,in: 1...6 %>
+                                                      </div>
+                                                      <br>
+                                                      <div class="input-field smaller">
+                                                       <p>시설 만족도</p>
+                                                        <%= number_field_tag :equipscore, nil, class: "form-control", placeholder: "1 ~ 5점", required: true,in: 1...6 %>
+                                                      </div>
+                                                                                                           
+                                                      </div> 
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                                                    <%= button_tag "리뷰 작성", class: "btn btn-primary closer"%>
+                                                  </div>
+                                                        <%end%>  
+                                                <% end %>  
+                                        </div>
+                                      </div>
+                                    </div>
+<div class="marginer2"></div>
+
 
 <style>
 @media screen and (min-width: 880px) {
 .container-fluid {padding-left:20px; padding-right:20px; max-width:100%;}
 #responsivepd {padding-right:5px;padding-left:5px;}
 }
+
 .responsivepdl {
   padding-right:5px;
   padding-left:10px;
@@ -120,18 +273,69 @@
   padding-right:10px;
   padding-left:5px;
 }
+#map{
+    margin-top:20px;
+    height:250px;   
+}
+.marginer2{
+        height:24px;
+      background-color:#e5e5e5;    
+}
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: block;
+}
+.section__title {
+    width:140px;
+    margin-top:30px;
+    margin-bottom:30px;
+}
+    .title3{
+         font-size:16px;
+         font-weight:bold;
+         color:#565759;
+          position:relative;
+          top:3px;
+          padding-left:12px;
+    } 
+.userscore{
+    position:relative;
+    font-weight:bold;
+    color:#5bc9e5;
+    top:3px;
+    padding-left:5px;
+}    
         .navbutton{
            width:20px; 
         }
 .information{
-    margin-bottom:50px;
+    margin-bottom:70px;
 }
-.titler{
+.review{
+    margin-bottom:50px;    
+}
+.mainscore{
+    font-size:1.5rem;
+    margin-left:7px;
+    font-weight:bold;
+    color:#5bc9e5;
+}
+.titler1{
     font-weight:bold;
     color:#555759;
 }
+.titler2{
+    font-weight:bold;
+    color:#555759;
+    font-size:1.5rem;
+}
 .simplelocation{
     color:#5d5e60;
+}
+.simplelocation2{
+    color:#5d5e60;
+    margin-top:8px;
 }
 .explain{
     color:#67686b;
@@ -221,7 +425,23 @@
 		width: 100%;
 	}
 }
-
+.centerscore{
+    padding-top:15px;
+    margin:auto;
+}
+.showbtn{
+  width:80px;
+  padding-top:0px;
+  opacity:0.8;
+}
+.showbtn2{
+  width:80px;
+  padding-top:60px;
+  opacity:0.8;
+}
+.showbtn:hover{
+  opacity:1;
+}
 .rowup{
 	margin-bottom: 1em;
   justify-content: center;
@@ -234,8 +454,52 @@
 	padding-bottom: .75rem;
 	width: 100%;
 }
+.blanker{
+    margin-right:10px;
+}
 </style>
 
 <script>
-   
+$(window).scroll(function() {
+  sessionStorage.scrollTop = $(this).scrollTop();
+});
+$(document).ready(function() {
+  if (sessionStorage.scrollTop != "undefined") {
+    $(window).scrollTop(sessionStorage.scrollTop);
+  }
+});  
+$(".closer").click(function() {
+    $('#myModal').modal('hide')
+});
+$(".carousel").on("touchstart", function(event){
+        var xClick = event.originalEvent.touches[0].pageX;
+    $(this).one("touchmove", function(event){
+        var xMove = event.originalEvent.touches[0].pageX;
+        if( Math.floor(xClick - xMove) > 5 ){
+            $(".carousel").carousel('next');
+        }
+        else if( Math.floor(xClick - xMove) < -5 ){
+            $(".carousel").carousel('prev');
+        }
+    });
+    $(".carousel").on("touchend", function(){
+            $(this).off("touchmove");
+    });
+});
+
+var map = new naver.maps.Map('map', {
+        center: new naver.maps.LatLng(<%=@post.point1%>,<%=@post.point2%>), //지도의 초기 중심 좌표
+        zoom: 10, //지도의 초기 줌 레벨
+        minZoom: 1, //지도의 최소 줌 레벨
+        zoomControl: true, //줌 컨트롤의 표시 여부
+        zoomControlOptions: { //줌 컨트롤의 옵션
+            position: naver.maps.Position.TOP_RIGHT
+        }
+    });
+var marker = new naver.maps.Marker({
+    position: new naver.maps.LatLng(<%=@post.point1%>, <%=@post.point2%>),
+    map: map
+});
+//setOptions 메서드를 통해 옵션을 조정할 수도 있습니다.
+map.setOptions("mapTypeControl", true); //지도 유형 컨트롤의 표시 여부
 </script>
