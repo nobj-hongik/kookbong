@@ -3,13 +3,13 @@
         <div class="center-btn"> 
               <%= image_tag("gstitle.png", :class => "img-fluid imgsizer2") %>
         </div> 
-        <%if user_signed_in? && current_user.id == 1%>   <!-- 여기 바꿔서 'editer'만 버튼나오도록 바꿔야됨 -->
+           <!-- 여기 바꿔서 'editer'만 버튼나오도록 바꿔야됨 -->
             <div class="center-btn">
                 <%= link_to new_epost_path, :class=>"" do %>
                 <%= image_tag("btnobo.png", :class => "button1") %>
                 <% end %>
             </div> 
-        <% end %>    
+
     </div> 
     
 <div class="container">
