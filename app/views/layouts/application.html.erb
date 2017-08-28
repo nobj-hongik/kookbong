@@ -70,13 +70,13 @@
     
 <footer class="footer2">
     <div class="footer">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <nav class="col-md-6 col-sm-6 col-12">
                   <br>
                   <div class="row">
-                    <div class="col-1"></div>
-                    <div class="col-10">
+                    <div class="col-1 col-md-0"></div>
+                    <div class="col-10 col-md-12">
                     <div class="center-btn">
                     <%= image_tag("colabo.png", :class => "footlogo") %>
                     </div>
@@ -84,21 +84,21 @@
                       
                       <div class="col-6">
                           <ul class="list-unstyled">
-                              <li><a href="" class="luxury text-center">서비스소개</a></li>
+                              <li><a href="/" class="luxury text-center">홈페이지</a></li>                            
+                              <li><a href="/intros" class="luxury text-center">서비스소개</a></li>
                               <li><a href="" class="luxury text-center">개발자들</a></li>
-                              <li><a href="" class="luxury text-center">서포터즈</a></li>
                                                        
                           </ul>
                       </div>
                       <div class="col-6">
                           <ul class="list-unstyled">
-                              <li><a href="" class="luxury text-center">국봉칼럼</a></li>
-                              <li><a href="" class="luxury text-center">국봉TALK</a></li>
-                              <li><a href="" class="luxury text-center">운동일지</a></li>  
+                              <li><a href="/eposts" class="luxury text-center">국봉칼럼</a></li>
+                              <li><a href="/uposts" class="luxury text-center">국봉토크</a></li>
+                              <li><a href="/tposts/index/<%=current_user.id %>" class="luxury text-center">운동일지</a></li>  
                           </ul>
                       </div>
                       </div>
-                      <div class="col-1"></div>
+                      <div class="col-1 col-md-0"></div>
                    </div>
                 </nav>
                 
@@ -108,7 +108,7 @@
                     <%= image_tag("centerslogan.png", :class => "footlogo2") %>
                     <ul class="social" style="padding-left:0px;">
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://www.instagram.com/koreanpullupbar"><i class="fa fa-instagram"></i></a></li>
                         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                     
                     </ul>
@@ -120,7 +120,7 @@
     
     <div class="footer-bottom">
         <div class="container">
-            <div class="push-center"> &copy; 2017 한국철봉 All Rights Reserved. </div>
+            <div class="text-center"> &copy; 2017 한국철봉 All Rights Reserved. </div>
             <div class="pull-right">
             </div>
         </div>
@@ -149,7 +149,8 @@
   text-transform: uppercase;
 }
 .footlogo2{
-  margin-top:10px;
+  margin-top:16px;
+  margin-bottom:24px;
 }
 .marginer{
   height:62px;
@@ -167,7 +168,7 @@
     max-width:115px;
   }
 .footlogo{
-  width:360px;
+  width:420px;
   margin-bottom:20px;
 }
 /* Sticky footer position and size

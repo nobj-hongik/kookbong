@@ -4,11 +4,15 @@
               <%= image_tag("gstitle.png", :class => "img-fluid imgsizer2") %>
         </div> 
            <!-- 여기 바꿔서 'editer'만 버튼나오도록 바꿔야됨 -->
-            <div class="center-btn">
-                <%= link_to new_epost_path, :class=>"" do %>
-                <%= image_tag("btnobo.png", :class => "button1") %>
-                <% end %>
-            </div> 
+         <% if user_signed_in? %> 
+              <%if current_user.id==1 || current_user.id==2 || current_user.id==3 || current_user.id==4 %>
+                <div class="center-btn">
+                    <%= link_to new_epost_path, :class=>"" do %>
+                    <%= image_tag("btnobo.png", :class => "button1") %>
+                    <% end %>
+                </div> 
+              <%end%>
+          <%end%>
 
     </div> 
     

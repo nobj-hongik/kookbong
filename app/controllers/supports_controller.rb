@@ -1,5 +1,5 @@
 class SupportsController < ApplicationController
-before_action :authenticate_user!, except: [:index, :show]
+before_action :authenticate_user!
 before_action :check_ownership, only: [:edit, :update, :destroy]
 
   def masterindex

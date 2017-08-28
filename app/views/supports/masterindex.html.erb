@@ -1,31 +1,40 @@
 <section>
-<br><br>
-<div class="container">
-    <div class="searchres">
-            <span class="keyword">모든 유저</span> <span class="keysub">분들이 제보하신 철봉 입니다.</span>
+  <% if user_signed_in? %> 
+    <%if current_user.id==1 || current_user.id==2 || current_user.id==3 || current_user.id==4 %>   
+        <br><br>
+        <div class="container">
+            <div class="searchres">
+                    <span class="keyword">모든 유저</span> <span class="keysub">분들이 제보하신 철봉 입니다.</span>
+                    <br>
+            </div>   
+            <br><br>
+            <div class="row">
+                    <% @posts.each do |post| %>
+                                <div class="col-12 col-md-4 d-flex justify-content-center" style="margin-bottom:16px">
+                                    <%= link_to support_path(post.id), :class=>"hoverer" do %> 
+                                            <div class="card">
+                                                <%if post.image.url %>
+                                                     <img class="card-img img-fluid" src="<%= post.image.url %>" alt="Card image">
+                                                 <%else%>
+                                                      <%= image_tag("supph.png", :class => "img-fluid card-img") %>                                         
+                                                 <%end%>
+                                                 <p class="titletext text-left" id="titletext"><%=post.title%></p>
+                                                 <p class="subtext text-left" id="subtext"><%=post.location.truncate(20)%></p>
+                                            </div>
+                                    <%end%>              
+                                </div> 
+                    <% end %>
+            </div> 
             <br>
-    </div>   
-    <br><br>
-    <div class="row">
-            <% @posts.each do |post| %>
-                        <div class="col-12 col-md-4 d-flex justify-content-center" style="margin-bottom:16px">
-                            <%= link_to support_path(post.id), :class=>"hoverer" do %> 
-                                    <div class="card">
-                                        <%if post.image.url %>
-                                             <img class="card-img img-fluid" src="<%= post.image.url %>" alt="Card image">
-                                         <%else%>
-                                              <%= image_tag("supph.png", :class => "img-fluid card-img") %>                                         
-                                         <%end%>
-                                         <p class="titletext text-left" id="titletext"><%=post.title%></p>
-                                         <p class="subtext text-left" id="subtext"><%=post.location.truncate(20)%></p>
-                                    </div>
-                            <%end%>              
-                        </div> 
-            <% end %>
-    </div> 
-    <br>
-</div>
-</section>
+        </div>
+    <%else%>
+    <br><br><br><br><br><br>
+        <h1 class="text-center">접근 권한이 없습니다!</h1>
+        <br>
+        <h5 class="text-center">권한은 한국철봉 관리자에게 문의해 주십시오</h5>        
+    <%end%>
+    <%end%>    
+        </section>    
 <style>
 .card {
     border:0px solid black;
