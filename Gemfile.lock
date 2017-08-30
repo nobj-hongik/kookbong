@@ -295,6 +295,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport (~> 4.2.5)
   bootstrap (~> 4.0.0.alpha6)
   byebug
   cancancan
