@@ -94,7 +94,9 @@
                           <ul class="list-unstyled">
                               <li><a href="/eposts" class="luxury text-center">국봉칼럼</a></li>
                               <li><a href="/uposts" class="luxury text-center">국봉토크</a></li>
+                              <% if user_signed_in? %>
                               <li><a href="/tposts/index/<%=current_user.id %>" class="luxury text-center">운동일지</a></li>  
+                              <% end %>                          
                           </ul>
                       </div>
                       </div>
