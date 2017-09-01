@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
-gem 'dbm'
-gem 'gdbm'
 #searchkick
 gem 'searchkick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
