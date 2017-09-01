@@ -24,7 +24,7 @@ test:
 production:
   adapter: mysql2
   host: 127.0.0.1
-  database: [MY-APP-NAME]_production
+  database: kookbong_production
   username: root
   password: <%= ENV.fetch("KOOKBONG_DATABASE_PASSWORD"){ "" } %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
