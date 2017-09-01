@@ -3,17 +3,18 @@ before_action :authenticate_user!, except: [:index, :show,:search]
 before_action :check_ownership, only: [:edit, :update, :destroy]
 
   def search
-    if params[:search].present?
-      @posts = Bar.search(params[:search], fields: [{title: :word_start}, {location: :word_start}])
-      @word = params[:search]      
-    else
-      @posts = Bar.all.order('created_at DESC')
-    end
+  if params[:search]
+    @posts = Bar.search(params[:search]).order("created_at DESC").paginate(:page => params[:page])
+    @word = params[:search]   
+  else
+   @posts = Bar.all.order('created_at DESC').paginate(:page => params[:page])
+  end  
   end
   
   def index
-   @posts = Bar.all.order('created_at DESC')
    @postcount = Bar.all.count
+   @posts = Bar.all.order('created_at DESC').paginate(:page => params[:page])
+  
   end
   
   def create

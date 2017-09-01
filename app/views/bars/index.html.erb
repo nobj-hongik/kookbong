@@ -24,7 +24,8 @@
                         </div> 
             <% end %>
     </div> 
-   
+    <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+    <br>   
     <br>
 </div>
 </section>

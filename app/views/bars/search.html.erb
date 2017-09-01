@@ -2,21 +2,32 @@
 <br><br>
 <div class="container">
     <div class="searchres">
+        <% if @posts.blank? && params[:search]%>
+            <span class="keyword">"<%=@word%>"</span> <span class="keysub">에 대한 검색결과가 없습니다.</span>
+        <%elsif @posts && params[:search]==""%>  
+            <span class="keysub">검색어를 입력해 주세요 :)</span>
+        <%else%>
             <span class="keyword">"<%=@word%>"</span> <span class="keysub"> 철봉 검색결과 입니다.</span>
+        <%end%>  
+        <br><br>
+        <a href="/" class="backto">목록으로 돌아가기</a>
     </div>   
-    <div class="row">
-            <% @posts.each do |post| %>
-                        <div class="col-12 col-md-4 d-flex justify-content-center" style="margin-bottom:16px">
-                            <%= link_to bar_path(post.id), :class=>"hoverer" do %> 
-                                    <div class="card">
-                                         <img class="card-img img-fluid" src="<%= post.image1.url %>" alt="Card image">
-                                         <p class="titletext text-left" id="titletext"><%=post.title%></p>
-                                         <p class="subtext text-left" id="subtext"><%=post.simplelocation%></p>
-                                    </div>
-                            <%end%>              
-                        </div> 
-            <% end %>
-    </div> 
+    <%if @posts && params[:search]!=""%> 
+        <div class="row">
+                <% @posts.each do |post| %>
+                            <div class="col-12 col-md-4 d-flex justify-content-center" style="margin-bottom:16px">
+                                <%= link_to bar_path(post.id), :class=>"hoverer" do %> 
+                                        <div class="card">
+                                             <img class="card-img img-fluid" src="<%= post.image1.url %>" alt="Card image">
+                                             <p class="titletext text-left" id="titletext"><%=post.title%></p>
+                                             <p class="subtext text-left" id="subtext"><%=post.simplelocation%></p>
+                                        </div>
+                                <%end%>              
+                            </div> 
+                <% end %>
+        </div> 
+        <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+    <%end%>
     <br>
 </div>
 </section>
@@ -136,7 +147,12 @@ section{
 .card-img{
     width:550px;
 }
-
+.backto{
+    color:#44bdff;
+}
+.backto:hover{
+    text-decoration:none;
+}
 
 .rowup{
 	margin-bottom: 1em;
