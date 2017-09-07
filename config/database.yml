@@ -23,7 +23,6 @@ test:
 
 production:
   adapter: mysql2
-  host: 127.0.0.1
   database: kookbong_production
   username: root
   password: <%= ENV.fetch("KOOKBONG_DATABASE_PASSWORD"){ "" } %>
