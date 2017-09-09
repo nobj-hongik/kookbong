@@ -18,6 +18,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'devise', git: 'https://github.com/plataformatec/devise.git' 
 gem 'activesupport', '~> 4.2.5'
+gem "passenger"
 # Use jquery as the JavaScript library
 gem 'cancancan' 
 gem 'rolify'
