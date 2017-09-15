@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" , :registrations=>'registrations'  }
   root 'posts#index'
-  resources :posts
+  resources :posts, except: [:show, :create, :destroy] 
   resources :uposts do
      resources :ucomments, only: [:create, :destroy] 
   end
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   end   
   resources :intros, only: [:index]
   get 'tposts/index/:user_id' => "tposts#index"   
+  get 'posts/kbeditor' => "posts#kbeditor"     
   get 'supports/admin/masterindex' => "supports#masterindex"     
   post '/tinymce_assets' => 'tinymce_assets#create'
   # The priority is based upon order of creation: first created -> highest priority.

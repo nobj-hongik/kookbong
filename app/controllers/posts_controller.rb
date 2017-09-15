@@ -4,5 +4,8 @@ class PostsController < ApplicationController
       @bars = Bar.order('created_at DESC').limit(4)      
   end
   
+  def kbeditor
+    
+  end  
   
 end

@@ -29,14 +29,26 @@
                       </p>
                   <% if current_user== @user %>
                         <div class="center-btn">
-                                 <%= image_tag("editorbtn.png", :class => "btsmall2") %>    
+                            <% if user_signed_in? %>
+                                    <%if current_user.id==1 || current_user.id==2 || current_user.id==3 || current_user.id==4 %>
+                                         <%= image_tag("editorbtn.png", :class => "btsmall2") %>
+                                    <%else%>
+                                         <%= image_tag("userbtn.png", :class => "btsmall2") %>                                    
+                                     <%end%>
+                             <%end%>  
                                  <%= link_to edit_user_registration_path, :class=>"topper" do %>
                                      <%= image_tag("editprobt.png", :class => "btsmall2 hoverer1") %>
                                  <% end %>                                   
                         </div>  
                  <%else%>
                         <div class="center-btn">
-                                     <%= image_tag("editorbtn.png", :class => "btsmall2") %>
+                            <% if user_signed_in? %>
+                                    <%if @user.id==1 || @user.id==2 || @user.id==3 || @user.id==4 %>
+                                         <%= image_tag("editorbtn.png", :class => "btsmall2") %>
+                                    <%else%>
+                                         <%= image_tag("userbtn.png", :class => "btsmall2") %>                                    
+                                     <%end%>
+                             <%end%>       
                         </div>
                  <%end%>        
                   <p class="h6 card-subtitle text-muted" style="margin-top:18px">
