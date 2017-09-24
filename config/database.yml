@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: summerfold_production
+  username: root
+  password: <%= ENV['KOOKBONG_DATABASE_PASSWORD'] %>
