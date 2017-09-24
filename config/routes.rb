@@ -25,7 +25,8 @@ Rails.application.routes.draw do
   end   
   resources :intros, only: [:index]
   get 'tposts/index/:user_id' => "tposts#index"   
-  get 'posts/kbeditor' => "posts#kbeditor"     
+  get 'posts/kbeditor' => "posts#kbeditor"   
+  get 'posts/rule' => "posts#rule"       
   get 'supports/admin/masterindex' => "supports#masterindex"     
   post '/tinymce_assets' => 'tinymce_assets#create'
   # The priority is based upon order of creation: first created -> highest priority.

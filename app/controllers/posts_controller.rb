@@ -8,4 +8,8 @@ class PostsController < ApplicationController
     
   end  
   
+  def rule
+    
+  end
+  
 end
