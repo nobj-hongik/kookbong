@@ -18,9 +18,11 @@ default: &default
 #  host: localhost
 
 development:
-  <<: *default
-  adapter: mysql2
-  database: kookbong_development
+ adapter: mysql2
+ database: kookbong_development
+ host: localhost
+ username: root
+ password: mypass  
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
