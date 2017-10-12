@@ -23,7 +23,7 @@
                                 <% if !user_signed_in? %> 
                                     <%else%>                                                
                                         <% if comment.user.id == current_user.id %>
-                                            <%= link_to image_tag("deleteiconsm.png"), tpost_tcomment_path($ajaxpost, comment), method: "delete", class: "float-right",remote: true,:data => {:confirm => '진짜 지워요?'} %>
+                                            <%= link_to image_tag("deleteiconsm.png"), tpost_tcomment_path($ajaxpost, comment), method: "delete", class: "float-right",remote: true,:authenticity_token => true,:data => {:confirm => '진짜 지워요?'} %>
                                         <% end %>  
                                  <%end%>      
                                  <br>
