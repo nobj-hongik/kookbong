@@ -43,7 +43,7 @@
                                             </div>
                                           </div>
                                           <br>
-                                                <%= form_tag upost_ucomments_path(@post) , remote: true do %>
+                                                <%= form_tag upost_ucomments_path(@post) , remote: true, :authenticity_token => true do %>
                                                     <% if !user_signed_in? %> 
                                                     <div class="form-group">
                                                     <fieldset disabled>
