@@ -1,7 +1,6 @@
 class EpostsController < ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
 before_action :check_ownership, only: [:edit, :update, :destroy]
-load_and_authorize_resource
 
   def index
    @posts = Epost.paginate(:page => params[:page]).order('created_at DESC')
