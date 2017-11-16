@@ -5,7 +5,7 @@
         </div> 
            <!-- 여기 바꿔서 'editer'만 버튼나오도록 바꿔야됨 -->
          <% if user_signed_in? %> 
-              <%if current_user.id==1 || current_user.id==2 || current_user.id==3 || current_user.id==4 %>
+              <%if current_user.admin="vip" %>
                 <div class="center-btn">
                     <%= link_to new_epost_path, :class=>"" do %>
                     <%= image_tag("btnobo.png", :class => "button1") %>
