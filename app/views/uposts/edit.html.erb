@@ -17,6 +17,11 @@
           <br>        
           <br>
           <div class="input-field">
+            <%= label_tag :category ,'게시글 분류', class: "control-label" %><br>
+            <%= select_tag(:category, options_for_select({ "일반" => 1, "트레이닝" => 2, "식단/영양" => 3  }, @post.category), class:'form-control')%>
+          </div>    
+          <br>
+          <div class="input-field">
              <%= label_tag :title ,'제목', class: "control-label" %><br>
             <%= text_field_tag :title,@post.title, class: "form-control"%>
           </div>        

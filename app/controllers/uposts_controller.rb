@@ -2,12 +2,17 @@ class UpostsController < ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
 before_action :check_ownership, only: [:edit, :update, :destroy]
 
+
   def index
+  if params[:category]
+   @posts = Upost.where(:category => params[:category]).paginate(:page => params[:page]).order('created_at DESC')
+  else
    @posts = Upost.paginate(:page => params[:page]).order('created_at DESC')
+  end    
   end
   
   def create
-      new_post = Upost.new(user_id: current_user.id, title: params[:title], content: params[:content], image: params[:image])
+      new_post = Upost.new(user_id: current_user.id, title: params[:title], content: params[:content], image: params[:image], category: params[:category])
       if new_post.save
         redirect_to upost_path(new_post.id)
       else
@@ -29,6 +34,7 @@ before_action :check_ownership, only: [:edit, :update, :destroy]
     
       @post.title = params[:title]
       @post.content = params[:content]
+      @post.category = params[:category]
       @post.image   = params[:image] if params[:image].present?
       
       if @post.save

@@ -246,7 +246,7 @@ config.secret_key = 'c3bb21c8763f2094cda5e22ce2299487e2d43f2999174d91f87bf1d7fe4
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :get
+  # config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting

@@ -11,36 +11,94 @@
     </div> 
     
 <div class="container">
-            <br>
-    <div class="row">
-            <% @posts.each do |post| %>
-                        <div class="col-12 col-md-4 d-flex justify-content-center" style="margin-bottom:16px">
-                            <%= link_to upost_path(post.id), :class=>"hoverer" do %> 
-                                    <div class="card">
-                                        <%if post.image.url %>
-                                             <img class="card-img img-fluid croper" src="<%= post.image.url %>" alt="Card image">
-                                         <%elsif post.user.id%3==0%>
-                                              <%= image_tag("gbtalkph.png", :class => "img-fluid card-img") %>  
-                                         <%elsif post.user.id%3==1%>
-                                              <%= image_tag("gbtalkph2.png", :class => "img-fluid card-img") %>  
-                                         <%elsif post.user.id%3==2%>
-                                              <%= image_tag("gbtalkph3.png", :class => "img-fluid card-img") %>                                                
-                                         <%end%>
-                                         <div class="card-block">
-                                         <p class="titletext text-left" id="titletext"><%=post.title.truncate(22)%></p>
-                                         <p class="subtext text-left" id="subtext">Written by <%=post.user.name%></p>
-                                        </div>
-                                    </div>
-                            <%end%>              
-                        </div> 
-            <% end %>
-    </div>             
-    
+        <div class="cateselect">
+            <%= link_to image_tag("catetr.png", :class => "img-fluid catesizer"), uposts_path(:category => 2) %>
+            <%= link_to image_tag("catenu.png", :class => "img-fluid catesizer"), uposts_path(:category => 3) %>
+            <%= link_to image_tag("cateno.png", :class => "img-fluid catesizer"), uposts_path(:category => 1) %>
+        </div>
+        <table class="table">
+          <thead class="thead-default">
+            <tr>
+                  <th class="fixratio" id="fixratio">[일반] 게시판 이용시 유의사항<br>
+                  <span class="small">donswod 2016.11.16</span>
+                  </th>
+                  <th>
+
+                  </th>
+            </tr>
+          </thead>
+          <tbody>
+        <% @posts.each do |post| %>
+            <tr>
+              <td class="fixratio" id="fixratio"><%= link_to upost_path(post.id), :class=>"hoverer" do %> 
+              <span class="cate">
+                <%if post.category==1%>
+                [일반]
+                <%elsif post.category==2%>
+                [트레이닝]
+                <%elsif post.category==3%>
+                [영양/식단]
+                <%end%>
+              </span> 
+              <%=post.title%>
+              <%end%>
+              <br>
+              <span class="small"><%=post.user.name%>&nbsp;<%=post.created_at.strftime("%Y.%m.%d")%></span>
+              </td>
+              <td class="fixratio2">
+                <div class="center-btn">
+                <span class="small">댓글</span><br>
+                </div>
+                <div class="center-btn">
+                <span class="numgood"><%=post.ucomments.count%></span> 
+                </div>
+              </td>
+            </tr>
+          <% end %>    
+          </tbody>
+        </table>
+    <div class="luckdiv">
     <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
-    <br>
-</div>
+    </div>
+</div>    
 </section>
 <style>
+@media screen and (min-width: 900px) {
+#fixratio {width:90%;}
+#fixratio2 {width:10%;}
+}
+.cate{
+    font-weight:bold;
+}
+.numgood{
+    font-weight:bold;
+    font-size:17px;
+}
+.commentsu{
+    color:#ffa03a;
+}
+.datefont{
+    font-size:11px;
+}
+.fixratio{
+    width:80%;
+}
+.fixratio2{
+     width:20%;  
+}
+.cateselect{
+    margin-bottom:20px;
+}
+.catesizer{
+    width:85px;
+    margin-right:5px;
+}
+th{
+    font-size:15px;
+}
+td{
+    font-size:13px;
+}
 section{
         background-color:#e5e5e5;
         min-height:1200px;
@@ -137,11 +195,15 @@ section{
         opacity:1.0;
     }   
     .hoverer{
-        opacity:0.82;
+        color:black;
+        opacity:0.84;
+    }
+    a:hover {
+        color:black;
     }
     .hoverer:hover{
-        opacity:1.0;
         text-decoration:none;
+        opacity:1;
     }    
     #textarea1:focus {
   border-bottom: 1px solid black;
@@ -178,7 +240,6 @@ section{
 	width: 100%;
 }
 .thumb1{
-    height:52px;
     width:52px;
     padding-right:10px;
 }
@@ -196,5 +257,12 @@ section{
     margin-top:0px;
     font-size:15px;
     color:#6c6e70;
+}
+.thumbfin{
+    width:70px;
+    margin-bottom:8px;
+}
+.hov2:hover{
+    text-decoration:none;
 }
 </style>
