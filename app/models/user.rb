@@ -16,7 +16,9 @@ class User < ActiveRecord::Base
    has_many :ucomments, :dependent => :delete_all   
    has_many :bcomments, :dependent => :delete_all
    has_many :scomments, :dependent => :delete_all 
-   
+    def self.search4(search)
+      where("name LIKE ?", "%#{search}%") 
+    end   
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # user와 identity가 nil이 아니라면 받는다

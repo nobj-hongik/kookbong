@@ -12,6 +12,7 @@
     
 <div class="container">
         <div class="cateselect">
+            <%= link_to image_tag("cateen.png", :class => "img-fluid catesizer"), uposts_path %>
             <%= link_to image_tag("catetr.png", :class => "img-fluid catesizer"), uposts_path(:category => 2) %>
             <%= link_to image_tag("catenu.png", :class => "img-fluid catesizer"), uposts_path(:category => 3) %>
             <%= link_to image_tag("cateno.png", :class => "img-fluid catesizer"), uposts_path(:category => 1) %>
@@ -28,6 +29,38 @@
             </tr>
           </thead>
           <tbody>
+    <%if @users %>
+      <% @users.each do |user| %>
+        <% user.uposts.each do |post| %>
+            <tr>
+              <td class="fixratio" id="fixratio">
+            <%= link_to upost_path(post.id), :class=>"hoverer" do %> 
+              <span class="cate">
+                <%if post.category==1%>
+                [일반]
+                <%elsif post.category==2%>
+                [트레이닝]
+                <%elsif post.category==3%>
+                [영양/식단]
+                <%end%>
+              </span> 
+              <%=post.title%>
+            <%end%>
+              <br>
+              <span class="small"><%=post.user.name%>&nbsp;<%=post.created_at.strftime("%Y.%m.%d %H:%M")%></span>
+              </td>
+              <td class="fixratio2">
+                <div class="center-btn">
+                <span class="small">댓글</span><br>
+                </div>
+                <div class="center-btn">
+                <span class="numgood"><%=post.ucomments.count%></span> 
+                </div>
+              </td>
+            </tr>
+         <% end %>
+       <%end%>  
+    <% else %>   
         <% @posts.each do |post| %>
             <tr>
               <td class="fixratio" id="fixratio"><%= link_to upost_path(post.id), :class=>"hoverer" do %> 
@@ -43,7 +76,7 @@
               <%=post.title%>
               <%end%>
               <br>
-              <span class="small"><%=post.user.name%>&nbsp;<%=post.created_at.strftime("%Y.%m.%d")%></span>
+              <span class="small"><%=post.user.name%>&nbsp;<%=post.created_at.strftime("%Y.%m.%d %H:%M")%></span>
               </td>
               <td class="fixratio2">
                 <div class="center-btn">
@@ -54,12 +87,25 @@
                 </div>
               </td>
             </tr>
-          <% end %>    
+          <% end %> 
+    <%end%>      
           </tbody>
         </table>
     <div class="luckdiv">
     <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
     </div>
+    <br>
+            <%= form_tag(uposts_path, :method => "get") do %>
+            <div class="row">
+                <div class="col-4 col-md-2" style="padding-right:5px">
+                     <%= select_tag(:selecto, options_for_select({ "제목" => 1, "내용" => 2, "제목/내용" => 3 ,"글쓴이" => 4  },params[:selecto]), class:'form-control form-control-sm')%>
+                </div>
+                <div class="col-5 col-md-3" style="padding-right:6px; padding-left:0px"><%= text_field_tag :search, params[:search],:id=>"textarea1", placeholder: "검색어를 입력하세요" , class: 'form-control form-control-sm'%></div>
+                <div class="col-3 col-md-2" style="padding-left:0px"><%= button_tag "검색", class: "btn btn-primary btn-sm" %></div>
+                <div class="col-0 col-md-5"></div>
+           </div>
+            <%end%>    
+            <br><br>
 </div>    
 </section>
 <style>
@@ -87,11 +133,12 @@
      width:20%;  
 }
 .cateselect{
-    margin-bottom:20px;
+    margin-bottom:30px;
 }
 .catesizer{
-    width:85px;
+    width:80px;
     margin-right:5px;
+    margin-top:10px;
 }
 th{
     font-size:15px;
@@ -148,9 +195,9 @@ section{
     }
     .sizer2{
         padding-left:5px;
-        padding-top:3px;
-        width:78px;
-        opacity:0.7;
+        padding-top:1px;
+        width:55px;
+        opacity:0.86;
     }
     .sizer2:hover{
         opacity:1.0;
@@ -164,7 +211,15 @@ section{
         width:190px;
     }
    
-
+.btn-primary{
+    background-color:#585a5e;
+    border: 0.3px solid black;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
 #ban2{
     height:250px;
     background-size: cover;

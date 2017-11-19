@@ -8,7 +8,21 @@ before_action :check_ownership, only: [:edit, :update, :destroy]
    @posts = Upost.where(:category => params[:category]).paginate(:page => params[:page]).order('created_at DESC')
   else
    @posts = Upost.paginate(:page => params[:page]).order('created_at DESC')
-  end    
+  end 
+  
+  if params[:search]
+    if params[:selecto]=="1"
+    @posts = Upost.search1(params[:search]).order("created_at DESC").paginate(:page => params[:page])
+    elsif params[:selecto]=="2"
+    @posts = Upost.search2(params[:search]).order("created_at DESC").paginate(:page => params[:page])
+    elsif params[:selecto]=="3"
+    @posts = Upost.search3(params[:search]).order("created_at DESC").paginate(:page => params[:page])
+    elsif params[:selecto]=="4"
+    @users = User.search4(params[:search])
+    end
+  else
+   @posts = Upost.paginate(:page => params[:page]).order('created_at DESC')
+  end 
   end
   
   def create
