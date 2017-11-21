@@ -14,8 +14,7 @@
 <meta property="og:image" content="http://postfiles9.naver.net/MjAxNzA4MDdfMTk5/MDAxNTAyMDkwMDc0ODgy.Ib2J2z83QdPK0p1ktrFGw9Pm4SYeVA2qaLFquY2uGQMg.GfcqYhs8ns6GcwLWGy8vYqauMyCsu4H5y8_emrLIF6Ig.PNG.dickings/meta.png?type=w2">    
   <%= csrf_meta_tags %>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=OaH6VrQqq_bjqgl2bort&submodules=geocoder"></script>  
-
-
+<%= ga_script %>
 </head>
 <body>
 <header>
@@ -66,7 +65,7 @@
 </header>
 <div class="marginer"></div>
     <%= yield %>
-    
+    <%= ga_track %>
     
     
 <footer class="footer2">
