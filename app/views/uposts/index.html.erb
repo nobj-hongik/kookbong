@@ -18,16 +18,37 @@
             <%= link_to image_tag("cateno.png", :class => "img-fluid catesizer"), uposts_path(:category => 1) %>
         </div>
         <table class="table">
-          <thead class="thead-default">
+            
+            <thead class="thead-default">
             <tr>
-                  <th class="fixratio" id="fixratio">[일반] 게시판 이용시 유의사항<br>
-                  <span class="small">donswod 2016.11.16</span>
-                  </th>
-                  <th>
-
-                  </th>
+              <th class="fixratio" id="fixratio">
+            <% notice = @notice.first %>
+            <%= link_to upost_path(notice.id), :class=>"hoverer" do %> 
+              <span class="cate">
+                <%if notice.category==1%>
+                [일반]
+                <%elsif notice.category==2%>
+                [트레이닝]
+                <%elsif notice.category==3%>
+                [영양/식단]
+                <%end%>
+              </span> 
+              <%=notice.title%>
+            <%end%>
+              <br>
+              <span class="small"><%=notice.user.name%>&nbsp;<%=notice.created_at.strftime("%Y.%m.%d %H:%M")%></span>
+              </th>
+              <th class="fixratio2">
+                <div class="center-btn">
+                <span class="small">댓글</span><br>
+                </div>
+                <div class="center-btn">
+                <span class="numgood"><%=notice.ucomments.count%></span> 
+                </div>
+              </th>
             </tr>
-          </thead>
+              </thead>
+           
           <tbody>
     <%if @users %>
       <% @users.each do |user| %>

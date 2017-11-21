@@ -4,6 +4,8 @@ before_action :check_ownership, only: [:edit, :update, :destroy]
 
 
   def index
+    @nuser = User.find(2)  
+    @notice = @nuser.uposts.order('created_at DESC').limit(1)
     if params[:category]
      @posts = Upost.where(:category => params[:category]).paginate(:page => params[:page]).order('created_at DESC')
     else
