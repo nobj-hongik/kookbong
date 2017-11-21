@@ -92,7 +92,9 @@
           </tbody>
         </table>
     <div class="luckdiv">
+    <%if params[:page] %>
     <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+    <%end%>
     </div>
     <br>
             <%= form_tag(uposts_path, :method => "get") do %>

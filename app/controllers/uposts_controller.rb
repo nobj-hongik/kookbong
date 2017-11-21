@@ -15,7 +15,7 @@ before_action :check_ownership, only: [:edit, :update, :destroy]
         elsif params[:selecto]=="3"
         @posts = Upost.search3(params[:search]).order("created_at DESC").paginate(:page => params[:page])
         elsif params[:selecto]=="4"
-        @users = User.search4(params[:search]).paginate(:page => params[:page])
+        @users = User.search4(params[:search])
         end
       else
        @posts = Upost.paginate(:page => params[:page]).order('created_at DESC')
