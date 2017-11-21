@@ -47,9 +47,9 @@
                                   </div>
                                 <%else%>
                                   <div class="form-group">
-                                    <label for="disabledTextInput">Disabled input</label>
-                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
-                                  </div>                        
+                                    <%= f.label :email, "이메일", :class=>"control-label"%>
+                                    <%= f.email_field :email,:class=>"form-control",:id=>"disabledTextInput"%>
+                                  </div>                                
                                 <%end%>    
                                   <div class="form-group">
                                     <%= f.label :name, "이름", :class=>"control-label"%>
@@ -140,9 +140,7 @@
   padding-top:0px;
     width:180px;
 }
-.ban1{
-background-image: url('/assets/backgr3.png')
-}
+
 #ban1{
     height:220px;
     background-size: cover;
