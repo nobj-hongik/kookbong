@@ -78,3 +78,77 @@ background: asset_url('back3.png');
 .ban1{
 background: asset-url('backgr3.png');
 }
+.footerlogo{
+    width:400px;
+}
+
+//footer
+.footlink{
+    color:#DDD;
+    opacity:0.8;
+    display:inline-block;
+    margin-left:20px;
+    margin-right:16px; 
+    font-size:0.85rem;
+    font-weight:500;
+    letter-spacing:0.7px;
+}
+.footlink:hover{
+    text-decoration:none;
+    color:white;
+    opacity:1;
+}
+.blankermara{
+    height:20px;
+}
+.blankermarb{
+    height:30px;
+}
+.blankermar1{
+    height:40px;
+}
+.blankermar2{
+    height:35px;
+}
+.footerres{
+	font-family: 'NanumSquare', sans-serif;
+	font-weight:600;
+	font-size: 0.9rem;
+	line-height: 1.25;   
+    color:white;
+}
+footer{
+    background-color:#353535;
+}
+
+.footer-bottom {
+    background-color: #222728;
+    padding: 15px 0;
+    color: #DDD;
+    font-size: 13px;
+}
+
+.social {
+    margin: 0 auto;
+    display: table;
+}
+.social li {
+    float: left;
+}
+.social li a {
+    display: block;
+    font-size: 1.5em;
+    color: white;
+    opacity:0.75;
+    line-height: 32px;
+    padding: 0;
+    text-align: center;
+    margin: 5px 4px;
+    width:35px;
+}
+.social li a:hover {
+    opacity:1;
+}
+.footerright{
+    max-width:300px;
+}
