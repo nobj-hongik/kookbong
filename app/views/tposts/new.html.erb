@@ -8,7 +8,7 @@
                     <div class="center-btn">    
                      <%= image_tag("pagetitle.png", :class => "titlecs") %>    
                     </div> 
-                    <div class="text-center card-title"><h3>훈련일지 작성</h3></div><br><br>
+                    <div class="text-center card-title"><h3>운동일지 작성</h3></div><br><br>
                     <%= form_tag tposts_path, multipart: true do %>
                       <div class="form-group">
                         <%= label_tag :image, "첨부 이미지" ,class: "control-label"%>
@@ -79,4 +79,5 @@
   });
 });
     $('select').material_select();
+    
 </script>
