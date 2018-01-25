@@ -1,3 +1,59 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.notready{
+    font-weight:640;
+}
+.notreadysub{
+    margin-top:45px;
+    font-weight:640;
+}
+.sorrylogo{
+    margin-top:30px;
+    width:140px;
+    margin-bottom:30px;
+}
+.opacity2 {
+  opacity: 0.85;
+}
+.sorrypeople{
+    width:360px;
+}
+.fade-in-up
+{
+    -webkit-animation: fade-in-up 1s;
+            animation: fade-in-up 1s;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+}
+@-webkit-keyframes fade-in-up
+{
+    0%
+    {
+        -webkit-transform: translateY(100%);
+
+        opacity: 0;
+    }
+    100%
+    {
+        -webkit-transform: translateY(0%);
+
+        opacity: 1;
+    }
+}
+@keyframes fade-in-up
+{
+    0%
+    {
+        transform: translateY(100%);
+
+        opacity: 0;
+    }
+    100%
+    {
+        transform: translateY(0%);
+
+        opacity: 1;
+    }
+}

@@ -175,34 +175,7 @@
         </section> 
 </div>
 <div class="marginer2"></div>
-<div class="container">
-        <section class="editorpost">  
-          <div class="container-fluid">
-              <%= image_tag("lecbtn.png", :class => "section__title") %>  
-            <%= link_to eposts_path , class: "" do%> 
-              <%= image_tag("showbtn.png", :class => "showbtn2 float-right") %>
-            <%end%>              
-              <div class="row">
-                              <div class="card-deck">
-                                  <% @posts.each do |post| %>
-                                              <div class="col-12 col-md-4 d-flex justify-content-center" style="margin-bottom:20px">
-                                                  <%= link_to epost_path(post.id), :class=>"hoverer" do %> 
-                                                          <div class="card card-inverse">
-                                                                       <img class="card-img img-fluid" src="<%= post.thumb.url %>" alt="Card image">
-                                                              <div class="card-footer">
-                                                                <span class="text-muted" style="font-size:18px; margin-bottom:0px; margin-top:5px;"><%=post.title%></span>
-                                                               <p class="text-muted" style="font-size:12px; margin-top:5px; margin-bottom:0px">Written by <%=post.user.name%></p>
-                                                              </div>
-                                                          </div>
-                                                  <%end%>              
-                                              </div> 
-                                  <% end %>
-                              </div>    
-              </div> 
-          <br>
-          </div>        
-        </section>
-</div>        
+  
                                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -238,14 +211,6 @@
                                                       <div class="input-field smaller">
                                                          <p>운동 만족도</p>
                                                         <%= number_field_tag :satisscore, nil, class: "form-control", placeholder: "1 ~ 5점", required: true,in: 1...6 %>
-<div class="star-rating"> 
-  <span class="fa fa-star-o" data-rating="1"></span>
-  <span class="fa fa-star-o" data-rating="2"></span>
-  <span class="fa fa-star-o" data-rating="3"></span>
-  <span class="fa fa-star-o" data-rating="4"></span>
-  <span class="fa fa-star-o" data-rating="5"></span>
-  <input type="hidden" name="whatever" class="rating-value" value="3">
-</div>                                                        
                                                       </div>
                                                       <br>
                                                       <div class="input-field smaller">

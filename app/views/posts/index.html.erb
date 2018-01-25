@@ -61,32 +61,7 @@
   </section>
   <!-- // 국봉추천철봉 -->
 
-      <section id="foreditor" class="section">
-          <div class="container-fluid">
-              <%= image_tag("coltitle.png", :class => "section__title") %>  
-            <%= link_to eposts_path , class: "" do%> 
-              <%= image_tag("showbtn.png", :class => "showbtn float-right") %>
-            <%end%>              
-              <div class="row">
-                              <div class="card-deck">
-                                  <% @eposts.each do |post| %>
-                                              <div class="col-12 col-md-4 d-flex justify-content-center" style="margin-bottom:20px">
-                                                  <%= link_to epost_path(post.id), :class=>"hoverer" do %> 
-                                                          <div class="card card-inverse">
-                                                                       <img class="card-img img-fluid" src="<%= post.thumb.url %>" alt="Card image">
-                                                              <div class="card-footer">
-                                                                <span class="text-muted" style="font-size:18px; margin-bottom:0px; margin-top:5px; color#424344;"><%=post.title%></span>
-                                                               <p class="text-muted" style="font-size:12px; margin-top:5px; margin-bottom:0px; color:#6c6e70;">Written by <%=post.user.name%></p>
-                                                              </div>
-                                                          </div>
-                                                  <%end%>              
-                                              </div> 
-                                  <% end %>
-                              </div>    
-              </div> 
-          <br>
-          </div>
-    </section>
+
     <!-- // 운동게시판 for editor -->
 
     <!--  서포터즈  -->
@@ -146,7 +121,7 @@
                       <div class="col-3 col-md-2 col-lg-4"></div>
                       <div class="col-6 col-md-8 col-lg-4" style="padding-top:27px; padding-bottom:15px; ">
                               <%= image_tag("gbtalk.png", :class => "gblogo img-fluid") %>
-                              <%= link_to uposts_path , class: "" do%>
+                              <%= link_to '#' , class: "" do%>
                                   <%= image_tag("gothere.png", :class => "gothere img-fluid") %>
                               <%end%>    
                        </div>  
