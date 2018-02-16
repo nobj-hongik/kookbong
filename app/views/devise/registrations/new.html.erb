@@ -1,10 +1,10 @@
 <div class="wraper" id="wrapper2">
       <div class="row">
-          <div class="col-0 col-md-3 col-lg-4"></div>
-          <div class="col-12 col-md-6 col-lg-4">
+          <div class="col-0 col-md-3  col-xl-4"></div>
+          <div class="col-12 col-md-6 col-xl-4">
           <br><br>
           <div class="container">
-                <div class="card opacity">
+                <div class="card opacity" style="margin-top:90px">
                   <div class="card-block">  
                   <div class="center-btn">
                         <%= image_tag("mainlogo.png", :class => "img-fluid imgsizer3") %>
@@ -65,13 +65,13 @@
           </div>
           </div>
                 
-          <div class="col-0 col-md-3 col-lg-4"></div>     
+          <div class="col-0 col-md-3 col-xl-4"></div>     
        </div>
 </div> 
 <style>
 
-#wrapper2{
-    height:1800px;
+.wraper{
+    height:350vw;
     background-size: cover;
     background-repeat: none;
     background-position: center;
@@ -83,6 +83,21 @@
     -webkit-perspective: 770px;
     -o-perspective: 770px;
     perspective: 770px;
+}
+@media screen and (min-width: 500px) {
+#wrapper2{
+  height:250vw;
+}
+}
+@media screen and (min-width: 768px) {
+#wrapper2{  
+  height:170vw;
+}
+}
+@media screen and (min-width: 992px) {
+#wrapper2{  
+  height:170vh;
+}
 }
 .opacity {
   opacity: 0.85;

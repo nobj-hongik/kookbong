@@ -3,16 +3,15 @@
   <div class="container-fluid">
     <div class="row align-items-center">
       <div class="col-12">
-          <h2 class="cover__title text-center">
-            한국의 모든 철봉을<br>
-            찾아보세요
+          <h2 class="cover__title text-center" id="cover__title">
+            한국의 모든 철봉을<br>찾아보세요
           </h2>
         <div class="center-btn">
             <div class="cover__form">
            <%= form_tag search_bars_path, method: :get, role: "search" do %>
             <div class="container">
               <div class="row">
-                  <div class="col-md-6 offset-md-3">
+                  <div class="col-lg-6 col-md-8 offset-lg-3 offset-md-2">
                       <div id="custom-search-input">
                           <div class="input-group col-md-12">
                               <%= text_field_tag :search, params[:search], class: "form-control input-lg" ,placeholder:"뚝섬유원지"%>
@@ -36,14 +35,38 @@
 <!-- // Cover -->
 
 <!-- 국봉추천철봉 -->
+<!--
+      <section id="recommendations" class="section">
+
+    <div class="container-fluid">
+    <%#= image_tag("kbsupbtn.png", :class => "section__title") %>
+    <div class="row">
+        <%# @hbars.each do |post| %>
+                        <div class="col-6 col-md-3 d-flex justify-content-center responsivepdl" id="responsivepd" style="margin-bottom:20px">
+                                    <div class="card">
+                                            <%#= link_to bar_path(post.id), :class=>"hoverer2" do %> 
+                                                    <div class="card">
+                                                         <img class="card-img img-fluid" src="<%#= post.image1.url %>" alt="Card image">
+                                                         <p class="titletext text-left" id="titletext"><%#=post.title%></p>
+                                                         <p class="subtext text-left" id="subtext"><%#=post.simplelocation%></p>
+                                                    </div>
+                                            <#%end%>                                         
+                                    </div>    
+                        </div> 
+        <%#end%>                
+    </div> 
+    </div>
+  </section>
+  -->
+  <!-- // 국봉추천철봉2 -->
       <section id="recommendations" class="section">
     <div class="container-fluid">
-    <%= image_tag("bartitle.png", :class => "section__title") %>
+    <%= image_tag("kbgblbtn.png", :class => "section__title") %>
     <%= link_to "/bars", class: "" do%> 
       <%= image_tag("showbtn.png", :class => "showbtn float-right") %>
     <%end%>
     <div class="row">
-        <% @bars.each do |post| %>
+        <% @hbars.each do |post| %>
                         <div class="col-6 col-md-3 d-flex justify-content-center responsivepdl" id="responsivepd" style="margin-bottom:20px">
                                     <div class="card">
                                             <%= link_to bar_path(post.id), :class=>"hoverer2" do %> 
@@ -59,18 +82,15 @@
     </div> 
     </div>
   </section>
-  <!-- // 국봉추천철봉 -->
-
 
     <!-- // 운동게시판 for editor -->
-
     <!--  서포터즈  -->
       <section id="supporters" class="supporters">
                 <div class="row">
                   <div class="col-12 col-md-8">
                     <div class="row">
                         <div class="col-0 col-md-3"></div>
-                          <div class="col-12 col-md-9" style="padding-top:103px;">
+                          <div class="col-12 col-md-9" style="padding-top:170px;">
                                 <h4 class="text-md-left text-center"  id="supft" style="font-weight:bold; color:white;">국봉의 서포터가 되어주세요</h4>
                                 <h6 class="text-md-left text-center" style="font-weight:bold; margin-bottom:6px; margin-top:20px; color:#d2d4d8;">무심코 길을 걷다가,</h6>
                                 <h6 class="text-md-left text-center" style="font-weight:bold; color:#d2d4d8;">좋은 철봉을 발견했다면 제보해주세요</h6>
@@ -110,48 +130,141 @@
       </section>
 
       <!--  //서포터즈  -->
-      
+     
       <!--  운동게시판 for user -->
-      <section class="section" style="margin-bottom:0px;">
-          <div class="card supcard">
-            <div class="card-block" style="padding-top:80px; padding-bottom:80px;">
+    <section class="section" style="margin-bottom:0px;">
+        <div class="container-fluid">
+          <h4 style="font-weight:bold;">국봉토크 인기글</h4>
                 <div class="row">
-                  <div class="col-12 col-md-6">
-                    <div class="row">
-                      <div class="col-3 col-md-2 col-lg-4"></div>
-                      <div class="col-6 col-md-8 col-lg-4" style="padding-top:27px; padding-bottom:15px; ">
-                              <%= image_tag("gbtalk.png", :class => "gblogo img-fluid") %>
-                              <%= link_to '#' , class: "" do%>
-                                  <%= image_tag("gothere.png", :class => "gothere img-fluid") %>
-                              <%end%>    
-                       </div>  
-                      <div class="col-5 col-md-2 col-lg-4"></div>                     
-                    </div>    
-                  </div>
-
-                  <div class="col-12 col-md-6">
-                    <div class="row">
-                        <div class="col-0 col-md-3"></div>
-                          <div class="col-12 col-md-9">
-                                <h4 class="text-md-left text-center" id="talkft" style="font-weight:bold; color:#4e4f51; padding-top:26px;">모두함께 국봉TALK</h2>
-                                <h6 class="text-md-left text-center" style="margin-bottom:6px; margin-top:20px;">유저들과 다양한 운동 정보도 공유하고,</h6>
-                                <h6 class="text-md-left text-center">함께 운동할 파트너도 구해보세요!</h6>
-                          </div>
-                    </div>
-                  </div>                   
-                </div>
-            </div>
-          </div>
-      </section>
+                    <div class="col-12 col-md-4 mgc d-flex  justify-content-center">
+                        <div class="card supcard">
+                            <div class="card-block" style="padding-top:15px; padding-bottom:15px;">  
+                              <div class="row">
+                                <div class="col-8">
+                                  <span class="gbtitle">트레이닝</span>
+                                </div>
+                                <div class="col-4">
+                                   <%= link_to uposts_path(:category => 2) , class: "" do%> 
+                                     <%= image_tag("showbtn.png", :class => "showbtn2 float-right") %>
+                                   <%end%>  
+                                </div>   
+                              </div>
+                                  <hr>
+                                  <div class="decobox">
+                                    <ul>
+                                      <% @trposts.each do |post| %>
+                                        <%= link_to upost_path(post.id), :class=>"hoverer" do %> 
+                                          <li class="cal"><%=post.title%>  <strong>[<%=post.ucomments.count%>]</strong></li>
+                                        <% end %>  
+                                      <% end %>                               
+                                    </ul>
+                                     <%= image_tag("hrbar.jpg", :class => "responsive-img") %>                                   
+                                  </div>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="col-12 col-md-4 mgc d-flex justify-content-center">
+                        <div class="card supcard">
+                            <div class="card-block" style="padding-top:15px; padding-bottom:15px;">  
+                              <div class="row">
+                                <div class="col-8">
+                                  <span class="gbtitle">영양학</span>
+                                </div>
+                                <div class="col-4">
+                                   <%= link_to uposts_path(:category => 3) , class: "" do%> 
+                                     <%= image_tag("showbtn.png", :class => "showbtn2 float-right") %>
+                                   <%end%>  
+                                </div>   
+                              </div>
+                                  <hr>
+                                  <div class="decobox">
+                                    <ul>
+                                      <% @ntposts.each do |post| %>
+                                        <%= link_to upost_path(post.id), :class=>"hoverer" do %> 
+                                          <li class="cal"><%=post.title%>  <strong>[<%=post.ucomments.count%>]</strong></li>
+                                        <% end %>  
+                                      <% end %>                               
+                                    </ul>
+                                    <%= image_tag("hrbar.jpg", :class => "responsive-img") %>  
+                                  </div>
+                            </div>
+                        </div>
+                    </div>       
+                    <div class="col-12 col-md-4 mgc d-flex  justify-content-center">
+                        <div class="card supcard">
+                            <div class="card-block" style="padding-top:15px; padding-bottom:15px;">  
+                              <div class="row">
+                                <div class="col-8">
+                                  <span class="gbtitle">일반</span>
+                                </div>
+                                <div class="col-4">
+                                   <%= link_to uposts_path(:category => 1) , class: "" do%> 
+                                     <%= image_tag("showbtn.png", :class => "showbtn2 float-right") %>
+                                   <%end%>  
+                                </div>   
+                              </div>
+                                  <hr>
+                                  <div class="decobox">
+                                    <ul>
+                                      <% @gnposts.each do |post| %>
+                                        <%= link_to upost_path(post.id), :class=>"hoverer" do %> 
+                                          <li class="cal"><%=post.title%>  <strong>[<%=post.ucomments.count%>]</strong></li>
+                                        <% end %>  
+                                      <% end %>                               
+                                    </ul>
+                                    <%= image_tag("hrbar.jpg", :class => "responsive-img") %>  
+                                  </div>
+                            </div>
+                        </div>
+                    </div>   
+                </div>  
+        </div>        
+     </section>
 </div>
     <!-- // 운동게시판 for user -->
 <div class="addspacer">
   
 </div>
 
-      
-    
+
+<script>
+var options = [
+  {
+    selector: '#cover', // Mandatory, CSS selector
+    vh: 62,  // Mandatory, height in vh units
+  }
+];  
+</script>  
+
+<%= javascript_include_tag('mobile-chrome-vh-fix.js') %>
+
 <style>
+.d-flex {
+  width:100%;
+}
+.cal{
+  font-size:15px;
+  margin-bottom:8px;
+}
+
+.mgc{
+  padding-left:10px;
+  padding-right:10px;  
+}
+.gbtitle{
+  margin-top:10px;
+  font-size:20px;
+  font-weight:bold;
+}
+.cover__title{
+    padding-top:70vw;
+    color:white;
+    font-weight:530;
+    letter-spacing: 0.04em;
+    line-height:1.2em;
+text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+                 0px -5px 35px rgba(255,255,255,0.3);
+}
 @media screen and (min-width: 880px) {
 .container-fluid {padding-left:70px; padding-right:70px; max-width:100%;}
 #titletext {margin-top:10px; font-size:1.2em; color:#424344; margin-bottom:5px;}
@@ -159,9 +272,19 @@
 #responsivepd {padding-right:15px;padding-left:15px;}
 #supft{font-size:37px;}
 #talkft{font-size:37px;}
+#cover{    
+    height:67vh;  
+}
+#cover__title{
+    padding-top:28vh;
+    color:white;
+    font-weight:530;
+    letter-spacing: 0.04em;
+    line-height:1.2em;
+}
 }
 .addspacer{
-height:34px;
+height:50px;
 background-color:#f7f7f7;
 }
 .entirecontrol{
@@ -185,9 +308,9 @@ background-color:#f7f7f7;
   padding-left:5px;
 }
 .section__title {
-    width:140px;
-    margin-top:30px;
-    margin-bottom:30px;
+    width:210px;
+    margin-top:40px;
+    margin-bottom:40px;
 }
 .titletext{
     margin-top:10px;
@@ -240,7 +363,15 @@ ul, ol {
   padding-top:60px;
   opacity:0.8;
 }
+.showbtn2{
+  width:80px;
+  padding-top:7px;
+  opacity:0.8;
+}
 .showbtn:hover{
+  opacity:1;
+}
+.showbtn2:hover{
   opacity:1;
 }
 .bg-white {
@@ -263,10 +394,8 @@ button.bg-primary:focus {
 .sbt1{
     width:28px;
 }
-
 /* Cover */
 #cover{
-    height:62vh;
     background-size: cover;
     background-repeat: none;
     background-position: center;
@@ -280,16 +409,10 @@ button.bg-primary:focus {
     perspective: 400px;
     margin-bottom:0px;
 }
-.cover__title{
-    padding-top:23vh;
-    color:white;
-    font-weight:530;
-    letter-spacing: 0.04em;
-    line-height:1.2em;
-}
+
 
 .cover__form{
-    padding-top:3vh; 
+    padding-top:25px; 
 }
 
 .form-control,
@@ -315,6 +438,7 @@ button.bg-primary:focus {
   /* @@@ 컨테이너의 크기를 제한하지 못하도록 100%로 설정하였습니다. */
   width: 100%;
   margin:0 auto;/*this will center ur content*/
+  
 }
 
 .section__category {
@@ -342,7 +466,6 @@ button.bg-primary:focus {
   line-height: 1;
 }
 
-
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .card-img-top.height-fix {
     width: auto;
@@ -352,7 +475,7 @@ button.bg-primary:focus {
 
 /* 서포터 */
 #supporters{
-    height:370px;
+    height:500px;
     background-size: cover;
     background-repeat: none;
     background-position: center;
@@ -365,6 +488,7 @@ button.bg-primary:focus {
     -o-perspective: 800px;
     perspective: 800px;
     margin-bottom:34px; 
+    margin-top:34px;
 }
 .supbtn{
   width:140px;
@@ -389,9 +513,10 @@ button.bg-primary:focus {
     background-color: transparent
 }
 .supcard{
-  margin-top:20px;
+    margin-top:20px;
     border:1px solid #d4d6d8;
     background-color:white;
+    text-align:left;
 }
 
 .btn.btn-primary {

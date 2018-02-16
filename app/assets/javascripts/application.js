@@ -16,3 +16,8 @@
 //= require tinymce
 //= require_tree .
 
+// ----------------------------------------------------------------------------------------------------
+// ScrollMe
+// A jQuery plugin for adding simple scrolling effects to web pages
+// http://scrollme.nckprsn.com
+// ----------------------------------------------------------------------------------------------------

@@ -1,25 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>한국철봉</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+<script src="https://use.fontawesome.com/acfa4e259c.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="http://postfiles10.naver.net/MjAxNzEyMDFfMjU2/MDAxNTEyMTI4Nzg0MTM5.9VKyOe-wN7NQE2u_RozXU9lhHFvpvYusiauIo_5Rj1sg.8o2Xo0aHFeCmG8FY0G04Act5H2er6pcoScwMBA1bHccg.PNG.dickings/kbth.png?type=w773" type="image/png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="한국철봉(국봉)">
+<meta property="og:url" content="https://facebookmaster-donsworkout.c9users.io/">
+<meta property="og:description" content="한국의 모든 철봉을 찾아라">
+<meta property="og:image" content="http://postfiles9.naver.net/MjAxNzA4MDdfMTk5/MDAxNTAyMDkwMDc0ODgy.Ib2J2z83QdPK0p1ktrFGw9Pm4SYeVA2qaLFquY2uGQMg.GfcqYhs8ns6GcwLWGy8vYqauMyCsu4H5y8_emrLIF6Ig.PNG.dickings/meta.png?type=w2">    
+  <%= csrf_meta_tags %>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=OaH6VrQqq_bjqgl2bort&submodules=geocoder"></script>  
+<%= ga_script %>
+</head>
+<body>
+<header>
+  <div class="navbar-wrapper">
+      <nav class="navbar navbaropa fixed-top navbar-toggleable-md" style="padding-top:5px; padding-bottom:5px;">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" style="padding-top:20px;">
+          Menu
+        </button>
+          <a class="navbar-brand" href="/posts">
+            <%= image_tag("mainlogowhite.png", :class => "navlogo") %>
+          </a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item px-lg-3">
+              <a class="nav-link" href="/posts" lang="en">Home <span class="sr-only">(현재 페이지)</span></a>
+            </li>
+            <li class="nav-item px-lg-3">
+              <a class="nav-link" href="/intros" lang="ko">서비스소개</a>
+            </li>
+            <li class="nav-item px-lg-3">
+              <a class="nav-link" href="/bars" lang="ko">철봉목록</a>
+            </li>    
+            <li class="nav-item px-lg-3">
+              <a class="nav-link" href="/uposts" lang="ko">국봉토크</a>
+            </li>      
+            <% if !user_signed_in? %>
+                    <li class="nav-item px-lg-3">
+                      <a class="nav-link" href="/users/sign_in" lang="ko">로그인</a>
+                      </li> 
+             <% else %>     
+                  <li class="nav-item px-lg-3 dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" lang="en">
+                      my
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item pl-0 pl-lg-3" href="/tposts/index/<%=current_user.id %>" lang="en">운동일지</a>
+                      <%= link_to '로그아웃', destroy_user_session_path, method: 'delete', class: "dropdown-item pl-0 pl-lg-3"%>                      
+                    </div>
+                  </li>
+            <%end%>
+          </ul>
+        </div>
+      </nav>
+    </div>  
+</header>
+
+
 <div class="fonter">
   <div class="ban2 section2" id="ban2">
     <div class="container">
       <header class="section__heade">
         <h2 class="section__title mb-3">
-          <br>
-          <span class="section__category mb-2" lang="en" style="margin-top:30px;">About</span>
+          <span class="section__category mb-2" id="section__category" lang="en">About</span>
           한국철봉
         </h2>
       </header>
       <div class="about__data d-flex justify-content-center mb-3">
 
         <p class="about__datum px-4 px-sm-5">
-          <strong class="about__number text-primary" id="about__number">한국철봉은 철봉운동을 하고자 하는 모든 사람들에게 운동 정보를 제공하면서 <br> 사용자 간 정보공유와 소통을 도와주는 종합 운동 플랫폼입니다.
-</strong>
+          한국철봉은 철봉운동을 하고자 하는 모든 사람들에게 운동 정보를 제공하면서 <br> 사용자 간 정보공유와 소통을 도와주는 종합 운동 플랫폼입니다.
         </p>
 <br>
       </div>
       <div class="row">
         <div class="col-12 col-md-10 col-lg-8 push-md-1 push-lg-2">
           <p class="section__text">
--          </p>
+          </p>
         </div>
       </div>
     </div>
@@ -29,82 +91,188 @@
 <div class="covercolor">
   <!-- Main -->
   <main class="main">
-  <div class="container" id="container">
-      <div class="row padder">
-        <div class="col-12 col-md-6 conv1" id="conv1i">
-          <div class="btn-center">
-           <%= image_tag("dsc1.png", :class => "dummy img-fluid", :id => "dummy") %>
-          </div>
+        <div class="spt1" id="spt1">
+          <div class="container" id="container">
+              <div class="row padder spt1">
+                <div class="col-12 col-md-6 conv1" id="conv1i">
+    
+
+                </div>
+                <div class="col-12 col-md-6 conv2" id="conv2i">
+                  <div class="fontvert fi1" id="fontvert">
+                    <h3 class="bexp1" id="bexp1">한국의 철봉 정보를</h3>
+                    <h3 class="bexp1" id="bexp1"><strong>한눈에 보자</strong></h3>
+                  </div>  
+                  <div class="funcexp fi1b">
+                    <p class="exp1" id="exp1">철봉은 해야하는데 어디서 할지 모르겠다구요?</p>
+                    <p class="exp1" id="exp1">상세한 <strong>위치</strong>와 다양한 <strong>리뷰</strong>까지 확인해 보세요!</p>
+                  </div>
+                  <a class="btnban fi1c" href="/bars">철봉 보러가기</a>
+                </div>        
+              </div>
+            </div>
+        </div>  
+        <div class="spt2" id="spt2">
+           <div class="container" id="container"> 
+              <div class="row padder spt2">
+                <div class="col-12 col-md-6 push-md-6 conv1" id="conv2i">
+
+                </div>
+                <div class="col-12 col-md-6 pull-md-6 conv2" id="conv1i_2">
+                  <div class="fontvert fi2" id="fontvert">
+                    <h3 class="bexp1" id="bexp1">나만의 운동일지를</h3>
+                    <h3 class="bexp1" id="bexp1"><strong>기록하자</strong></h3>
+                  </div>  
+                  <div class="funcexp fi2b">
+                    <p class="exp1" id="exp1">운동일지를 기록, 다른 사람들과 공유하고</p>
+                    <p class="exp1" id="exp1">다양한 <strong>피드백</strong>과 <strong>동기부여</strong>까지 얻으세요!</p>
+                  </div>
+                  <a class="btnban fi2c" href="/users/sign_in">일단 회원가입 go!</a>                  
+                </div>        
+              </div> 
+            </div>  
         </div>
-        <div class="col-12 col-md-6 conv2" id="conv2i">
-          <div class="fontvert" id="fontvert">
-            <h3 class="bexp1" id="bexp1">한국의 철봉 정보를</h3>
-            <h3 class="bexp1" id="bexp1"><strong>한눈에 보자</strong></h3>
-          </div>  
-          <div class="funcexp">
-            <p class="exp1" id="exp1">철봉은 해야하는데 어디서 할지 모르겠다구요?</p>
-            <p class="exp1" id="exp1">상세한 <strong>위치</strong>와 다양한 <strong>리뷰</strong>까지 확인해 보세요!</p>
-          </div>
-        </div>        
-      </div>
-      
-      <div class="row padder">
-        <div class="col-12 col-md-6 push-md-6 conv1" id="conv2i">
-          <div class="btn-center">
-           <%= image_tag("dsc3.png", :class => "dummy img-fluid", :id => "dummy") %>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 pull-md-6 conv2" id="conv1i_2">
-          <div class="fontvert" id="fontvert">
-            <h3 class="bexp1" id="bexp1">나만의 운동일지를</h3>
-            <h3 class="bexp1" id="bexp1"><strong>기록하자</strong></h3>
-          </div>  
-          <div class="funcexp">
-            <p class="exp1" id="exp1">운동일지를 기록, 다른 사람들과 공유하고</p>
-            <p class="exp1" id="exp1">다양한 <strong>피드백</strong>과 <strong>동기부여</strong>까지 얻으세요!</p>
-          </div>
-        </div>        
-      </div> 
-      <div class="row padder">
-        <div class="col-12 col-md-6 conv1" id="conv1i">
-          <div class="btn-center">
-           <%= image_tag("dsc1.png", :class => "dummy img-fluid", :id => "dummy") %>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 conv2" id="conv2i">
-          <div class="fontvert" id="fontvert">
-            <h3 class="bexp1" id="bexp1">국봉 에디터가 엄선한</h3>
-            <h3 class="bexp1" id="bexp1"><strong>국봉 칼럼</strong></h3>
-          </div>  
-          <div class="funcexp">
-            <p class="exp1" id="exp1">철봉은 해야하는데 어떻게 할지 모르겠다구요?</p>
-            <p class="exp1" id="exp1">엄선된 <strong>국봉칼럼</strong>을 이용해 보세요!</p>
-          </div>
-        </div>        
-      </div>
-      
-      <div class="row padder">
-        <div class="col-12 col-md-6 push-md-6 conv1" id="conv2i">
-          <div class="btn-center">
-           <%= image_tag("dsc3.png", :class => "dummy img-fluid", :id => "dummy") %>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 pull-md-6 conv2" id="conv1i_2">
-          <div class="fontvert" id="fontvert">
-            <h3 class="bexp1" id="bexp1">운동관련 이야기들은</h3>
-            <h3 class="bexp1" id="bexp1"><strong>국봉 토크</strong></h3>
-          </div>  
-          <div class="funcexp">
-            <p class="exp1" id="exp1">국봉토크의 은둔 고수들에게 운동도 질문해 보고</p>
-            <p class="exp1" id="exp1">멋진 당신의 <strong>지식</strong>을 <strong>공유</strong>해 보세요!</p>
-          </div>
-        </div>        
-      </div>      
-    </div>
+        <div class="spt3" id="spt3">
+           <div class="container" id="container">     
+              <div class="row padder spt3">
+                <div class="col-12 col-md-6 conv1" id="conv1i">
+
+                </div>
+                <div class="col-12 col-md-6 conv2" id="conv2i">
+                  <div class="fontvert fi3" id="fontvert">
+                    <h3 class="bexp1" id="bexp1">국봉 근육남들과 함께할</h3>
+                    <h3 class="bexp1" id="bexp1"><strong>국봉 서포터즈</strong></h3>
+                  </div>  
+                  <div class="funcexp fi3b">
+                    <p class="exp1" id="exp1">한국철봉 저희 국봉팀과 함께 조사해요!</p>
+                    <p class="exp1" id="exp1">국봉의 <strong>서포터즈</strong>가 되어보세요</p>
+                  </div>
+                  <a class="btnban fi3c" href="/supports/new">서포터즈 지원하기</a>                  
+                </div>        
+              </div>
+            </div>
+        </div>    
+        <div class="spt4" id="spt4">    
+            <div class="container" id="container">   
+              <div class="row padder spt4">
+                <div class="col-12 col-md-6 push-md-6 conv1" id="conv2i">
+
+                </div>
+                <div class="col-12 col-md-6 pull-md-6 conv2" id="conv1i_2">
+                  <div class="fontvert fi4" id="fontvert">
+                    <h3 class="bexp1" id="bexp1">운동관련 이야기들은</h3>
+                    <h3 class="bexp1" id="bexp1"><strong>국봉 토크</strong></h3>
+                  </div>  
+                  <div class="funcexp fi4b">
+                    <p class="exp1" id="exp1">국봉토크의 은둔 고수들에게 운동도 질문해 보고</p>
+                    <p class="exp1" id="exp1">멋진 당신의 <strong>지식</strong>을 <strong>공유</strong>해 보세요!</p>
+                  </div>
+                  <a class="btnban fi4c" href="/uposts">국봉토크 작성하기</a>                  
+                </div>        
+              </div>      
+            </div>
+        </div>    
   </main>
 </div>  
-  
- <style>
+    <%= ga_track %>
+    
+    
+<footer class="footer">
+  <div class="container">
+       <div class="blankermar1"></div>
+      <div class="center-btn">
+          <a href="/" class="footlink">홈페이지</a> 
+          <a href="/intros" class="footlink">서비스소개</a> 
+          <a href="/bars" class="footlink">철봉찾기</a>           
+          <a href="/uposts" class="footlink">국봉토크</a> 
+          <a href="/posts/rule" class="footlink">개인정보취급방침</a> 
+      </div>
+      <div class="blankermara"></div>      
+      <div class="center-btn">
+        
+      <nav>
+                    <ul class="social" style="padding-left:0px;">
+                        <li><a href="https://www.facebook.com/kopullupbar"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/kookbong.official"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+      </nav>
+      </div>
+    
+   <div class="blankermar2"></div>
+  </div>
+          <div class="footer-bottom">
+            <div class="container">
+               <div class="center-btn">
+                 <%= image_tag("footrights1.png", :class => "footerright responsive-img") %>
+               </div>
+                <div class="pull-right">
+                </div>
+            </div>
+        </div> <!--/.footer-bottom-->   
+</footer>
+
+
+
+    
+      
+                  
+                  
+                  
+        
+</body>
+</html>
+<style>
+.navbar-wrapper{
+  background-color:#333333;
+}
+.navbaropa{
+  background: rgba(16, 16, 16, 0.7);
+  color:#e5e5e5;
+}
+.dropdown-item{
+  font-size: 0.73rem;
+  line-height: 1.82;
+  font-weight: 700;
+  letter-spacing: 0.27em;
+  text-transform: uppercase;
+  color:black;
+}
+.nav-link,
+.navbar-toggler {
+  font-size: 0.73rem;
+  line-height: 1.82;
+  font-weight: 700;
+  letter-spacing: 0.27em;
+  text-transform: uppercase;
+  color:white;
+}
+.nav-link:focus{
+  text-decoration:none;
+  opacity:0.8;
+}
+.nav-link:hover{
+  text-decoration:none;
+  opacity:0.8;
+}
+.footlogo2{
+  margin-top:16px;
+  margin-bottom:0px;
+}
+.marginer{
+  height:62px;
+}
+.navbar-toggler {
+  border: none;
+}
+  .navlogo{
+    width:115px;
+  }
+.dropdown-menu {
+  min-width: 0;
+}
+  .navbar-brand{
+    max-width:115px;
+  }
 
 .conetainer1{
   max-width:700px;
@@ -119,23 +287,23 @@
 .dummy{
   width:450px;
 }
-.fontvert{
-  padding-top:0px;
-}
 .funcexp{
-  padding-top:30px;
+  padding-top:18px;
+  padding-bottom:55px;
 }
 .exp1{
+  color:white;
   margin-top:0px;
   margin-bottom:3px;
   font-size:1rem;
   font-weight:500;
 }
 .bexp1{
+  color:white;
   font-size:2.1rem;
 }
 #ban2{
-    height:430px;
+    height:190vw;
     background-size: cover;
     background-repeat: none;
     background-position: center;
@@ -148,10 +316,65 @@
     -o-perspective: 400px;
     perspective: 400px;
 } 
-@media screen and (min-width: 460px) {
-  
+.section__category {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: 0.27em;
+  text-transform: uppercase;
+  margin-top:60vw;
+}
+.fontvert{
+  padding-top:43px;
+}
+@media screen and (min-width: 150px) {
+#bexp1{
+  font-size:23px;
+}
+#exp1{
+  margin-top:0px;
+  margin-bottom:3px;
+  font-size:15px;
+  font-weight:500;
+} 
+#conv1i_2{
+  padding-left:33px;
+}
+#conv2i{
+  padding-left:33px;
+}
+}
+@media screen and (min-width: 500px) {
+ #spt1{
+   height:120vw;
+ } 
+ #spt2{
+   height:120vw;
+ } 
+ #spt3{
+   height:120vw;
+ } 
+ #spt4{
+   height:120vw;
+ }  
 }
 @media screen and (min-width: 768px) {
+ #spt1{
+   height:100vw;
+ } 
+ #spt2{
+   height:100vw;
+ } 
+ #spt3{
+   height:100vw;
+ } 
+ #spt4{
+   height:100vw;
+ }  
+#ban2{
+    height:100vh;
+}
 #about__number{
   display: block;
   font-family: 'NanumSquare', sans-serif;
@@ -171,30 +394,58 @@
   padding-right:30px;  
 }
 #fontvert{
-  padding-top:23vh;
+  padding-top:19vh;
 }
 #bexp1{
-  font-size:33px;
+  font-size:28px;
 }
 #exp1{
   margin-top:0px;
   margin-bottom:3px;
-  font-size:17px;
+  font-size:14px;
   font-weight:500;
 }
 }
 
 @media screen and (min-width: 992px) {
+ #spt1{
+   height:70vh;
+ } 
+ #spt2{
+   height:70vh;
+ } 
+ #spt3{
+   height:70vh;
+ } 
+ #spt4{
+   height:70vh;
+ }  
+#ban2{
+    height:100vh;
+}  
+#section__category {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: 0.27em;
+  text-transform: uppercase;
+  margin-top:37vh;
+}
+#ban2{
+    height:100vh;
+}  
 #fontvert{
-  padding-top:33vh;
+  padding-top:18vh;
+  padding-bottom:1.5vh;
 }
 #bexp1{
-  font-size:42px;
+  font-size:37px;
 }
 #exp1{
   margin-top:0px;
   margin-bottom:3px;
-  font-size:21px;
+  font-size:17px;
   font-weight:500;
 } 
 #conv1i{
@@ -273,27 +524,24 @@ ul, ol {
   text-align:center;
 }
 .section__title {
-  font-size: 3.33333333rem;
+  font-size: 4rem;
   font-weight: 700;
   line-height: 1.44;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.05em;
   color:white;
+  text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+
 }
 
-.section__category {
-  display: block;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.6;
-  letter-spacing: 0.27em;
-  text-transform: uppercase;
-}
 
 /* About */
 
 .about__datum {
   border-right: 2px solid rgba(153,153,153,.5);
   border-left: 2px solid rgba(153,153,153,.5);
+  color:white;
+  letter-spacing: 0.03em;  
+  text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
 }
 
 /* .about__datum:last-child === .about__datum:nth-child(3) */
@@ -306,11 +554,12 @@ ul, ol {
 
 /* Main / Post */
 .covercolor{
-  padding-top:10px;
+  padding-top:00px;
   background-color:#f2f2f2;
 }
 .main {
-	padding-bottom: 100px;
+	padding-bottom: 0px;
+	overflow:hidden;
 }
 .post__item:nth-child(2n) {
 	text-align: right;
@@ -344,6 +593,65 @@ ul, ol {
 	line-height: 2;
 	color: #8d8d8d;
 }
-     
- </style> 
+.hidden{
+     opacity:0;
+}
+.visible{
+     opacity:1;
+}
+</style>  
+ 
   
+  <script>
+  jQuery(document).ready(function() {
+    jQuery('.fi1').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated fadeInUp',
+        offset: 100
+       });
+    jQuery('.fi2').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated fadeInUp',
+        offset: 100
+       });
+    jQuery('.fi3').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated fadeInUp',
+        offset: 100
+       });
+    jQuery('.fi4').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated fadeInUp',
+        offset: 100
+       });   
+    jQuery('.fi1b').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated flipInX',
+        offset: 100
+       });
+    jQuery('.fi2b').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated flipInX',
+        offset: 100
+       });
+    jQuery('.fi3b').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated flipInX',
+        offset: 100
+       });
+    jQuery('.fi4b').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated flipInX',
+        offset: 100
+       });        
+    jQuery('.fi1c').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated flipInX',
+        offset: 100
+       });
+    jQuery('.fi2c').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated flipInX',
+        offset: 100
+       });
+    jQuery('.fi3c').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated flipInX',
+        offset: 100
+       });
+    jQuery('.fi4c').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated flipInX',
+        offset: 100
+       });          
+});  
+
+  </script>

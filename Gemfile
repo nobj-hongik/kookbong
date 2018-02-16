@@ -45,6 +45,7 @@ gem 'omniauth-kakao', :git => 'git://github.com/hcn1519/omniauth-kakao'
 gem 'uglifier'
 gem 'carrierwave'
 gem 'mini_magick' 
+gem 'impressionist'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development, :test do

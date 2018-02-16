@@ -20,7 +20,7 @@
 <header>
   <div class="navbar-wrapper">
       <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-inverse navbar-inverse" style="padding-top:5px; padding-bottom:5px;">
-          <a class="navbar-brand" href="/posts">
+          <a class="navbar-brand" href="/posts/sorrybut">
             <%= image_tag("mainlogowhite.png", :class => "navlogo") %>
           </a>
 
@@ -45,9 +45,12 @@
                                     <%= image_tag("kooksmall.jpg", :class => "sorrypeople responsive-img") %>
                                 </div>                                
                                 <p class="notreadysub text-center">- 한국철봉 팀 일동 -</p>
-                                <div class="center-btn">
-                                    <%= image_tag("mainlogo.png", :class => "sorrylogo") %>
-                                </div>
+                                <%= link_to posts_path do %>
+                                  <div class="center-btn">
+                                    <%= image_tag("prevbut.jpg", :class => "prevbtn img-fluid") %>
+                                  </div>
+                                <%end%> 
+                                <p class="notreadysub2 text-center">* 데이터베이스가 제대로 구성되어 있지 않은 상태이오니, 사이트 참고만 부탁 드립니다.</p>                                
                             <br>
                           </div>
                         </div>
@@ -64,8 +67,6 @@
        <div class="blankermar1"></div>
 
       <div class="blankermara"></div>      
-    <div class="center-btn">
-            <%= image_tag("footerlogo2.png", :class => "footerlogo responsive-img") %>
       <div class="center-btn">
         
       <nav>
@@ -76,7 +77,6 @@
       </nav>
       </div>
     
-    </div>
    <div class="blankermar2"></div>
   </div>
           <div class="footer-bottom">
@@ -144,6 +144,19 @@
     -webkit-perspective: 770px;
     -o-perspective: 770px;
     perspective: 770px;
+}
+.prevbtn{
+  margin-top:23px;
+  margin-bottom:20px;  
+  width:200px;
+  opacity:0.87;
+}
+.prevbtn:hover{
+  opacity:1.0;  
+}
+.notreadysub2{
+  font-size:12px;
+  color:#3a3a3a;
 }
 
 </style>

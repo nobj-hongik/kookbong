@@ -1,5 +1,5 @@
  <div class="container-fluid">   
-        <div class="backg">
+ <br><br><br>
             <div class="row" style="margin-top:10px; margin-bottom:10px;">
                                 <div class="col-6 col-md-3 d-flex justify-content-center responsivepdl" id="responsivepd" style="margin-bottom:10px">
                                             <a href="#" data-toggle="modal" data-target="#myModal2">  
@@ -114,7 +114,6 @@
                                 </div>                          
             </div>  
 </div>
-</div>
 <div class="container">
                                           <% if !user_signed_in? %> 
                                           <%else%>
@@ -222,7 +221,7 @@
                                                   </div>
                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                                                    <%= button_tag "리뷰 작성", class: "btn btn-primary closer"%>
+                                                    <%= button_tag "리뷰 작성", class: "btn btn-primary closer" , id: "supercloser"%>
                                                   </div>
                                                         <%end%>  
                                                 <% end %>  
@@ -451,9 +450,7 @@ $(document).ready(function() {
     $(window).scrollTop(sessionStorage.scrollTop);
   }
 });  
-$(".closer").click(function() {
-    $('#myModal').modal('hide')
-});
+
 $(".carousel").on("touchstart", function(event){
         var xClick = event.originalEvent.touches[0].pageX;
     $(this).one("touchmove", function(event){
