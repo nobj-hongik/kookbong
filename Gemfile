@@ -7,8 +7,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
-gem 'mysql2' , '>= 0.3.13', '< 0.5'
+gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -18,11 +17,11 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 gem 'bootstrap', '~> 4.0.0.alpha6'
-gem 'devise', git: 'https://github.com/plataformatec/devise.git' 
+gem 'devise', git: 'https://github.com/plataformatec/devise.git'
 gem 'activesupport', '~> 4.2.5'
 gem "passenger"
 # Use jquery as the JavaScript library
-gem 'cancancan' 
+gem 'cancancan'
 gem 'rolify'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -44,14 +43,16 @@ gem 'omniauth-kakao', :git => 'git://github.com/hcn1519/omniauth-kakao'
 # gem 'unicorn'
 gem 'uglifier'
 gem 'carrierwave'
-gem 'mini_magick' 
+gem 'mini_magick'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
-
+group :production do
+  gem 'mysql2' , '>= 0.3.13', '< 0.5'
+end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
