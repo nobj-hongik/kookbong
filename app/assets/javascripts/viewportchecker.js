@@ -10,8 +10,8 @@
     The above copyright notice and this permission notice shall be included in all
     copies or substantial portions of the Software.
 */
-
-(function($){
+/*
+$(document).ready(function(){
     $.fn.viewportChecker = function(useroptions){
         // Define options and extend with user
         var options = {
@@ -32,9 +32,7 @@
         var $elem = this,
             boxSize = {height: $(options.scrollBox).height(), width: $(options.scrollBox).width()};
 
-        /*
-         * Main method that checks the elements and adds or removes the class(es)
-         */
+
         this.checkElements = function(){
             var viewportStart, viewportEnd;
 
@@ -143,15 +141,6 @@
 
         };
 
-        /**
-         * Binding the correct event listener is still a tricky thing.
-         * People have expierenced sloppy scrolling when both scroll and touch
-         * events are added, but to make sure devices with both scroll and touch
-         * are handles too we always have to add the window.scroll event
-         *
-         * @see  https://github.com/dirkgroenen/jQuery-viewport-checker/issues/25
-         * @see  https://github.com/dirkgroenen/jQuery-viewport-checker/issues/27
-         */
 
         // Select the correct events
         if( 'ontouchstart' in window || 'onmsgesturechange' in window ){
@@ -174,4 +163,6 @@
         // Default jquery plugin behaviour
         return this;
     };
-})(jQuery);
+});
+
+*/
