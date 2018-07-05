@@ -15,8 +15,10 @@
  */
 @import url(//cdn.rawgit.com/hiun/NanumSquare/master/nanumsquare.css);
 @import "bootstrap";
-html *{
-    font-family: 'Nanum Square';
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+html * {
+  font-family: 'Noto Sans KR', sans-serif;
 }
 a:hover{
     text-decoration:none;
