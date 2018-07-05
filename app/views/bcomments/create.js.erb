@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var html = "<%= escape_javascript(render(partial: 'bcomments/item', locals: {comment: @new_comment})) %>";
     $("#comments").prepend(html);
+    $('#myModal').modal('hide');
 }); 
 
 

@@ -1,10 +1,11 @@
 <div class="backg">
 <div class="container">
+    <br><br>
       <div class="row">
             <div class="col-0 col-lg-1"></div>
                     <div class="col-12 col-lg-10">
                       <br>
-                                      <%= link_to "목록으로", uposts_path,:class=> "btn btn-primary"%>
+                                      <%= link_to "목록으로", uposts_path%>
                                           <% if !user_signed_in? %> 
                                           <%else%>
                                           <% if current_user.id == @post.user.id %>
@@ -84,6 +85,9 @@
 </div>
 
 <style>
+    a:hover{
+        text-decoration:none;
+    }
     .title2{
          font-size:13px;
           position:relative;

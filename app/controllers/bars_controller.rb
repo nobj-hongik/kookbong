@@ -14,7 +14,6 @@ before_action :check_ownership, only: [:edit, :update, :destroy]
   def index
    @postcount = Bar.all.count
    @posts = Bar.all.order('created_at DESC').paginate(:page => params[:page])
-  
   end
   
   def create

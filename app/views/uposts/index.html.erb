@@ -68,7 +68,7 @@
               <%=post.title%>
             <%end%>
               <br>
-              <span class="small"><%=post.user.name%>&nbsp;<%=post.created_at.strftime("%Y.%m.%d %H:%M")%></span>
+              <span class="small"><%=post.user.name%>&nbsp;&nbsp;|&nbsp;&nbsp;<%=post.created_at.strftime("%Y.%m.%d %H:%M")%>&nbsp;&nbsp;|&nbsp;&nbsp;<%=post.impression_count%>&nbsp;views</span>
               </td>
               <td class="fixratio2">
                 <div class="center-btn">
@@ -97,7 +97,7 @@
               <%=post.title%>
               <%end%>
               <br>
-              <span class="small"><%=post.user.name%>&nbsp;<%=post.created_at.strftime("%Y.%m.%d %H:%M")%></span>
+              <span class="small"><%=post.user.name%>&nbsp;&nbsp;|&nbsp;&nbsp;<%=post.created_at.strftime("%Y.%m.%d %H:%M")%>&nbsp;&nbsp;|&nbsp;&nbsp;<%=post.impression_count%>&nbsp;views</span>
               </td>
               <td class="fixratio2">
                 <div class="center-btn">
@@ -113,9 +113,9 @@
           </tbody>
         </table>
     <div class="luckdiv">
-    <%if params[:page] %>
+
     <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
-    <%end%>
+  
     </div>
     <br>
             <%= form_tag(uposts_path, :method => "get") do %>
@@ -132,6 +132,10 @@
 </div>    
 </section>
 <style>
+.nav-link:hover{
+    color:white;
+    opacity:0.8;
+}
 @media screen and (min-width: 900px) {
 #fixratio {width:90%;}
 #fixratio2 {width:10%;}
@@ -230,7 +234,7 @@ section{
         padding-bottom:0px;
     }
     .imgsizer2{
-        padding-top:70px;
+        padding-top:140px;
         width:190px;
     }
    
@@ -244,7 +248,7 @@ section{
     border-color: black;
 }
 #ban2{
-    height:250px;
+    height:340px;
     background-size: cover;
     background-repeat: none;
     background-position: center;

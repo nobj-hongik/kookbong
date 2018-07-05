@@ -19,7 +19,7 @@
 <body>
 <header>
   <div class="navbar-wrapper">
-      <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-inverse navbar-inverse" style="padding-top:5px; padding-bottom:5px;">
+      <nav class="navbar navbaropa fixed-top navbar-toggleable-md" style="padding-top:5px; padding-bottom:5px;">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" style="padding-top:20px;">
           Menu
         </button>
@@ -29,14 +29,17 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item px-lg-3">
-              <a class="nav-link" href="/" lang="en">Home <span class="sr-only">(현재 페이지)</span></a>
+              <a class="nav-link" href="/posts" lang="en">Home <span class="sr-only">(현재 페이지)</span></a>
             </li>
             <li class="nav-item px-lg-3">
               <a class="nav-link" href="/intros" lang="ko">서비스소개</a>
             </li>
             <li class="nav-item px-lg-3">
               <a class="nav-link" href="/bars" lang="ko">철봉목록</a>
-            </li>            
+            </li>    
+            <li class="nav-item px-lg-3">
+              <a class="nav-link" href="/uposts" lang="ko">국봉토크</a>
+            </li>      
             <% if !user_signed_in? %>
                     <li class="nav-item px-lg-3">
                       <a class="nav-link" href="/users/sign_in" lang="ko">로그인</a>
@@ -57,23 +60,21 @@
       </nav>
     </div>  
 </header>
-<div class="marginer"></div>
     <%= yield %>
     <%= ga_track %>
     
     
-<footer>
+<footer class="footer">
   <div class="container">
        <div class="blankermar1"></div>
       <div class="center-btn">
           <a href="/" class="footlink">홈페이지</a> 
           <a href="/intros" class="footlink">서비스소개</a> 
-          <a href="/kbeditor" class="footlink">개발자들</a> 
+          <a href="/bars" class="footlink">철봉찾기</a>           
+          <a href="/uposts" class="footlink">국봉토크</a> 
           <a href="/posts/rule" class="footlink">개인정보취급방침</a> 
       </div>
       <div class="blankermara"></div>      
-    <div class="center-btn">
-            <%= image_tag("footerlogo2.png", :class => "footerlogo responsive-img") %>
       <div class="center-btn">
         
       <nav>
@@ -84,7 +85,6 @@
       </nav>
       </div>
     
-    </div>
    <div class="blankermar2"></div>
   </div>
           <div class="footer-bottom">
@@ -110,15 +110,6 @@
 </body>
 </html>
 <style>
-.nav-link,
-.dropdown-item,
-.navbar-toggler {
-  font-size: 0.73rem;
-  line-height: 1.82;
-  font-weight: 700;
-  letter-spacing: 0.27em;
-  text-transform: uppercase;
-}
 .footlogo2{
   margin-top:16px;
   margin-bottom:0px;
@@ -138,7 +129,7 @@
   .navbar-brand{
     max-width:115px;
   }
-  
-
-
+.backg{
+  min-height:80vh;
+}
 </style>

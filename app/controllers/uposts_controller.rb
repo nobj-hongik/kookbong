@@ -1,13 +1,19 @@
 class UpostsController < ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
 before_action :check_ownership, only: [:edit, :update, :destroy]
+before_action :log_impression, :only=> [:show]
 
-
+   def log_impression
+      @hit_post = Upost.find(params[:id])
+      # this assumes you have a current_user method in your authentication system
+      @hit_post.impressions.create(ip_address: request.remote_ip)
+   end
+   
   def index
     @nuser = User.find(2)  
     @notice = @nuser.uposts.order('created_at DESC').limit(1)
     if params[:category]
-     @posts = Upost.where(:category => params[:category]).paginate(:page => params[:page]).order('created_at DESC')
+     @posts = Upost.where(:category => params[:category]).order('created_at DESC').paginate(:page => params[:page])
     else
       if params[:search]
         if params[:selecto]=="1"
@@ -20,10 +26,11 @@ before_action :check_ownership, only: [:edit, :update, :destroy]
         @users = User.search4(params[:search])
         end
       else
-       @posts = Upost.paginate(:page => params[:page]).order('created_at DESC')
+       @posts = Upost.order('created_at DESC').paginate(:page => params[:page])
       end 
     end
   end
+  
   def create
       new_post = Upost.new(user_id: current_user.id, title: params[:title], content: params[:content], image: params[:image], category: params[:category])
       if new_post.save
