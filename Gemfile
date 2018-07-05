@@ -45,6 +45,7 @@ gem 'uglifier'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'impressionist'
+gem 'activeadmin'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development, :test do
