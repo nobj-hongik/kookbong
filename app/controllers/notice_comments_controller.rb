@@ -1,11 +1,11 @@
-class UcommentsController < ApplicationController
+class NoticeCommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_ownership!, only: [:update, :destroy]
-     
+
   def create
-    @post = Upost.find(params[:upost_id])
-    @new_comment = Ucomment.new(content: params[:content],
-                              upost_id: params[:upost_id],
+    @post = Adminpost.find(params[:adminpost_id])
+    @new_comment = Notice_comment.new(content: params[:content],
+                              adminpost_id: params[:adminpost_id],
                               user_id: current_user.id)
     if @new_comment.save
       respond_to do |format|
@@ -26,7 +26,7 @@ class UcommentsController < ApplicationController
 
    private
   def check_ownership!
-    @comment = Ucomment.find_by(id: params[:id])
+    @comment = Admin_comment.find_by(id: params[:id])
     redirect_to root_path if @comment.user.id != current_user.id
   end
 end

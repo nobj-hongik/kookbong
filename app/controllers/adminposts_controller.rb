@@ -1,0 +1,2 @@
+class AdminpostsController < ApplicationController
+end
