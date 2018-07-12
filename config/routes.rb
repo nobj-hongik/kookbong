@@ -39,7 +39,7 @@ resources :uposts do
   get 'posts/kbeditor' => "posts#kbeditor"   
   get 'posts/rule' => "posts#rule"  
   get 'posts/sorrybut' => "posts#sorrybut"  
-  get 'supports/admin/masterindex' => "supports#masterindex"     
+  #get 'supports/admin/masterindex' => "supports#masterindex"     
   post '/tinymce_assets' => 'tinymce_assets#create'
 
 

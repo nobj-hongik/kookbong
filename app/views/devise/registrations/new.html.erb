@@ -38,21 +38,28 @@
                                 <%= f.password_field :password_confirmation, autocomplete: "off" , class: "form-control"%>
                               </div>
                                  <br>
-                                          <div class="form-group">
-                                              <%= f.label :avatar,"프로필 사진" ,class: "control-label" %><br><br>
-                                               <img src="#" id="img_prev" class="invisible prev-img centerer img-fluid sizer1" alt="your image"/> <br/>              
-                                            <%= f.file_field :avatar, "id" => "avatar-upload", class: "form-control"%>
-                                            <input type="hidden" name="avatar_cache">
-                                          </div>      
+                                <div class="form-group">
+                                    <%= f.label :avatar,"프로필 사진" ,class: "control-label" %><br><br>
+                                     <img src="#" id="img_prev" class="invisible prev-img centerer img-fluid sizer1" alt="your image"/> <br/>              
+                                  <%= f.file_field :avatar, "id" => "avatar-upload", class: "form-control"%>
+                                  <input type="hidden" name="avatar_cache">
+                                </div>      
                                           
                                 <div class="form-group">
                                 <%= f.label :info,"짧은 소개글",class: "control-label" %><br />
                                 <%= f.text_area :info, autofocus: true,:maxlength => 80,:class =>'form-control' %>
                                 </div>
                                 <br>
+                                <div class="form-group text-right">
+                                    <%= f.label "사이트 내 개인정보 이용에 동의합니다" %> 
+                                    <%= f.check_box :agree %> <br />
+                                    <a href ="/posts/rule" class="subexp">개인정보 취급방침 전문</a>
+                                </div>                                
+                                <br>
+                                
                               <div class="actions">
                                 <div class="center-btn">
-                                  <%= f.submit "가입하기", class: "btn btn-primary" %>
+                                  <%= f.submit "가입하기", class: "btn btn-primary", id: "submit_btn" %>
                                 </div>
                             <% end %>
                             
@@ -131,6 +138,9 @@
   margin-left: auto;
   margin-right: auto;
 }
+.subexp{
+  font-size:13px;
+}
 </style>
 
 <script>
@@ -150,5 +160,14 @@
     $('#img_prev').removeClass('invisible');
     readURL(this);
   });
+});
+
+$(document).ready(function() {
+
+    var $submit = $("#submit_btn").hide(),
+        $cbs = $('input[name="user[agree]"').click(function() {
+            $submit.toggle( $cbs.is(":checked") );
+        });
+
 });
 </script>

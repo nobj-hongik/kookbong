@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180603052324) do
+ActiveRecord::Schema.define(version: 20180708084807) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -234,6 +234,7 @@ ActiveRecord::Schema.define(version: 20180603052324) do
     t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
+<<<<<<< HEAD
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
@@ -245,6 +246,20 @@ ActiveRecord::Schema.define(version: 20180603052324) do
     t.string   "insta"
     t.integer  "fbcheck"
     t.integer  "instacheck"
+=======
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "image",                  limit: 255
+    t.string   "avatar",                 limit: 255
+    t.string   "bimage",                 limit: 255
+    t.string   "fb",                     limit: 255
+    t.string   "insta",                  limit: 255
+    t.integer  "fbcheck",                limit: 4
+    t.integer  "instacheck",             limit: 4
+    t.boolean  "agree"
+>>>>>>> b35132e3269c42b4df87abe2dd4ca032f667fb65
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
