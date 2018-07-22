@@ -1,12 +1,5 @@
 $(document).ready(function() {
     var html = "<%= escape_javascript(render(partial: 'ucomments/item', locals: {comment: @new_comment})) %>";
+    $("#alert_mes").addClass("no_thing");
     $("#comments").prepend(html);
-}); 
-
-
-
-
-
-
-
-
+});

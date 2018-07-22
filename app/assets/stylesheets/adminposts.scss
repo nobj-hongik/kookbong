@@ -7,7 +7,11 @@
 #left_whiter{
   background-color: white;
   padding:50px 40px;
+  margin-bottom:40px;
   /*border:3px solid black;*/
+}
+#right_whiter{
+  padding:0px 0px;
 }
 .emp_key{
   font-weight:700;
@@ -16,11 +20,17 @@
   font-weight:300;
   letter-spacing:0.06em;
 }
+.small_title{
+  font-size:23px;
+}
 .big_title{
   font-size:30px;
 }
 .med_title{
   font-size:23px;
+}
+.smed_title{
+  font-size:21px;  
 }
 .beauti_margin{
   margin-top:50px;
@@ -47,7 +57,6 @@
 .be_bot{
   margin-top:20px;
 }
-
 @media screen and (min-width: 500px) {
   #spt_admin{
     min-height:120vw;
@@ -62,6 +71,9 @@
   }
   .med_title{
     font-size:30px;
+  }
+  #right_whiter{
+    padding:0px 40px;
   }
 }
 @media screen and (min-width: 992px) {

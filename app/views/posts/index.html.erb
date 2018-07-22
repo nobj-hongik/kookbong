@@ -4,7 +4,7 @@
     <div class="row align-items-center">
       <div class="col-12">
           <h2 class="cover__title text-center" id="cover__title">
-            한국의 모든 철봉을<br>찾아보세요
+            한국의 <span class="all_bong">[모든 철봉]</span>을<br>찾아보세요
           </h2>
         <div class="center-btn">
             <div class="cover__form">
@@ -17,8 +17,8 @@
                               <%= text_field_tag :search, params[:search], class: "form-control input-lg" ,placeholder:"뚝섬유원지"%>
                               <span class="input-group-btn">
                                     <button type="submit" class="btn btn-info btn-lg" style="padding:6px 20px 6px 20px">
-                                        <%= image_tag("searchgl.png", :class => "sbt1") %> 
-                                    </button>                                
+                                        <%= image_tag("searchgl.png", :class => "sbt1") %>
+                                    </button>
                               </span>
                           </div>
                       </div>
@@ -44,17 +44,17 @@
         <%# @hbars.each do |post| %>
                         <div class="col-6 col-md-3 d-flex justify-content-center responsivepdl" id="responsivepd" style="margin-bottom:20px">
                                     <div class="card">
-                                            <%#= link_to bar_path(post.id), :class=>"hoverer2" do %> 
+                                            <%#= link_to bar_path(post.id), :class=>"hoverer2" do %>
                                                     <div class="card">
                                                          <img class="card-img img-fluid" src="<%#= post.image1.url %>" alt="Card image">
                                                          <p class="titletext text-left" id="titletext"><%#=post.title%></p>
                                                          <p class="subtext text-left" id="subtext"><%#=post.simplelocation%></p>
                                                     </div>
-                                            <#%end%>                                         
-                                    </div>    
-                        </div> 
-        <%#end%>                
-    </div> 
+                                            <#%end%>
+                                    </div>
+                        </div>
+        <%#end%>
+    </div>
     </div>
   </section>
   -->
@@ -62,24 +62,24 @@
       <section id="recommendations" class="section">
     <div class="container-fluid">
     <%= image_tag("kbgblbtn.png", :class => "section__title") %>
-    <%= link_to "/bars", class: "" do%> 
+    <%= link_to "/bars", class: "" do%>
       <%= image_tag("showbtn.png", :class => "showbtn float-right") %>
     <%end%>
     <div class="row">
         <% @hbars.each do |post| %>
                         <div class="col-6 col-md-3 d-flex justify-content-center responsivepdl" id="responsivepd" style="margin-bottom:20px">
                                     <div class="card">
-                                            <%= link_to bar_path(post.id), :class=>"hoverer2" do %> 
+                                            <%= link_to bar_path(post.id), :class=>"hoverer2" do %>
                                                     <div class="card">
                                                          <img class="card-img img-fluid" src="<%= post.image1.url %>" alt="Card image">
                                                          <p class="titletext text-left" id="titletext"><%=post.title%></p>
                                                          <p class="subtext text-left" id="subtext"><%=post.simplelocation%></p>
                                                     </div>
-                                            <%end%>                                         
-                                    </div>    
-                        </div> 
-        <%end%>                
-    </div> 
+                                            <%end%>
+                                    </div>
+                        </div>
+        <%end%>
+    </div>
     </div>
   </section>
 
@@ -104,33 +104,33 @@
                                   <div class="col-6 col-md-12">
                                     <div class="hover11">
                                       <div class="center-btn">
-                                        <%= link_to "/supports/new", class: "supbtnlink" do%> 
+                                        <%= link_to "/supports/new", class: "supbtnlink" do%>
                                           <figure><%= image_tag("supbtn.png", :class => "supbtn img-fluid") %></figure>
-                                        <%end%> 
+                                        <%end%>
                                       </div>
-                                    </div> 
-                                  </div>  
-                                <div class="col-3 col-md-0"></div>  
-                            </div>        
+                                    </div>
+                                  </div>
+                                <div class="col-3 col-md-0"></div>
+                            </div>
                           </div>
                             <div class="col-0 col-md-5 col-lg-7"></div>
                     </div>
-                  </div>    
-                    
+                  </div>
+
                   <div class="col-12 col-md-4">
                     <div class="row">
                       <div class="col-3 col-md-2 col-lg-4"></div>
                       <div class="col-6 col-md-8 col-lg-4">
-                       </div>  
-                      <div class="col-5 col-md-2 col-lg-4"></div>                      
-                    </div>    
+                       </div>
+                      <div class="col-5 col-md-2 col-lg-4"></div>
+                    </div>
                   </div>
-                  
+
                </div>
       </section>
 
       <!--  //서포터즈  -->
-     
+
       <!--  운동게시판 for user -->
     <section class="section" style="margin-bottom:0px;">
         <div class="container-fluid">
@@ -138,92 +138,92 @@
                 <div class="row">
                     <div class="col-12 col-md-4 mgc d-flex  justify-content-center">
                         <div class="card supcard">
-                            <div class="card-block" style="padding-top:15px; padding-bottom:15px;">  
+                            <div class="card-block" style="padding-top:15px; padding-bottom:15px;">
                               <div class="row">
                                 <div class="col-8">
                                   <span class="gbtitle">트레이닝</span>
                                 </div>
                                 <div class="col-4">
-                                   <%= link_to uposts_path(:category => 2) , class: "" do%> 
+                                   <%= link_to uposts_path(:category => 2) , class: "" do%>
                                      <%= image_tag("showbtn.png", :class => "showbtn2 float-right") %>
-                                   <%end%>  
-                                </div>   
+                                   <%end%>
+                                </div>
                               </div>
                                   <hr>
                                   <div class="decobox">
                                     <ul>
                                       <% @trposts.each do |post| %>
-                                        <%= link_to upost_path(post.id), :class=>"hoverer" do %> 
+                                        <%= link_to upost_path(post.id), :class=>"hoverer" do %>
                                           <li class="cal"><%=post.title%>  <strong>[<%=post.ucomments.count%>]</strong></li>
-                                        <% end %>  
-                                      <% end %>                               
+                                        <% end %>
+                                      <% end %>
                                     </ul>
-                                     <%= image_tag("hrbar.jpg", :class => "responsive-img") %>                                   
+                                     <%= image_tag("hrbar.jpg", :class => "responsive-img") %>
                                   </div>
                             </div>
                         </div>
-                    </div>   
+                    </div>
                     <div class="col-12 col-md-4 mgc d-flex justify-content-center">
                         <div class="card supcard">
-                            <div class="card-block" style="padding-top:15px; padding-bottom:15px;">  
+                            <div class="card-block" style="padding-top:15px; padding-bottom:15px;">
                               <div class="row">
                                 <div class="col-8">
                                   <span class="gbtitle">영양학</span>
                                 </div>
                                 <div class="col-4">
-                                   <%= link_to uposts_path(:category => 3) , class: "" do%> 
+                                   <%= link_to uposts_path(:category => 3) , class: "" do%>
                                      <%= image_tag("showbtn.png", :class => "showbtn2 float-right") %>
-                                   <%end%>  
-                                </div>   
+                                   <%end%>
+                                </div>
                               </div>
                                   <hr>
                                   <div class="decobox">
                                     <ul>
                                       <% @ntposts.each do |post| %>
-                                        <%= link_to upost_path(post.id), :class=>"hoverer" do %> 
+                                        <%= link_to upost_path(post.id), :class=>"hoverer" do %>
                                           <li class="cal"><%=post.title%>  <strong>[<%=post.ucomments.count%>]</strong></li>
-                                        <% end %>  
-                                      <% end %>                               
+                                        <% end %>
+                                      <% end %>
                                     </ul>
-                                    <%= image_tag("hrbar.jpg", :class => "responsive-img") %>  
+                                    <%= image_tag("hrbar.jpg", :class => "responsive-img") %>
                                   </div>
                             </div>
                         </div>
-                    </div>       
+                    </div>
                     <div class="col-12 col-md-4 mgc d-flex  justify-content-center">
                         <div class="card supcard">
-                            <div class="card-block" style="padding-top:15px; padding-bottom:15px;">  
+                            <div class="card-block" style="padding-top:15px; padding-bottom:15px;">
                               <div class="row">
                                 <div class="col-8">
                                   <span class="gbtitle">일반</span>
                                 </div>
                                 <div class="col-4">
-                                   <%= link_to uposts_path(:category => 1) , class: "" do%> 
+                                   <%= link_to uposts_path(:category => 1) , class: "" do%>
                                      <%= image_tag("showbtn.png", :class => "showbtn2 float-right") %>
-                                   <%end%>  
-                                </div>   
+                                   <%end%>
+                                </div>
                               </div>
                                   <hr>
                                   <div class="decobox">
                                     <ul>
                                       <% @gnposts.each do |post| %>
-                                        <%= link_to upost_path(post.id), :class=>"hoverer" do %> 
+                                        <%= link_to upost_path(post.id), :class=>"hoverer" do %>
                                           <li class="cal"><%=post.title%>  <strong>[<%=post.ucomments.count%>]</strong></li>
-                                        <% end %>  
-                                      <% end %>                               
+                                        <% end %>
+                                      <% end %>
                                     </ul>
-                                    <%= image_tag("hrbar.jpg", :class => "responsive-img") %>  
+                                    <%= image_tag("hrbar.jpg", :class => "responsive-img") %>
                                   </div>
                             </div>
                         </div>
-                    </div>   
-                </div>  
-        </div>        
+                    </div>
+                </div>
+        </div>
      </section>
 </div>
     <!-- // 운동게시판 for user -->
 <div class="addspacer">
-  
+
 </div>
 
 
@@ -233,8 +233,8 @@ var options = [
     selector: '#cover', // Mandatory, CSS selector
     vh: 62,  // Mandatory, height in vh units
   }
-];  
-</script>  
+];
+</script>
 
 <%= javascript_include_tag('mobile-chrome-vh-fix.js') %>
 
@@ -249,7 +249,7 @@ var options = [
 
 .mgc{
   padding-left:10px;
-  padding-right:10px;  
+  padding-right:10px;
 }
 .gbtitle{
   margin-top:10px;
@@ -257,13 +257,18 @@ var options = [
   font-weight:bold;
 }
 .cover__title{
+    font-family: 'Song Myung', serif;
     padding-top:70vw;
     color:white;
-    font-weight:570;
+    font-weight:300;
     letter-spacing: 0.06em;
     line-height:1.2em;
     text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
                  0px -5px 35px rgba(255,255,255,0.3);
+}
+.all_bong{
+  font-family: 'Song Myung', serif;
+  font-weight:400;
 }
 @media screen and (min-width: 880px) {
 .container-fluid {padding-left:70px; padding-right:70px; max-width:100%;}
@@ -272,13 +277,13 @@ var options = [
 #responsivepd {padding-right:15px;padding-left:15px;}
 #supft{font-size:37px;}
 #talkft{font-size:37px;}
-#cover{    
-    height:67vh;  
+#cover{
+    height:67vh;
 }
 #cover__title{
     padding-top:28vh;
     color:white;
-    font-weight:530;
+    font-weight:400;
     letter-spacing: 0.06em;
     line-height:1.2em;
 }
@@ -330,13 +335,13 @@ background-color:#f7f7f7;
     .hoverer:hover{
         opacity:1.0;
         text-decoration:none;
-    } 
+    }
     .hoverer2{
     }
     .hoverer2:hover{
         opacity:1.0;
         text-decoration:none;
-    }     
+    }
 button {
   cursor: pointer;
 }
@@ -412,7 +417,7 @@ button.bg-primary:focus {
 
 
 .cover__form{
-    padding-top:25px; 
+    padding-top:25px;
 }
 
 .form-control,
@@ -438,7 +443,7 @@ button.bg-primary:focus {
   /* @@@ 컨테이너의 크기를 제한하지 못하도록 100%로 설정하였습니다. */
   width: 100%;
   margin:0 auto;/*this will center ur content*/
-  
+
 }
 
 .section__category {
@@ -487,7 +492,7 @@ button.bg-primary:focus {
     -webkit-perspective: 800px;
     -o-perspective: 800px;
     perspective: 800px;
-    margin-bottom:34px; 
+    margin-bottom:34px;
     margin-top:34px;
 }
 .supbtn{
@@ -495,7 +500,7 @@ button.bg-primary:focus {
   padding-top:20px;
 }
 .supbtnlink:hover{
-  color:#498de5 
+  color:#498de5
 }
 
 
@@ -533,7 +538,7 @@ button.bg-primary:focus {
   opacity:0.75;
 }
 .gothere:hover{
-  opacity:1;  
+  opacity:1;
 }
 
 p.copyright {
@@ -552,7 +557,5 @@ p.copyright {
 }
 .section{
     background-color: #f7f7f7;
-}    
-</style>      
-      
-      
+}
+</style>

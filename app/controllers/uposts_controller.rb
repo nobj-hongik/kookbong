@@ -47,6 +47,7 @@ before_action :log_impression, :only=> [:show]
 
   def show
     @post = Upost.find_by(id: params[:id])
+    @comments = @post.ucomments.paginate(:page => params[:page]).order('created_at DESC')
   end
 
   def update

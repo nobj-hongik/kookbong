@@ -1,3 +1,100 @@
 // Place all the styles related to the Uposts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tarea_upost{
+  height:50px;
+}
+.thumb1{
+  width:32px;
+}
+.thumb2{
+  width:60px;
+}
+.title_cont{
+  font-size:16px;
+  font-weight:bold;
+  position:relative;
+  top:3px;
+  padding-left:12px;
+  letter-spacing:0.06em;
+}
+.timefor_upost{
+  font-size:10px;
+  position:relative;
+  top:-3px;
+  padding-left:3px;
+}
+.ucom_cont{
+  letter-spacing: 0.04em;
+  padding-left:13px;
+  font-size:14px;
+  margin-bottom:10px;
+  padding-top:7px;
+}
+.comment_beauti{
+  background-color: rgba(0, 0, 0, .6);
+  padding:20px 20px 0px 20px;
+  margin-bottom:30px;
+  border:2px solid white;
+  color:white;
+}
+.small_compact_btn{
+  background-color: rgba(0, 0, 0, .6);
+  color:white;
+  border:2px solid white;
+  padding:12px 15px;
+  font-size:14px;
+  letter-spacing:0.04em;
+  font-weight:700;
+}
+.no_comment{
+  letter-spacing:0.06em;
+  font-weight: 300;
+  color:white;
+  font-size:20px;
+}
+.no_thing{
+  display:none;
+}
+.profilecard{
+  background-color: rgba(255, 255, 255, .9);
+  min-height:140px;
+  padding:13px 30px 13px 30px;
+  margin-bottom:40px;
+}
+.thumb_pro{
+  width:80px;
+  margin-bottom:10px;
+}
+.name_pro{
+  letter-spacing: 0.06em;
+  font-weight:500;
+  margin-top:10px;
+  margin-bottom:0px;
+  font-size:14px;
+}
+.written_by{
+  font-size:15px;
+  letter-spacing:0.06em;
+  font-weight:300;
+}
+.namer_pro{
+  font-weight:500;
+}
+.info_pro{
+  font-size:14px;
+  letter-spacing:0.06em;
+  font-weight:300;
+}
+.mr-edit{
+  margin-right:10px;
+}
+.edit_txt_btn{
+  letter-spacing: 0.06em;
+  color:black;
+  font-size:14px;
+}
+.edit_txt_btn:hover{
+  text-decoration: none;
+}
