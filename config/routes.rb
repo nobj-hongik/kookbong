@@ -27,6 +27,8 @@ Rails.application.routes.draw do
      resources :scomments, only: [:create, :destroy]
   end
 
+  resources :adminposts 
+
   resources :bars do
      collection do
       get 'search'

@@ -18,36 +18,30 @@
             <%= link_to image_tag("cateno.png", :class => "img-fluid catesizer"), uposts_path(:category => 1) %>
         </div>
         <table class="table">
-
+          <% if @notice.present? %>
             <thead class="thead-default">
-            <tr>
-              <th class="fixratio" id="fixratio">
-            <%= link_to admin_adminpost_path(@notice.id), :class=>"hoverer" do %>
-              <span class="cate">
-                <%if @notice.category==1%>
-                [일반]
-                <%elsif @notice.category==2%>
-                [트레이닝]
-                <%elsif @notice.category==3%>
-                [영양/식단]
-                <%end%>
-              </span>
-              <%= @notice.title%>
-            <%end%>
-              <br>
-              <span class="small">관리자&nbsp;<%= @notice.created_at.strftime("%Y.%m.%d %H:%M")%></span>
-              </th>
-              <th class="fixratio2">
-                <div class="center-btn">
-                <span class="small">댓글</span><br>
-                </div>
-                <div class="center-btn">
-                <span class="numgood"><%=@notice.admin_comments.count%></span>
-                </div>
-              </th>
-            </tr>
-              </thead>
-
+              <tr>
+                <th class="fixratio" id="fixratio">
+              <%= link_to adminpost_path(@notice.id), :class=>"hoverer" do %>
+                <span class="cate">
+                  [공지]
+                </span>
+                <%= @notice.title%>
+              <%end%>
+                <br>
+                <span class="small">관리자&nbsp;<%= @notice.created_at.strftime("%Y.%m.%d %H:%M")%></span>
+                </th>
+                <th class="fixratio2">
+                  <div class="center-btn">
+                  <span class="small">읽어보면</span><br>
+                  </div>
+                  <div class="center-btn">
+                  <span class="numgood">이득</span>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+          <% end %>
           <tbody>
     <%if @users %>
       <% @users.each do |user| %>

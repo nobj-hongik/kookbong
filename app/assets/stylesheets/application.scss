@@ -40,7 +40,7 @@ a:hover{
     }
 }
 .center-btn{
-    text-align: center; 
+    text-align: center;
 }
 body{
     min-height:100vh;
@@ -112,19 +112,19 @@ background: asset-url('backgr3.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;  
+    background-size: cover;
 }
 .spt2{
     background: asset_url('backnew3.jpg');
 
     /* Set a specific height */
-        height: 140vw; 
+        height: 140vw;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;     
+    background-size: cover;
 }
 .spt3{
      background: asset_url('backnew2.jpg');
@@ -136,7 +136,7 @@ background: asset-url('backgr3.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: cover;
 }
 .spt4{
      background: asset_url('backnew4.jpg');
@@ -148,7 +148,20 @@ background: asset-url('backgr3.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: cover;
+}
+.spt_admin{
+    background: asset_url('admin_show_back.jpg');
+
+    /* Set a specific height */
+    min-height: 140vw;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top:180px;
+    padding-bottom:140px;
 }
 //footer
 .footlink{
@@ -156,7 +169,7 @@ background: asset-url('backgr3.png');
     opacity:0.8;
     display:inline-block;
     margin-left:20px;
-    margin-right:16px; 
+    margin-right:16px;
     font-size:0.85rem;
     font-weight:500;
     letter-spacing:0.7px;
@@ -182,7 +195,7 @@ background: asset-url('backgr3.png');
 	font-family: 'NanumSquare', sans-serif;
 	font-weight:600;
 	font-size: 0.9rem;
-	line-height: 1.25;   
+	line-height: 1.25;
     color:white;
 }
 footer{

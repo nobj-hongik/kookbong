@@ -1,154 +1,20 @@
-<div class="backg">
+<div class="spt_admin" id="spt_admin">
   <div class="container">
-    <br><br>
     <div class="row">
-      <div class="col-0 col-lg-1"></div>
-      <div class="col-12 col-lg-10">
-        <br>
-        <%= link_to "목록으로", uposts_path%>
-        <div class="card" style="margin-top:10px; background-color:#f9f9f9;">
-          <div class="card-block" style="border-bottom:1px solid #e0e0e0 ; padding-bottom:8px;padding-top:8px;">
-            <p class="subclass"><%= @adminpost.title %></p>
-            <%= image_tag("ph1.png", :class => "rounded-circle thumb1") %>
-            <span class="card-title2">관리자</span>
-            <span class="timeforman"><%= distance_of_time_in_words Time.now, @adminpost.created_at%></span>
-          </div>
-          <div class="card-img-top">
-            <% if @adminpost.image.url %>
-              <img src="<%= @adminpost.image.url %>" class="img-fluid">
-            <%end%>
-          </div>
-            <br>
-          <div class="card-block">
-            <p><%= simple_format(@adminpost.content) %></p>
-          </div>
+      <div class="col-12 col-md-6" id="left_whiter">
+        <h2 class="slim_and_cool big_title"><span class="emp_key">한국철봉</span> 공지사항</h2>
+        <h3 class="slim_and_cool med_title">[<%= @adminpost.title %>]</h3>
+        <h3 class="med_and_modern big_title"><%= @adminpost.created_at.strftime("%y %b %d at %I:%M%p")   %></h3>
+        <div class="beauti_margin slim_and_normal">
+          <%= simple_format(@adminpost.content) %>
         </div>
-        <br>
-        <%= form_tag admin_comments_path(@adminpost) , remote: true, :authenticity_token => true do %>
-          <% if !user_signed_in? %>
-            <div class="form-group">
-              <fieldset disabled="disabled">
-                <div class="input-field smaller">
-                  <%= text_area_tag :content, nil, class: "form-control", placeholder: "회원만 댓글을 쓸 수 있습니다.", required: true %>
-                </div>
-                <br>
-                <div class="input-field center-btn">
-                  <%= button_tag "댓글 쓰기", class: "btn btn-secondary" %>
-                </div>
-              </fieldset>
-            </div>
-            <hr>
-          <%else%>
-            <div class="form-group" style="padding-bottom:10px;">
-              <div class="input-field smaller">
-                <%= text_area_tag :content, nil, class: "form-control tarea", placeholder: "댓글을 작성해 주세요", required: true %>
-              </div>
-              <br>
-              <div class="input-field center-btn">
-                <%= button_tag "댓글 쓰기", class: "btn btn-primary" %>
-              </div>
-            </div>
-            <hr>
-          <%end%>
-        <% end %>
-        <div id="comments">
-          <% @adminpost.admin_comments.reverse.each do |comment| %>
-            <%= render partial: "admin_comments/item", locals: { comment: comment } %>
-          <%end%>
+        <div class="ad_footer">
+          <a href="#" class="big_nice_btn hvr-right be_bot">공지사항 전체 보기</a>
+          <a href="#" class="big_nice_btn hvr-right be_bot mg-lft">국봉토크 목록으로</a>
         </div>
+      </div>
+      <div class="col-0 col-md-6">
+      </div>
+    </div>
   </div>
-<br>
 </div>
-<div class="col-0 col-lg-1"></div>
-</div>
-</div>
-</div>
-
-<style>
-a:hover {
-text-decoration: none;
-}
-.title2 {
-font-size: 13px;
-position: relative;
-top: -11px;
-padding-left: 3px;
-}
-.title3 {
-font-size: 16px;
-font-weight: bold;
-color: #565759;
-position: relative;
-top: 3px;
-padding-left: 12px;
-}
-.comcont {
-padding-left: 13px;
-font-size: 14px;
-margin-bottom: 10px;
-padding-top: 7px;
-}
-.timeforman2 {
-font-size: 10px;
-position: relative;
-top: -3px;
-padding-left: 3px;
-}
-.timeforman1 {
-font-size: 10px;
-position: relative;
-top: 6px;
-}
-.timeforman {
-font-size: 10px;
-position: relative;
-top: -0.5px;
-}
-.card-title2 {
-font-size: 14px;
-position: relative;
-top: -0.5px;
-padding-left: 0;
-}
-.blanker {
-margin-right: 10px;
-}
-.smaller {
-padding-left: 0;
-padding-right: 0;
-}
-.listlink {
-font-size: 14px;
-margin-right: 8px;
-}
-.subclass {
-font-weight: bold;
-font-size: 15px;
-padding-top: 5px;
-margin-bottom: 6px;
-}
-.ct {
-width: 30px;
-}
-.tarea {
-height: 100px;
-}
-.thumb1 {
-width: 32px;
-}
-.thumb2 {
-width: 60px;
-}
-a:hover {
-text-decoration: none;
-}
-.btn-primary {
-background-color: #585a5e;
-border: 0.3px solid black;
-}
-.btn-primary:hover {
-color: #fff;
-background-color: black;
-border-color: black;
-}
-</style>

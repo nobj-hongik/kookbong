@@ -10,7 +10,7 @@ before_action :log_impression, :only=> [:show]
    end
 
   def index
-    @notice = adminposts.order('created_at DESC').first
+    @notice = Adminpost.order('created_at DESC').first
     if params[:category]
      @posts = Upost.where(:category => params[:category]).order('created_at DESC').paginate(:page => params[:page])
     else
@@ -46,7 +46,6 @@ before_action :log_impression, :only=> [:show]
   end
 
   def show
-    @adminpost = Admimpost.find_by(id: params[:id])
     @post = Upost.find_by(id: params[:id])
   end
 
